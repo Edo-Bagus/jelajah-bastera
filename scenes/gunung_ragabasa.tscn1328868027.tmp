@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3c3afw1p3n5l"]
 
-[ext_resource type="Script" path="res://scenes/gunung_ragabasa.gd" id="1_5w6af"]
-[ext_resource type="Script" path="res://scenes/imbuhan.gd" id="2_y04nr"]
+[ext_resource type="Script" uid="uid://ka8cnxoslg5x" path="res://scenes/gunung_ragabasa.gd" id="1_5w6af"]
+[ext_resource type="Script" uid="uid://b6osj3lj2f3m7" path="res://scenes/imbuhan.gd" id="2_y04nr"]
 
 [node name="Gunung Rabasa" type="Control"]
 layout_mode = 3
@@ -16,14 +16,11 @@ offset_right = 1001.0
 offset_bottom = 203.0
 
 [node name="Imbuhan" type="Panel" parent="."]
-show_behind_parent = true
-custom_minimum_size = Vector2(60, 40)
 layout_mode = 0
-offset_left = 989.0
-offset_top = 253.0
-offset_right = 1049.0
-offset_bottom = 293.0
-mouse_filter = 2
+offset_left = 960.0
+offset_top = 221.0
+offset_right = 1000.0
+offset_bottom = 244.0
 script = ExtResource("2_y04nr")
 
 [node name="Label" type="Label" parent="Imbuhan"]

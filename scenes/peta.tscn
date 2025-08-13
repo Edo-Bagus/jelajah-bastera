@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://byh646u4pye57"]
+[gd_scene format=3 uid="uid://byh646u4pye57"]
 
 [ext_resource type="Script" uid="uid://bkj4257m5wdai" path="res://scripts/peta.gd" id="1_a0a8q"]
 

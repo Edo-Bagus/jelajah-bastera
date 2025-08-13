@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://r68272fegvmi"]
 
-[ext_resource type="PackedScene" uid="uid://bk3n0pt5p4w8e" path="res://components/pause_menu.tscn" id="2_2h5db"]
+[ext_resource type="PackedScene" path="res://components/pause_menu.tscn" id="2_2h5db"]
 [ext_resource type="Script" uid="uid://bvme6ycgf0tqt" path="res://scripts/sinonim_antonim.gd" id="2_5apny"]
-[ext_resource type="PackedScene" uid="uid://cvpynni1oq8hp" path="res://components/pause_btn.tscn" id="3_2h5db"]
-[ext_resource type="PackedScene" uid="uid://c41osh7xw76ui" path="res://components/tutorial_menu.tscn" id="3_61qur"]
-[ext_resource type="PackedScene" uid="uid://c5fskexowpc8" path="res://components/tutorial_btn.tscn" id="3_j12yq"]
+[ext_resource type="PackedScene" path="res://components/pause_btn.tscn" id="3_2h5db"]
+[ext_resource type="PackedScene" path="res://components/tutorial_menu.tscn" id="3_61qur"]
+[ext_resource type="PackedScene" path="res://components/tutorial_btn.tscn" id="3_j12yq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p6kx7"]
 font_size = 30
