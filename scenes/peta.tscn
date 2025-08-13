@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://byh646u4pye57"]
+[gd_scene load_steps=2 format=3 uid="uid://byh646u4pye57"]
+
+[ext_resource type="Script" uid="uid://dgcys2xpbnyrm" path="res://scripts/peta.gd" id="1_8wxch"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_8wxch")
