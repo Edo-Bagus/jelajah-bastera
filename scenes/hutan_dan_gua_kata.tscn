@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://r68272fegvmi"]
+[gd_scene load_steps=7 format=3 uid="uid://r68272fegvmi"]
 
+[ext_resource type="PackedScene" uid="uid://bk3n0pt5p4w8e" path="res://components/pause_menu.tscn" id="2_2h5db"]
 [ext_resource type="Script" uid="uid://bvme6ycgf0tqt" path="res://scripts/sinonim_antonim.gd" id="2_5apny"]
+[ext_resource type="PackedScene" uid="uid://cvpynni1oq8hp" path="res://components/pause_btn.tscn" id="3_2h5db"]
+[ext_resource type="PackedScene" uid="uid://c41osh7xw76ui" path="res://components/tutorial_menu.tscn" id="3_61qur"]
+[ext_resource type="PackedScene" uid="uid://c5fskexowpc8" path="res://components/tutorial_btn.tscn" id="3_j12yq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p6kx7"]
+font_size = 30
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -9,11 +16,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Node" type="Node" parent="."]
 script = ExtResource("2_5apny")
+max_rounds = 1
 
-[node name="GridContainer" type="GridContainer" parent="Node"]
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -26,3 +33,47 @@ offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 4
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.5
+offset_right = 120.5
+offset_bottom = 83.0
+grow_horizontal = 2
+text = "MENANG"
+label_settings = SubResource("LabelSettings_p6kx7")
+horizontal_alignment = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_2h5db")]
+visible = false
+layout_mode = 1
+
+[node name="TutorialMenu" parent="." instance=ExtResource("3_61qur")]
+layout_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+offset_right = 305.0
+offset_bottom = 45.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -93.0
+offset_bottom = 40.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="TutorialBtn" parent="HBoxContainer" instance=ExtResource("3_j12yq")]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="PauseBtn" parent="HBoxContainer" instance=ExtResource("3_2h5db")]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2

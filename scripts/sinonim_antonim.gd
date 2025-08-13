@@ -2,10 +2,13 @@ extends Node
 
 @export var mode: String = "synonym" # "synonym" atau "antonym"
 var opened_cards: Array = []
-var score: int = 0
+var is_checking: bool = false # <-- lock flag
 
 var synonym_pairs = []
 var antonym_pairs = []
+
+var current_round: int = 1
+@export var max_rounds: int = 3
 
 var supabase_url = "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/public/BankSoal/sinonim_antonim.json"
 
@@ -15,7 +18,7 @@ func _ready():
 	http.request_completed.connect(_on_request_completed)
 	http.request(supabase_url)
 
-func _on_request_completed(result, response_code, headers, body):
+func _on_request_completed(_result, response_code, _headers, body):
 	if response_code != 200:
 		push_error("Gagal load soal dari Supabase")
 		return
@@ -32,6 +35,8 @@ func _on_request_completed(result, response_code, headers, body):
 	_init_board()
 
 func _init_board():
+	print("=== Ronde %d ===" % current_round)
+
 	var selected_pairs = []
 	if mode == "synonym":
 		selected_pairs = synonym_pairs.duplicate()
@@ -54,14 +59,20 @@ func _init_board():
 
 	# Bersihkan isi grid sebelum isi ulang
 	var grid = $GridContainer
+	for child in grid.get_children():
+		child.queue_free()
 
 	for w in words:
 		var card = preload("res://components/card.tscn").instantiate()
 		card.word = w
 		card.connect("pressed", Callable(self, "_on_card_pressed").bind(card))
 		grid.add_child(card)
-		
+
 func _on_card_pressed(card):
+	# Cegah input saat proses cek sedang berjalan
+	if is_checking:
+		return
+
 	if card.is_flipped or card.is_matched:
 		return
 	
@@ -69,6 +80,7 @@ func _on_card_pressed(card):
 	opened_cards.append(card)
 
 	if opened_cards.size() == 2:
+		is_checking = true # lock input
 		_check_match()
 
 func _check_match():
@@ -76,15 +88,21 @@ func _check_match():
 	var card2 = opened_cards[1]
 
 	if _is_pair(card1.word, card2.word):
+		await get_tree().create_timer(1.0, false).timeout
 		card1.mark_matched()
 		card2.mark_matched()
-		score += 1
+		$ProgressBar.value += 1
+
+		if _all_cards_matched():
+			await get_tree().create_timer(1.0, false).timeout
+			_next_round()
 	else:
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.0, false).timeout
 		card1.hide_card()
 		card2.hide_card()
 
 	opened_cards.clear()
+	is_checking = false # buka input lagi
 
 func _is_pair(word_a, word_b) -> bool:
 	var pairs = synonym_pairs if mode == "synonym" else antonym_pairs
@@ -92,3 +110,20 @@ func _is_pair(word_a, word_b) -> bool:
 		if (word_a == pair[0] and word_b == pair[1]) or (word_a == pair[1] and word_b == pair[0]):
 			return true
 	return false
+
+func _all_cards_matched() -> bool:
+	for card in $GridContainer.get_children():
+		if not card.is_matched:
+			return false
+	return true
+
+func _next_round():
+	is_checking = false # pastikan unlock
+	if current_round < max_rounds:
+		current_round += 1
+		_init_board()
+	else:
+		_game_won()
+
+func _game_won():
+	$"Label".show()
