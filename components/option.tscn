@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://4603wbuygrmx"]
 
-[ext_resource type="Script" path="res://components/option.gd" id="1_7s8h6"]
+[ext_resource type="Script" uid="uid://vnc1ufno5732" path="res://components/option.gd" id="1_7s8h6"]
 
 [node name="Option" type="Panel"]
 custom_minimum_size = Vector2(200, 80)
@@ -8,7 +8,7 @@ offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_7s8h6")
 
-[node name="Label" type="Label" parent="."]
+[node name="option_label" type="Label" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0

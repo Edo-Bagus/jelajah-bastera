@@ -78,11 +78,15 @@ func _check_answer(index: int, dragged_imbuhan: String) -> void:
 	var q = selected_questions[current_question]
 	var correct: int = q["answer_index"]
 
-	if index == correct and dragged_imbuhan == q["imbuhan"]:
+	var option_nodes = options_container.get_children()
+
+	if index == correct and dragged_imbuhan.strip_edges() == q["imbuhan"].strip_edges():
 		score += 1
 		feedback_label.text = "✅ Benar!"
+		option_nodes[index].modulate = Color(0, 1, 0, 1) # hijau
 	else:
 		feedback_label.text = "❌ Salah!\n" + q["explanation"]
+		option_nodes[index].modulate = Color(1, 0, 0, 1) # merah
 
 	await get_tree().create_timer(1.2).timeout
 	current_question += 1
@@ -91,6 +95,7 @@ func _check_answer(index: int, dragged_imbuhan: String) -> void:
 		show_question()
 	else:
 		game_over()
+
 
 func game_over() -> void:
 	question_label.text = "Permainan selesai!"

@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://pedqvp1udqau"]
+[gd_scene load_steps=7 format=3 uid="uid://pedqvp1udqau"]
 
-[ext_resource type="Script" path="res://scenes/desa_eja.gd" id="1_yvpqi"]
+[ext_resource type="Script" uid="uid://cwvjshkfme2o" path="res://scripts/desa_eja.gd" id="1_yvpqi"]
+[ext_resource type="PackedScene" uid="uid://bk3n0pt5p4w8e" path="res://components/pause_menu.tscn" id="2_x63sn"]
+[ext_resource type="PackedScene" uid="uid://c41osh7xw76ui" path="res://components/tutorial_menu.tscn" id="3_2plaf"]
+[ext_resource type="PackedScene" uid="uid://c5fskexowpc8" path="res://components/tutorial_btn.tscn" id="4_vecpb"]
+[ext_resource type="PackedScene" uid="uid://cvpynni1oq8hp" path="res://components/pause_btn.tscn" id="5_gu76m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1svqc"]
 
@@ -25,15 +29,18 @@ vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 735.0
-offset_top = 416.0
-offset_right = -714.0
-offset_bottom = -289.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -22.0
+offset_right = 4.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.982704, 3.37558)
 
 [node name="OptionA" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -52,14 +59,30 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="NextButton" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1679.0
-offset_top = 932.0
-offset_right = 1720.0
-offset_bottom = 955.0
-scale = Vector2(2.60073, 2.12241)
-text = "NEXT"
+[node name="PauseMenu" parent="." instance=ExtResource("2_x63sn")]
+visible = false
+layout_mode = 1
+
+[node name="TutorialMenu" parent="." instance=ExtResource("3_2plaf")]
+layout_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -93.0
+offset_bottom = 40.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="TutorialBtn" parent="HBoxContainer" instance=ExtResource("4_vecpb")]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="PauseBtn" parent="HBoxContainer" instance=ExtResource("5_gu76m")]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/OptionA" to="." method="_on_option_a_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionB" to="." method="_on_option_b_pressed"]

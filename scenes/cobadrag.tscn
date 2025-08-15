@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://brn58h6k6ygm7"]
 
 [ext_resource type="Texture2D" uid="uid://eicq8tmyqkyj" path="res://icon.svg" id="1_x27co"]
-[ext_resource type="Script" path="res://scenes/cobadrag.gd" id="2_8wtic"]
+[ext_resource type="Script" uid="uid://d1pwhx2j8t2vo" path="res://scenes/cobadrag.gd" id="2_8wtic"]
 
 [node name="Node" type="Node"]
 

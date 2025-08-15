@@ -78,7 +78,7 @@ func _ready():
 
 func show_question():
 	answer_selected = false
-	$NextButton.visible = false
+	#$NextButton.visible = false
 	$FeedbackLabel.text = ""
 
 	for button in option_buttons:

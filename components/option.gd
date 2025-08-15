@@ -1,16 +1,22 @@
 extends Panel
 
-var option_index: int = -1
-var correct_imbuhan: String = ""
-@onready var label: Label = $Label
+@onready var label_node: Label = $option_label
+
+@export var option_index: int = -1
+@export var correct_imbuhan: String = ""
 
 func set_text(txt: String) -> void:
-	$Label.text = txt
+	$option_label.text = txt
 
-func can_drop_data(_pos, data) -> bool:
-	return typeof(data) == TYPE_DICTIONARY and data.has("type") and data["type"] == "imbuhan"
+func _can_drop_data(_pos, data: Variant) -> bool:
+	# Saat hover, kalau data valid → highlight abu-abu
+	if typeof(data) == TYPE_DICTIONARY and data.has("type") and data["type"] == "imbuhan":
+		modulate = Color(0.8, 0.8, 0.8, 1) # abu-abu terang
+		return true
+	return false
 
-func drop_data(_pos, data) -> void:
-	var main := get_tree().current_scene
-	if main and main.has_method("_check_answer"):
-		main._check_answer(option_index, data)
+func _drop_data(_pos, data: Variant) -> void:
+	modulate = Color(1, 1, 1, 1) # reset sebelum pengecekan
+	if typeof(data) == TYPE_DICTIONARY and data.has("imbuhan"):
+		if get_tree().current_scene.has_method("_check_answer"):
+			get_tree().current_scene.call("_check_answer", option_index, data["imbuhan"])
