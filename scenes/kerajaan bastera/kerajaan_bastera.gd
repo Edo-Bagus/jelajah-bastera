@@ -1,100 +1,101 @@
 extends Control
 
-const WordBoxScene := preload("res://scenes/kerajaan bastera/Word Box/word_box.tscn")
+@onready var question_panel: Panel = $QuestionPanel
+@onready var options: Array = $OptionsContainer.get_children()
+@onready var line_layer: Node2D = $LineDrawer   # Pastikan node LineDrawer ada di scene
+@onready var q_label: Label = $QuestionPanel/Label
 
-@onready var sources_container: VBoxContainer = $SourcesContainer
-@onready var targets_container: VBoxContainer = $TargetsContainer
-@onready var line_layer: Control = $LineLayer
-
-var questions = [
-	{"term": "Body Lotion", "match": "Handbody"},
-	{"term": "Shampoo", "match": "Sampo"},
-	{"term": "Lipstick", "match": "Pemerah Bibir"}
+var questions := [
+	{"q":"Ibu kota Indonesia?",         "opts":["Jakarta","Surabaya","Medan","Bandung"], "answer":0},
+	{"q":"2 + 2 = ?",                   "opts":["3","4","5","6"],                       "answer":1},
+	{"q":"Planet terbesar?",            "opts":["Mars","Venus","Jupiter","Merkurius"],  "answer":2},
+	{"q":"Bendera Indonesia?",          "opts":["Merah Putih","Biru Putih","Merah Hijau","Kuning Hijau"], "answer":0},
+	{"q":"Mesin game ini pakai bahasa?","opts":["Python","GDScript","Java","C++"],      "answer":1}
 ]
 
-var active_line: Line2D = null
-var drag_start_box: Control = null
+var current_question := 0
+var dragging := false
+var rope: Line2D = null
+var locked := false   # 🔒 kalau sudah drop, tali & panel terkunci
 
-func _ready():
-	_load_game()
+func _ready() -> void:
+	_load_question()
 
-func _load_game():
-	# bersihkan dulu
-	for c in sources_container.get_children():
-		c.queue_free()
-	for c in targets_container.get_children():
-		c.queue_free()
-	# Perbaikan: Bersihkan anak-anak LineLayer dengan iterasi manual
+func _load_question() -> void:
+	# HAPUS semua tali lama
 	for c in line_layer.get_children():
 		c.queue_free()
 
-	# tampilkan kotak
-	var idx = 0
-	for q in questions:
-		# Kotak padanan kata (sumber)
-		var src_box = WordBoxScene.instantiate()
-		src_box.is_source = true
-		src_box.box_index = idx
-		src_box.set_text(q["match"])
-		sources_container.add_child(src_box)
+	dragging = false
+	locked = false
+	var q = questions[current_question]
+	q_label.text = q["q"]
 
-		# Kotak istilah asing (target)
-		var tgt_box = WordBoxScene.instantiate()
-		tgt_box.is_source = false
-		tgt_box.box_index = idx
-		tgt_box.set_text(q["term"])
-		targets_container.add_child(tgt_box)
-		idx += 1
+	# set teks option
+	for i in range(options.size()):
+		var lbl: Label = options[i].get_node("Label")
+		lbl.text = q["opts"][i]
+		options[i].modulate = Color(1,1,1,1)  # reset warna
 
-func _input(event):
-	# update garis saat drag
-	if active_line and event is InputEventMouseMotion:
-		# Perbaikan: Menggunakan posisi mouse lokal relatif terhadap LineLayer
-		active_line.set_point_position(1, line_layer.get_local_mouse_position())
+func _input(event: InputEvent) -> void:
+	if locked:  # ❌ kalau sudah terkunci, jangan bisa drag lagi
+		return
 
-func _on_box_dropped(target_box: Control, data: Dictionary):
-	var source_index = data["index"]
-	var target_index = target_box.box_index
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			# MULAI hanya jika klik di QuestionPanel
+			if question_panel.get_global_rect().has_point(event.position):
+				dragging = true
+				rope = Line2D.new()
+				rope.width = 6
+				rope.default_color = Color(1,1,1,1)  # putih saat drag
+				# Bisa pakai tekstur tali
+				# rope.texture = preload("res://assets/rope.png")
+				# rope.texture_mode = Line2D.LINE_TEXTURE_TILE
+				rope.add_point(question_panel.get_global_rect().get_center())
+				rope.add_point(event.position)
+				line_layer.add_child(rope)
+		else:
+			# LEPAS: cek apakah di atas salah satu option
+			if dragging:
+				var connected := false
+				for i in range(options.size()):
+					if options[i].get_global_rect().has_point(event.position):
+						connected = true
+						locked = true   # 🔒 kunci supaya tidak bisa drag lagi
+						
+						# cek jawaban
+						var correct_i: int = questions[current_question]["answer"]
+						var is_correct := (i == correct_i)
+						var color = Color.GREEN if is_correct else Color.RED
 
-	# hapus garis aktif sementara
-	if active_line:
-		active_line.queue_free()
-		active_line = null
+						# ubah warna tali & tempelkan ujung ke tengah option
+						rope.default_color = color
+						rope.set_point_position(1, options[i].get_global_rect().get_center())
 
-	var src_box = sources_container.get_child(source_index)
-	var src_pos = _get_box_center(src_box)
-	var tgt_pos = _get_box_center(target_box)
+						# highlight option terpilih
+						options[i].modulate = color
 
-	if source_index == target_index:
-		# benar → buat garis tetap
-		_make_line(src_pos, tgt_pos, Color.GREEN)
+						# tampilkan sebentar lalu next
+						await get_tree().create_timer(1.2).timeout
+						_next_question()
+						break
+
+				# Jika tidak konek ke option manapun: hapus tali (reset)
+				if not connected and rope:
+					rope.queue_free()
+
+				dragging = false
+
+	elif event is InputEventMouseMotion and dragging and rope:
+		# geser ujung tali mengikuti mouse saat drag
+		rope.set_point_position(1, event.position)
+
+func _next_question() -> void:
+	current_question += 1
+	if current_question < questions.size():
+		_load_question()
 	else:
-		# salah → garis merah sementara
-		var temp_line = _make_line(src_pos, tgt_pos, Color.RED)
-		await get_tree().create_timer(0.8).timeout
-		if is_instance_valid(temp_line):
-			temp_line.queue_free()
-
-func _get_box_center(box: Control) -> Vector2:
-	# Menggunakan global_position untuk mendapatkan posisi absolut, lalu menguranginya
-	return box.get_global_rect().get_center() - global_position
-
-func _make_line(p1: Vector2, p2: Vector2, color: Color) -> Line2D:
-	var line = Line2D.new()
-	line.width = 4
-	line.default_color = color
-	line.add_point(p1)
-	line.add_point(p2)
-	line_layer.add_child(line)
-	return line
-
-func _start_drag_from_box(box: Control):
-	drag_start_box = box
-	active_line = Line2D.new()
-	active_line.width = 4
-	active_line.default_color = Color.YELLOW
-	# Titik awal garis
-	active_line.add_point(_get_box_center(box))
-	# Titik kedua garis, akan mengikuti kursor
-	active_line.add_point(_get_box_center(box))
-	line_layer.add_child(active_line)
+		q_label.text = "Selesai!"
+		for i in range(options.size()):
+			options[i].get_node("Label").text = ""
