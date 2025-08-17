@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3c3afw1p3n5l"]
+
+[ext_resource type="Script" uid="uid://ka8cnxoslg5x" path="res://scenes/gunung ragabasa/gunung_ragabasa.gd" id="1_5w6af"]
+[ext_resource type="PackedScene" uid="uid://cvpynni1oq8hp" path="res://components/Pause/pause_btn.tscn" id="2_5p2vj"]
+[ext_resource type="Script" uid="uid://b6osj3lj2f3m7" path="res://scenes/gunung ragabasa/imbuhan.gd" id="2_y04nr"]
+[ext_resource type="PackedScene" uid="uid://bk3n0pt5p4w8e" path="res://components/Pause/pause_menu.tscn" id="3_nh7re"]
+
+[node name="Gunung Rabasa" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5w6af")
+
+[node name="PauseBtn" parent="." instance=ExtResource("2_5p2vj")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_right = 0.0
+offset_bottom = 31.0
+grow_horizontal = 0
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_nh7re")]
+layout_mode = 1
+
+[node name="QuestionLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 539.0
+offset_top = 172.0
+offset_right = 579.0
+offset_bottom = 195.0
+
+[node name="Imbuhan" type="Panel" parent="."]
+show_behind_parent = true
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 0
+offset_left = 525.0
+offset_top = 311.0
+offset_right = 585.0
+offset_bottom = 351.0
+script = ExtResource("2_y04nr")
+
+[node name="Label" type="Label" parent="Imbuhan"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="OptionsContainer" type="GridContainer" parent="."]
+layout_mode = 1
+offset_left = 104.0
+offset_top = 548.0
+offset_right = 104.0
+offset_bottom = 548.0
+columns = 4
+
+[node name="FeedbackLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyylca1b7fhcj"]
+
+[ext_resource type="Script" uid="uid://dkm14y0l8rcdv" path="res://scenes/kerajaan bastera/Word Box/word_box.gd" id="1_pvmry"]
+
+[node name="WordBox" type="PanelContainer"]
+offset_right = 1.0
+offset_bottom = 23.0
+script = ExtResource("1_pvmry")
+
+[node name="bg_texture" type="TextureRect" parent="."]
+layout_mode = 2
+
+[node name="word_label" type="Label" parent="."]
+layout_mode = 2

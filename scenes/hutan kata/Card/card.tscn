@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://clft3lchp2e81"]
+
+[ext_resource type="Texture2D" uid="uid://5sdkk50fjv2b" path="res://assets/Sinonim Antonim/Card back.png" id="1_nxbqn"]
+[ext_resource type="Script" uid="uid://desxuc0yrr2jq" path="res://scenes/hutan kata/Card/card.gd" id="2_5cxdy"]
+[ext_resource type="Texture2D" uid="uid://dkxhscr45fpxs" path="res://assets/Sinonim Antonim/Card front pageholder.png" id="3_pay6o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i0r0c"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Card" type="TextureButton"]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.5
+offset_top = -153.5
+offset_right = 153.5
+offset_bottom = 153.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_nxbqn")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_5cxdy")
+card_closed = ExtResource("1_nxbqn")
+card_open = ExtResource("3_pay6o")
+metadata/_edit_use_anchors_ = true
+
+[node name="Front Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_i0r0c")

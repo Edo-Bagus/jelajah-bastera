@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4gdhiwg5bgod"]
+
+[ext_resource type="Script" uid="uid://digqdfb33hve8" path="res://components/Loading/loading_screen.gd" id="1_0xjdn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6uyli"]
+font_size = 50
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0xjdn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.192157)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -11.5
+offset_right = 36.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "LOADING"
+label_settings = SubResource("LabelSettings_6uyli")

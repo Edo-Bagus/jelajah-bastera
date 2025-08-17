@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://du2jt10s0nji5"]
+
+[ext_resource type="Texture2D" uid="uid://cxr7ruvego03w" path="res://assets/Background/Progress bar original.png" id="1_0j3lj"]
+[ext_resource type="Texture2D" uid="uid://cqj15iu2i6mgm" path="res://assets/Background/Progress bar color changing.png" id="2_kelb7"]
+
+[node name="ProgressBar" type="TextureProgressBar"]
+offset_right = 337.0
+offset_bottom = 366.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_0j3lj")
+texture_progress = ExtResource("2_kelb7")
