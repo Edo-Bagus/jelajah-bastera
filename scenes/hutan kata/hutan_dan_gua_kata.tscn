@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://r68272fegvmi"]
+[gd_scene load_steps=10 format=3 uid="uid://r68272fegvmi"]
 
 [ext_resource type="Script" uid="uid://bvme6ycgf0tqt" path="res://scenes/hutan kata/sinonim_antonim.gd" id="1_chpqd"]
 [ext_resource type="PackedScene" uid="uid://d4gdhiwg5bgod" path="res://components/Loading/loading_screen.tscn" id="2_jq43x"]
 [ext_resource type="PackedScene" uid="uid://bk3n0pt5p4w8e" path="res://components/Pause/pause_menu.tscn" id="3_mjcd1"]
 [ext_resource type="PackedScene" uid="uid://c41osh7xw76ui" path="res://components/Tutorial/tutorial_menu.tscn" id="4_kohg2"]
 [ext_resource type="PackedScene" uid="uid://du2jt10s0nji5" path="res://components/Progress Bar/progress_bar.tscn" id="5_0cjpn"]
+[ext_resource type="Texture2D" uid="uid://fp2hb627b6fa" path="res://assets/Progress Bar/Duba original.png" id="6_jq43x"]
 [ext_resource type="PackedScene" uid="uid://c5fskexowpc8" path="res://components/Tutorial/tutorial_btn.tscn" id="6_t01rs"]
 [ext_resource type="PackedScene" uid="uid://cvpynni1oq8hp" path="res://components/Pause/pause_btn.tscn" id="7_11mkd"]
 
@@ -19,6 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_chpqd")
+MATCH_SCORE = 34.0
 max_rounds = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
@@ -62,6 +64,7 @@ layout_mode = 1
 
 [node name="ProgressBar" parent="." instance=ExtResource("5_0cjpn")]
 layout_mode = 0
+elephant_texture = ExtResource("6_jq43x")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

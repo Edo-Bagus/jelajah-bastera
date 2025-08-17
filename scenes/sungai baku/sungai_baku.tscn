@@ -27,8 +27,6 @@ layout_mode = 1
 
 [node name="ProgressBar" parent="." instance=ExtResource("4_aurk1")]
 layout_mode = 0
-max_value = 3.0
-value = 3.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_q02s5")]
 layout_mode = 1

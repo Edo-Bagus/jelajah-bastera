@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://755dm07jfvdo"
-path="res://.godot/imported/Progress bar ika.png-4f026ca6459348e3eb2e714a6c64696c.ctex"
+uid="uid://cqj15iu2i6mgm"
+path="res://.godot/imported/Progress bar color changing.png-f5ab79d44a9d4d39576239f75a9d5aa4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Background/Progress bar ika.png"
-dest_files=["res://.godot/imported/Progress bar ika.png-4f026ca6459348e3eb2e714a6c64696c.ctex"]
+source_file="res://assets/Progress Bar/Progress bar color changing.png"
+dest_files=["res://.godot/imported/Progress bar color changing.png-f5ab79d44a9d4d39576239f75a9d5aa4.ctex"]
 
 [params]
 

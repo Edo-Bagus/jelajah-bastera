@@ -3,9 +3,9 @@ extends Node
 # =========================
 # Konfigurasi Game
 # =========================
-const PAIRS_PER_ROUND := 10
-const MATCH_SCORE := 10
+const PAIRS_PER_ROUND := 2
 
+@export var MATCH_SCORE: float = 25
 @export var mode: String = "synonym" # "synonym" atau "antonym"
 @export var max_rounds: int = 3
 @export var data_url: String = "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/public/BankSoal/sinonim_antonim.json"
@@ -114,7 +114,7 @@ func _check_match():
 		await get_tree().create_timer(1.0).timeout
 		card1.mark_matched()
 		card2.mark_matched()
-		progress_bar.value += MATCH_SCORE
+		progress_bar.set_value(progress_bar.value + MATCH_SCORE)
 
 		if _all_cards_matched():
 			await get_tree().create_timer(1.0).timeout

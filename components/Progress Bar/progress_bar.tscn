@@ -1,11 +1,66 @@
-[gd_scene load_steps=3 format=3 uid="uid://du2jt10s0nji5"]
+[gd_scene load_steps=7 format=3 uid="uid://du2jt10s0nji5"]
 
-[ext_resource type="Texture2D" uid="uid://cxr7ruvego03w" path="res://assets/Background/Progress bar original.png" id="1_0j3lj"]
-[ext_resource type="Texture2D" uid="uid://cqj15iu2i6mgm" path="res://assets/Background/Progress bar color changing.png" id="2_kelb7"]
+[ext_resource type="Texture2D" uid="uid://cxr7ruvego03w" path="res://assets/Progress Bar/Progress bar original.png" id="1_0j3lj"]
+[ext_resource type="Script" uid="uid://fxg0ads7w4uq" path="res://components/Progress Bar/progress_bar.gd" id="1_73d5o"]
+[ext_resource type="Texture2D" uid="uid://djertenq4maj2" path="res://assets/Progress Bar/Starbox main star.png" id="2_50psg"]
+[ext_resource type="Texture2D" uid="uid://dgksueboibmvx" path="res://assets/Progress Bar/Starbox main shadow.png" id="4_50psg"]
+[ext_resource type="Texture2D" uid="uid://755dm07jfvdo" path="res://assets/Progress Bar/Progress bar ika.png" id="4_ldx3k"]
 
-[node name="ProgressBar" type="TextureProgressBar"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_73d5o"]
+load_path = "res://.godot/imported/Progress bar color changing.png-2f0fa527751d6ac975d25568edcdbb09.ctex"
+
+[node name="ProgressBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 337.0
 offset_bottom = 366.0
+script = ExtResource("1_73d5o")
+star_on = ExtResource("2_50psg")
+star_off = ExtResource("4_50psg")
+
+[node name="Bar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 nine_patch_stretch = true
 texture_under = ExtResource("1_0j3lj")
-texture_progress = ExtResource("2_kelb7")
+texture_progress = SubResource("CompressedTexture2D_73d5o")
+
+[node name="ElephantHead" type="Sprite2D" parent="."]
+position = Vector2(51, 158)
+scale = Vector2(0.0244522, 0.0244522)
+texture = ExtResource("4_ldx3k")
+
+[node name="Stars" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -154.0
+offset_top = -173.045
+offset_right = 154.0
+offset_bottom = -73.045
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Star1" type="TextureRect" parent="Stars"]
+layout_mode = 2
+texture = ExtResource("4_50psg")
+expand_mode = 3
+
+[node name="Star2" type="TextureRect" parent="Stars"]
+layout_mode = 2
+texture = ExtResource("4_50psg")
+expand_mode = 3
+
+[node name="Star3" type="TextureRect" parent="Stars"]
+layout_mode = 2
+texture = ExtResource("4_50psg")
+expand_mode = 3
+
+[connection signal="value_changed" from="Bar" to="." method="_update_elephant"]

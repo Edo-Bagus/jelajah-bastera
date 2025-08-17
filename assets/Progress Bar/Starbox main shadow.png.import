@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqj15iu2i6mgm"
-path="res://.godot/imported/Progress bar color changing.png-2f0fa527751d6ac975d25568edcdbb09.ctex"
+uid="uid://dgksueboibmvx"
+path="res://.godot/imported/Starbox main shadow.png-a9d783a2ad60003b97ebc5220a8a420c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Background/Progress bar color changing.png"
-dest_files=["res://.godot/imported/Progress bar color changing.png-2f0fa527751d6ac975d25568edcdbb09.ctex"]
+source_file="res://assets/Progress Bar/Starbox main shadow.png"
+dest_files=["res://.godot/imported/Starbox main shadow.png-a9d783a2ad60003b97ebc5220a8a420c.ctex"]
 
 [params]
 

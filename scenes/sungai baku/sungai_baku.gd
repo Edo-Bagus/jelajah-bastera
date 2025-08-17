@@ -6,6 +6,7 @@ extends Control
 @export var move_duration: float = 0.5
 @export var soal_url: String = ""                  # URL file JSON di Supabase
 @export var max_spawn: int = 5                     # jumlah set batu yang dimainkan
+@export var MATCH_SCORE: float = 25
 
 @onready var batu_container = $BatuContainer
 @onready var loading_overlay := $Loading
@@ -82,11 +83,8 @@ func _spawn_dari_pasangan(pair_index: int, dari_luar: bool):
 # Saat batu diklik
 # ======================
 func _batu_dipilih(batu):
-	if not batu.is_baku:
-		# Jawaban salah, kurangi progress bar
-		progress_bar.value -= 1
-		if progress_bar.value <= 0:
-			return
+	if  batu.is_baku:
+		progress_bar.set_value(progress_bar.value + MATCH_SCORE)
 			 	
 	for child in batu_container.get_children():
 		var tween = create_tween()
