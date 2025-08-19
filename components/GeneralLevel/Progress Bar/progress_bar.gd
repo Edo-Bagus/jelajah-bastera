@@ -15,7 +15,6 @@ func _ready():
 	bar.max_value = 100
 	bar.value = value
 
-	# set texture gajah sesuai inspector
 	if elephant_texture != null:
 		elephant.texture = elephant_texture
 
@@ -34,6 +33,12 @@ func set_value(v: float):
 
 	value = v
 
+# =============================
+# Tambahan: fungsi add_score
+# =============================
+func add_score(amount: float):
+	set_value(value + amount)
+
 func _update_elephant(val: float = bar.value):
 	var t = float(val) / float(bar.max_value)
 	var start_x = bar.global_position.x + 50
@@ -44,7 +49,6 @@ func _update_stars(val: float = bar.value):
 	var thresholds = [33, 66, 100]
 	for i in range(3):
 		if val >= thresholds[i]:
-			# Kalau baru saja berubah jadi ON
 			if stars[i].texture != star_on:
 				stars[i].texture = star_on
 				_play_star_animation(stars[i])
@@ -53,7 +57,7 @@ func _update_stars(val: float = bar.value):
 
 func _play_star_animation(star: TextureRect):
 	var twn := create_tween()
-	star.scale = Vector2(0.8, 0.8) # mulai agak kecil
+	star.scale = Vector2(0.8, 0.8)
 	
 	var step1 = twn.tween_property(star, "scale", Vector2(1.2, 1.2), 0.15)
 	step1.set_trans(Tween.TRANS_BACK)

@@ -10,7 +10,9 @@ extends Control
 @onready var feedback_label: Label = $FeedbackLabel
 @onready var question_label: Label = $QuestionLabel
 @onready var options_parent: Control = $OptionsContainer
+@onready var general_level := $General
 
+@export var MATCH_SCORE = 34
 var current_question := 0
 var score := 0
 var answer_selected := false
@@ -74,13 +76,14 @@ func _check_answer(index: int, dragged_imbuhan: String) -> void:
 
 	if index == correct and dragged_imbuhan.strip_edges() == q["imbuhan"].strip_edges():
 		score += 1
+		general_level.add_score(MATCH_SCORE)
 		feedback_label.text = "✅ Benar!"
 		option_panels[index].modulate = Color(0, 1, 0, 1) # hijau
 	else:
 		feedback_label.text = "❌ Salah!\n" + q["explanation"]
 		option_panels[index].modulate = Color(1, 0, 0, 1) # merah
 
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.0, false).timeout
 	current_question += 1
 
 	if current_question < selected_questions.size():

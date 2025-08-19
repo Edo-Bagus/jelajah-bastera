@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwftsk166b60f"]
+
+[ext_resource type="Script" uid="uid://c15i5xh06xumj" path="res://components/GeneralLevel/general_level.gd" id="1_isp5c"]
+[ext_resource type="PackedScene" uid="uid://bd1wkqf8m3k1r" path="res://components/GeneralLevel/PopupWin/PopupWin.tscn" id="2_bepd7"]
+[ext_resource type="PackedScene" uid="uid://bmwf5f13srrn5" path="res://components/GeneralLevel/Timer/Timer.tscn" id="3_f4djg"]
+[ext_resource type="PackedScene" uid="uid://d4gdhiwg5bgod" path="res://components/GeneralLevel/Loading/loading_screen.tscn" id="4_2w8cr"]
+[ext_resource type="PackedScene" uid="uid://bk3n0pt5p4w8e" path="res://components/GeneralLevel/Pause/pause_menu.tscn" id="5_b8jba"]
+[ext_resource type="PackedScene" uid="uid://c41osh7xw76ui" path="res://components/GeneralLevel/Tutorial/tutorial_menu.tscn" id="6_dfpdp"]
+[ext_resource type="PackedScene" uid="uid://du2jt10s0nji5" path="res://components/GeneralLevel/Progress Bar/progress_bar.tscn" id="7_hqt81"]
+[ext_resource type="PackedScene" uid="uid://c5fskexowpc8" path="res://components/GeneralLevel/Tutorial/tutorial_btn.tscn" id="8_xgkef"]
+[ext_resource type="PackedScene" uid="uid://cvpynni1oq8hp" path="res://components/GeneralLevel/Pause/pause_btn.tscn" id="9_g4gwl"]
+
+[node name="General" type="Control"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_isp5c")
+
+[node name="PopupWin" parent="." instance=ExtResource("2_bepd7")]
+visible = false
+
+[node name="Timer" parent="." instance=ExtResource("3_f4djg")]
+layout_mode = 1
+
+[node name="Loading" parent="." instance=ExtResource("4_2w8cr")]
+layout_mode = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_b8jba")]
+layout_mode = 1
+
+[node name="TutorialMenu" parent="." instance=ExtResource("6_dfpdp")]
+layout_mode = 1
+
+[node name="ProgressBar" parent="." instance=ExtResource("7_hqt81")]
+layout_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -93.0
+offset_bottom = 40.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="TutorialBtn" parent="HBoxContainer" instance=ExtResource("8_xgkef")]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="PauseBtn" parent="HBoxContainer" instance=ExtResource("9_g4gwl")]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[connection signal="timer_finished" from="Timer" to="." method="_game_won"]

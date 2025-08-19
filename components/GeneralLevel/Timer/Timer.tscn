@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmwf5f13srrn5"]
+
+[ext_resource type="Script" uid="uid://cbrayqp242u4j" path="res://components/GeneralLevel/Timer/Timer.gd" id="1_ey8q4"]
+[ext_resource type="Texture2D" uid="uid://cxr7ruvego03w" path="res://assets/Progress Bar/Progress bar original.png" id="4_pto6u"]
+[ext_resource type="Texture2D" uid="uid://755dm07jfvdo" path="res://assets/Progress Bar/Progress bar ika.png" id="5_3tr03"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_73d5o"]
+load_path = "res://.godot/imported/Progress bar color changing.png-2f0fa527751d6ac975d25568edcdbb09.ctex"
+
+[node name="Timer" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -168.5
+offset_top = -366.0
+offset_right = 168.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_ey8q4")
+
+[node name="Bar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_pto6u")
+texture_progress = SubResource("CompressedTexture2D_73d5o")
+
+[node name="ClockIcon" type="Sprite2D" parent="."]
+position = Vector2(51, 158)
+scale = Vector2(0.0244522, 0.0244522)
+texture = ExtResource("5_3tr03")
+
+[connection signal="value_changed" from="Bar" to="." method="_update_elephant"]

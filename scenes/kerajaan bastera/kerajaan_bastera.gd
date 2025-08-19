@@ -4,6 +4,9 @@ extends Control
 @onready var options: Array = $OptionsContainer.get_children()
 @onready var line_layer: Node2D = $LineDrawer   # Pastikan node LineDrawer ada di scene
 @onready var q_label: Label = $QuestionPanel/Label
+@onready var general_level = $General
+
+@export var MATCH_SCORE = 34
 
 var questions := [
 	{"q":"Ibu kota Indonesia?",         "opts":["Jakarta","Surabaya","Medan","Bandung"], "answer":0},
@@ -68,6 +71,9 @@ func _input(event: InputEvent) -> void:
 						var correct_i: int = questions[current_question]["answer"]
 						var is_correct := (i == correct_i)
 						var color = Color.GREEN if is_correct else Color.RED
+						
+						if is_correct:
+							general_level.add_score(MATCH_SCORE)
 
 						# ubah warna tali & tempelkan ujung ke tengah option
 						rope.default_color = color
@@ -77,7 +83,7 @@ func _input(event: InputEvent) -> void:
 						options[i].modulate = color
 
 						# tampilkan sebentar lalu next
-						await get_tree().create_timer(1.2).timeout
+						await get_tree().create_timer(1.2, false).timeout
 						_next_question()
 						break
 

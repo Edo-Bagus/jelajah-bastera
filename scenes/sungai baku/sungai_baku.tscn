@@ -1,13 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgc2fqc3fovd5"]
+[gd_scene load_steps=4 format=3 uid="uid://dgc2fqc3fovd5"]
 
 [ext_resource type="PackedScene" uid="uid://b3k4swrcxl7by" path="res://scenes/sungai baku/Batu/Batu.tscn" id="1_eb8mh"]
 [ext_resource type="Script" uid="uid://1vnx6ltjq8w1" path="res://scenes/sungai baku/sungai_baku.gd" id="1_ns62s"]
-[ext_resource type="PackedScene" uid="uid://d4gdhiwg5bgod" path="res://components/Loading/loading_screen.tscn" id="3_5bstw"]
-[ext_resource type="PackedScene" uid="uid://du2jt10s0nji5" path="res://components/Progress Bar/progress_bar.tscn" id="4_aurk1"]
-[ext_resource type="PackedScene" uid="uid://cvpynni1oq8hp" path="res://components/Pause/pause_btn.tscn" id="5_lpteo"]
-[ext_resource type="PackedScene" uid="uid://c41osh7xw76ui" path="res://components/Tutorial/tutorial_menu.tscn" id="6_c0det"]
-[ext_resource type="PackedScene" uid="uid://bk3n0pt5p4w8e" path="res://components/Pause/pause_menu.tscn" id="6_q02s5"]
-[ext_resource type="PackedScene" uid="uid://c5fskexowpc8" path="res://components/Tutorial/tutorial_btn.tscn" id="7_k1sxd"]
+[ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="3_smd8r"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -22,34 +17,7 @@ spawn_positions = Array[Vector2]([Vector2(540, 960), Vector2(540, 1060)])
 spawn_out_positions = Array[Vector2]([Vector2(1200, 960), Vector2(1200, 1060)])
 soal_url = "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/public/BankSoal/baku.json"
 
-[node name="Loading" parent="." instance=ExtResource("3_5bstw")]
-layout_mode = 1
-
-[node name="ProgressBar" parent="." instance=ExtResource("4_aurk1")]
-layout_mode = 0
-
-[node name="PauseMenu" parent="." instance=ExtResource("6_q02s5")]
-layout_mode = 1
-
-[node name="TutorialMenu" parent="." instance=ExtResource("6_c0det")]
-layout_mode = 1
-
 [node name="BatuContainer" type="Node2D" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="General" parent="." instance=ExtResource("3_smd8r")]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -93.0
-offset_bottom = 40.0
-grow_horizontal = 0
-alignment = 1
-
-[node name="TutorialBtn" parent="HBoxContainer" instance=ExtResource("7_k1sxd")]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="PauseBtn" parent="HBoxContainer" instance=ExtResource("5_lpteo")]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2

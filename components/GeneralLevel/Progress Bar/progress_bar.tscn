@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://du2jt10s0nji5"]
 
 [ext_resource type="Texture2D" uid="uid://cxr7ruvego03w" path="res://assets/Progress Bar/Progress bar original.png" id="1_0j3lj"]
-[ext_resource type="Script" uid="uid://fxg0ads7w4uq" path="res://components/Progress Bar/progress_bar.gd" id="1_73d5o"]
+[ext_resource type="Script" uid="uid://fxg0ads7w4uq" path="res://components/GeneralLevel/Progress Bar/progress_bar.gd" id="1_73d5o"]
 [ext_resource type="Texture2D" uid="uid://djertenq4maj2" path="res://assets/Progress Bar/Starbox main star.png" id="2_50psg"]
 [ext_resource type="Texture2D" uid="uid://dgksueboibmvx" path="res://assets/Progress Bar/Starbox main shadow.png" id="4_50psg"]
 [ext_resource type="Texture2D" uid="uid://755dm07jfvdo" path="res://assets/Progress Bar/Progress bar ika.png" id="4_ldx3k"]

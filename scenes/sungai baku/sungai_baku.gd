@@ -5,18 +5,16 @@ extends Control
 @export var spawn_out_positions: Array[Vector2]   # 2 posisi awal (misal kiri dan kanan)
 @export var move_duration: float = 0.5
 @export var soal_url: String = ""                  # URL file JSON di Supabase
-@export var max_spawn: int = 5                     # jumlah set batu yang dimainkan
 @export var MATCH_SCORE: float = 25
 
-@onready var batu_container = $BatuContainer
-@onready var loading_overlay := $Loading
-@onready var progress_bar := $ProgressBar
+@onready var batu_container := $BatuContainer
+@onready var general_level := $General
 
 var pasangan_data: Array = []   # daftar pasangan kata baku–tidak baku
-var spawn_count := 0            # hitung berapa set yang sudah muncul
+var spawn_index := 0            # index pasangan yang sedang dimainkan
 
 func _ready():
-	_show_loading("Loading")
+	general_level._show_loading("Loading")
 	fetch_soal()
 
 # ======================
@@ -34,14 +32,14 @@ func _on_request_completed(result, response_code, headers, body):
 	if response_code == 200:
 		var json_data = JSON.parse_string(body.get_string_from_utf8())
 		if typeof(json_data) == TYPE_ARRAY:
-			# buat pasangan dari data
 			for i in range(0, json_data.size(), 2):
 				if i + 1 < json_data.size():
 					var pair = [json_data[i], json_data[i + 1]]
 					pasangan_data.append(pair)
-			# acak urutan pasangan
+
+			# acak urutan awal
 			pasangan_data.shuffle()
-			_hide_loading()
+			general_level._hide_loading()
 			spawn_batu_awal()
 		else:
 			print("Format JSON tidak sesuai")
@@ -52,23 +50,28 @@ func _on_request_completed(result, response_code, headers, body):
 # Spawn awal
 # ======================
 func spawn_batu_awal():
-	spawn_count = 1
-	_spawn_dari_pasangan(0, false)
+	spawn_index = 0
+	_spawn_dari_pasangan(spawn_index, false)
 
 # ======================
 # Fungsi spawn dari pasangan
 # ======================
 func _spawn_dari_pasangan(pair_index: int, dari_luar: bool):
-	if pair_index >= pasangan_data.size():
-		_game_selesai()
+	if pasangan_data.is_empty():
 		return
 
+	# kalau sudah sampai akhir, reset index dan acak ulang
+	if pair_index >= pasangan_data.size():
+		pasangan_data.shuffle()
+		spawn_index = 0
+		pair_index = 0
+
 	var pair = pasangan_data[pair_index]
-	pair.shuffle() # acak posisi baku/tidak baku di kiri/kanan
+	pair.shuffle()
 
 	for i in range(2):
 		var batu = batu_scene.instantiate()
-		batu.set_data(pair[i]["text"], pair[i]["is_baku"]) # pakai fungsi baru
+		batu.set_data(pair[i]["text"], pair[i]["is_baku"])
 		batu.connect("pressed", Callable(self, "_batu_dipilih").bind(batu))
 		batu_container.add_child(batu)
 
@@ -83,8 +86,8 @@ func _spawn_dari_pasangan(pair_index: int, dari_luar: bool):
 # Saat batu diklik
 # ======================
 func _batu_dipilih(batu):
-	if  batu.is_baku:
-		progress_bar.set_value(progress_bar.value + MATCH_SCORE)
+	if batu.is_baku:
+		general_level.add_score(MATCH_SCORE)
 			 	
 	for child in batu_container.get_children():
 		var tween = create_tween()
@@ -98,24 +101,5 @@ func _batu_dipilih(batu):
 # Spawn set batu berikutnya
 # ======================
 func spawn_batu_baru():
-	spawn_count += 1
-	if spawn_count > max_spawn or spawn_count > pasangan_data.size():
-		_game_selesai()
-		return
-	_spawn_dari_pasangan(spawn_count - 1, true)
-
-# ======================
-# Saat game selesai
-# ======================
-func _game_selesai():
-	print("Game selesai! Soal terjawab:", spawn_count, "set.")
-	# Bisa lanjut ke popup skor, scene lain, dll.
-	
-# =========================
-# Loading Overlay
-# =========================
-func _show_loading(text: String) -> void:
-	loading_overlay.show_loading(text)
-
-func _hide_loading() -> void:
-	loading_overlay.hide_loading()
+	spawn_index += 1
+	_spawn_dari_pasangan(spawn_index, true)

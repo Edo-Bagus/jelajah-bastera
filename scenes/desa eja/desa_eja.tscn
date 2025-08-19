@@ -1,10 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://pedqvp1udqau"]
+[gd_scene load_steps=4 format=3 uid="uid://pedqvp1udqau"]
 
 [ext_resource type="Script" uid="uid://cwvjshkfme2o" path="res://scenes/desa eja/desa_eja.gd" id="1_yvpqi"]
-[ext_resource type="PackedScene" uid="uid://bk3n0pt5p4w8e" path="res://components/Pause/pause_menu.tscn" id="2_x63sn"]
-[ext_resource type="PackedScene" uid="uid://c41osh7xw76ui" path="res://components/Tutorial/tutorial_menu.tscn" id="3_2plaf"]
-[ext_resource type="PackedScene" uid="uid://c5fskexowpc8" path="res://components/Tutorial/tutorial_btn.tscn" id="4_vecpb"]
-[ext_resource type="PackedScene" uid="uid://cvpynni1oq8hp" path="res://components/Pause/pause_btn.tscn" id="5_gu76m"]
+[ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_tvqiy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1svqc"]
 
@@ -64,30 +61,8 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="PauseMenu" parent="." instance=ExtResource("2_x63sn")]
-visible = false
+[node name="General" parent="." instance=ExtResource("2_tvqiy")]
 layout_mode = 1
-
-[node name="TutorialMenu" parent="." instance=ExtResource("3_2plaf")]
-layout_mode = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -93.0
-offset_bottom = 40.0
-grow_horizontal = 0
-alignment = 1
-
-[node name="TutorialBtn" parent="HBoxContainer" instance=ExtResource("4_vecpb")]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="PauseBtn" parent="HBoxContainer" instance=ExtResource("5_gu76m")]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/OptionA" to="." method="_on_option_a_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionB" to="." method="_on_option_b_pressed"]

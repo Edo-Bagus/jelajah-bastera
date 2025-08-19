@@ -1,12 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3c3afw1p3n5l"]
+[gd_scene load_steps=5 format=3 uid="uid://b3c3afw1p3n5l"]
 
 [ext_resource type="Script" uid="uid://ka8cnxoslg5x" path="res://scenes/gunung ragabasa/gunung_ragabasa.gd" id="1_5w6af"]
-[ext_resource type="PackedScene" uid="uid://cvpynni1oq8hp" path="res://components/Pause/pause_btn.tscn" id="2_5p2vj"]
+[ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_fs8yy"]
 [ext_resource type="Script" uid="uid://b6osj3lj2f3m7" path="res://scenes/gunung ragabasa/imbuhan.gd" id="2_y04nr"]
-[ext_resource type="PackedScene" uid="uid://bk3n0pt5p4w8e" path="res://components/Pause/pause_menu.tscn" id="3_nh7re"]
-[ext_resource type="PackedScene" uid="uid://c41osh7xw76ui" path="res://components/Tutorial/tutorial_menu.tscn" id="3_vtv1f"]
 [ext_resource type="Script" uid="uid://vnc1ufno5732" path="res://scenes/gunung ragabasa/Option/option.gd" id="5_cvmsm"]
-[ext_resource type="PackedScene" uid="uid://c5fskexowpc8" path="res://components/Tutorial/tutorial_btn.tscn" id="5_u032q"]
 
 [node name="Gunung Rabasa" type="Control"]
 layout_mode = 3
@@ -16,14 +13,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5w6af")
-
-[node name="PauseMenu" parent="." instance=ExtResource("3_nh7re")]
-visible = false
-layout_mode = 1
-
-[node name="TutorialMenu" parent="." instance=ExtResource("3_vtv1f")]
-visible = false
-layout_mode = 1
 
 [node name="QuestionLabel" type="Label" parent="."]
 layout_mode = 0
@@ -113,20 +102,5 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="General" parent="." instance=ExtResource("2_fs8yy")]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -93.0
-offset_bottom = 40.0
-grow_horizontal = 0
-alignment = 1
-
-[node name="TutorialBtn" parent="HBoxContainer" instance=ExtResource("5_u032q")]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="PauseBtn" parent="HBoxContainer" instance=ExtResource("2_5p2vj")]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2

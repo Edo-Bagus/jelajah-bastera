@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c41osh7xw76ui"]
 
-[ext_resource type="Script" uid="uid://egf3n184f1no" path="res://components/Tutorial/tutorial_menu.gd" id="1_k3nvm"]
+[ext_resource type="Script" uid="uid://egf3n184f1no" path="res://components/GeneralLevel/Tutorial/tutorial_menu.gd" id="1_k3nvm"]
 
 [node name="TutorialMenu" type="Control"]
 layout_mode = 3

@@ -1,5 +1,8 @@
 extends Control
 
+@onready var general_level = $General
+
+@export var MATCH_SCORE = 33
 var current_question = 0
 var score = 0
 var answer_selected = false
@@ -100,7 +103,7 @@ func _check_answer(index):
 	
 	if index == correct_index:
 		$FeedbackLabel.text = "Benar!"
-		score += 1
+		general_level.add_score(MATCH_SCORE)
 		option_buttons[index].modulate = Color(0, 1, 0, 1)
 	else:
 		$FeedbackLabel.text = "Salah!"
@@ -111,7 +114,7 @@ func _check_answer(index):
 		button.disabled = true
 
 	# Tunggu 1 detik lalu next
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.0, false).timeout
 	current_question += 1
 	if current_question < selected_questions.size():
 		show_question()

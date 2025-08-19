@@ -1,42 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0gcx6x26opme"]
+[gd_scene load_steps=4 format=3 uid="uid://d0gcx6x26opme"]
 
 [ext_resource type="Script" uid="uid://v3pomw2g8mbq" path="res://scenes/kerajaan bastera/kerajaan_bastera.gd" id="1_o6ebm"]
 [ext_resource type="Script" uid="uid://dge5aspikes2e" path="res://scenes/kerajaan bastera/line_drawer.gd" id="2_q2key"]
-[ext_resource type="PackedScene" uid="uid://bk3n0pt5p4w8e" path="res://components/Pause/pause_menu.tscn" id="3_2g1uy"]
-[ext_resource type="PackedScene" uid="uid://c41osh7xw76ui" path="res://components/Tutorial/tutorial_menu.tscn" id="4_1ital"]
-[ext_resource type="PackedScene" uid="uid://c5fskexowpc8" path="res://components/Tutorial/tutorial_btn.tscn" id="5_brq4j"]
-[ext_resource type="PackedScene" uid="uid://cvpynni1oq8hp" path="res://components/Pause/pause_btn.tscn" id="6_u6cla"]
+[ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_rb7am"]
 
 [node name="Kerajaan Bastera" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_o6ebm")
-
-[node name="PauseMenu" parent="." instance=ExtResource("3_2g1uy")]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 589.0
-offset_top = 967.0
-offset_right = 589.0
-offset_bottom = 967.0
-
-[node name="TutorialMenu" parent="." instance=ExtResource("4_1ital")]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.0
-offset_left = 564.0
-offset_top = 973.0
-offset_right = 564.0
-offset_bottom = 973.0
-grow_vertical = 1
 
 [node name="QuestionPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -96,22 +71,5 @@ offset_bottom = 23.0
 [node name="LineDrawer" type="Node2D" parent="."]
 script = ExtResource("2_q2key")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="General" parent="." instance=ExtResource("2_rb7am")]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 977.0
-offset_top = -1.0
-offset_right = 1081.0
-offset_bottom = 39.0
-grow_horizontal = 0
-alignment = 1
-
-[node name="TutorialBtn" parent="HBoxContainer" instance=ExtResource("5_brq4j")]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="PauseBtn" parent="HBoxContainer" instance=ExtResource("6_u6cla")]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2

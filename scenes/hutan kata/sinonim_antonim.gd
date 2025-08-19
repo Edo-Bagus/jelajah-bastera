@@ -3,25 +3,21 @@ extends Node
 # =========================
 # Konfigurasi Game
 # =========================
-const PAIRS_PER_ROUND := 2
+const PAIRS_PER_ROUND := 10
 
 @export var MATCH_SCORE: float = 25
 @export var mode: String = "synonym" # "synonym" atau "antonym"
-@export var max_rounds: int = 3
 @export var data_url: String = "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/public/BankSoal/sinonim_antonim.json"
 
 # =========================
 # Referensi Node
 # =========================
-@onready var loading_overlay := $Loading
+@onready var general_level := $General
 @onready var grid_container := $GridContainer
-@onready var progress_bar := $ProgressBar
-@onready var win_label := $"Label"
 
 # =========================
 # State Game
 # =========================
-var current_round := 1
 var is_checking := false
 var opened_cards: Array = []
 
@@ -32,7 +28,7 @@ var antonym_pairs: Array = []
 # Lifecycle
 # =========================
 func _ready():
-	_show_loading("Loading")
+	general_level._show_loading("Loading")
 	_fetch_data(data_url)
 
 # =========================
@@ -57,14 +53,13 @@ func _on_request_completed(_result, response_code, _headers, body):
 	synonym_pairs = data.get("synonyms", [])
 	antonym_pairs = data.get("antonyms", [])
 
-	_hide_loading()
+	general_level._hide_loading()
 	_init_round()
 
 # =========================
 # Game Setup
 # =========================
 func _init_round():
-	print("=== Ronde %d ===" % current_round)
 
 	var pairs := (synonym_pairs if mode == "synonym" else antonym_pairs).duplicate()
 	pairs.shuffle()
@@ -114,7 +109,7 @@ func _check_match():
 		await get_tree().create_timer(1.0).timeout
 		card1.mark_matched()
 		card2.mark_matched()
-		progress_bar.set_value(progress_bar.value + MATCH_SCORE)
+		general_level.add_score(MATCH_SCORE)
 
 		if _all_cards_matched():
 			await get_tree().create_timer(1.0).timeout
@@ -146,20 +141,4 @@ func _all_cards_matched() -> bool:
 # =========================
 func _next_round():
 	is_checking = false
-	if current_round < max_rounds:
-		current_round += 1
-		_init_round()
-	else:
-		_game_won()
-
-func _game_won():
-	win_label.show()
-
-# =========================
-# Loading Overlay
-# =========================
-func _show_loading(text: String) -> void:
-	loading_overlay.show_loading(text)
-
-func _hide_loading() -> void:
-	loading_overlay.hide_loading()
+	_init_round()   # langsung lanjut generate ronde baru tanpa batas

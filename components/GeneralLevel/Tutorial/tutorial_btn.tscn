@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c5fskexowpc8"]
 
-[ext_resource type="Script" uid="uid://dkv83sei4q3sw" path="res://components/Tutorial/tutorial_btn.gd" id="1_1dxde"]
+[ext_resource type="Script" uid="uid://dkv83sei4q3sw" path="res://components/GeneralLevel/Tutorial/tutorial_btn.gd" id="1_1dxde"]
 
 [node name="TutorialBtn" type="Button"]
 offset_right = 8.0
