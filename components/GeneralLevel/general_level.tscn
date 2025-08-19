@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cvpynni1oq8hp" path="res://components/GeneralLevel/Pause/pause_btn.tscn" id="9_g4gwl"]
 
 [node name="General" type="Control"]
-z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +21,7 @@ script = ExtResource("1_isp5c")
 
 [node name="PopupWin" parent="." instance=ExtResource("2_bepd7")]
 visible = false
+layout_mode = 1
 
 [node name="Timer" parent="." instance=ExtResource("3_f4djg")]
 layout_mode = 1
@@ -29,31 +29,31 @@ layout_mode = 1
 [node name="Loading" parent="." instance=ExtResource("4_2w8cr")]
 layout_mode = 1
 
+[node name="ProgressBar" parent="." instance=ExtResource("7_hqt81")]
+layout_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -204.0
+offset_top = 100.0
+offset_bottom = 200.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="TutorialBtn" parent="HBoxContainer" instance=ExtResource("8_xgkef")]
+layout_mode = 2
+
+[node name="PauseBtn" parent="HBoxContainer" instance=ExtResource("9_g4gwl")]
+layout_mode = 2
+
 [node name="PauseMenu" parent="." instance=ExtResource("5_b8jba")]
 layout_mode = 1
 
 [node name="TutorialMenu" parent="." instance=ExtResource("6_dfpdp")]
 layout_mode = 1
-
-[node name="ProgressBar" parent="." instance=ExtResource("7_hqt81")]
-layout_mode = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -93.0
-offset_bottom = 40.0
-grow_horizontal = 0
-alignment = 1
-
-[node name="TutorialBtn" parent="HBoxContainer" instance=ExtResource("8_xgkef")]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="PauseBtn" parent="HBoxContainer" instance=ExtResource("9_g4gwl")]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
 
 [connection signal="timer_finished" from="Timer" to="." method="_game_won"]

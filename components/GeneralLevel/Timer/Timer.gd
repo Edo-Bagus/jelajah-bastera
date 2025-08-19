@@ -31,6 +31,15 @@ func start_timer():
 	tween.tween_property(self, "value", 0, duration)
 	# setelah tween selesai, panggil fungsi on_timer_finished
 	tween.tween_callback(Callable(self, "_on_timer_finished"))
+	
+func reset_timer():
+	if tween != null:
+		tween.kill()  # stop animasi sebelumnya
+
+	value = bar.max_value   # balikin ke nilai penuh (100)
+	bar.value = value
+	_update_clock(value)
+
 
 func set_value(v: float):
 	v = clamp(v, bar.min_value, bar.max_value)

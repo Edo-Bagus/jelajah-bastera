@@ -1,35 +1,51 @@
-[gd_scene load_steps=9 format=3 uid="uid://bd1wkqf8m3k1r"]
+[gd_scene load_steps=11 format=3 uid="uid://bd1wkqf8m3k1r"]
 
-[ext_resource type="Texture2D" uid="uid://dgksueboibmvx" path="res://assets/Progress Bar/Starbox main shadow.png" id="1_am3uw"]
+[ext_resource type="Texture2D" uid="uid://dgksueboibmvx" path="res://assets/Star/Starbox main shadow.png" id="1_am3uw"]
 [ext_resource type="Script" uid="uid://6lbj5otus05w" path="res://components/GeneralLevel/PopupWin/popup_win.gd" id="1_jdntc"]
 [ext_resource type="Texture2D" uid="uid://cxr7ruvego03w" path="res://assets/Progress Bar/Progress bar original.png" id="2_jdntc"]
-[ext_resource type="Texture2D" uid="uid://djertenq4maj2" path="res://assets/Progress Bar/Starbox main star.png" id="2_p0j6x"]
+[ext_resource type="Texture2D" uid="uid://djertenq4maj2" path="res://assets/Star/Starbox main star.png" id="2_p0j6x"]
 [ext_resource type="Texture2D" uid="uid://cqj15iu2i6mgm" path="res://assets/Progress Bar/Progress bar color changing.png" id="3_p0j6x"]
-[ext_resource type="Texture2D" uid="uid://fp2hb627b6fa" path="res://assets/Progress Bar/Duba original.png" id="4_nuyn0"]
+[ext_resource type="Texture2D" uid="uid://fp2hb627b6fa" path="res://assets/Ika Duba/Duba original.png" id="4_nuyn0"]
 [ext_resource type="Texture2D" uid="uid://c1fdyd5a1k6mf" path="res://assets/Buttons/Button home.png" id="4_w6qqf"]
+[ext_resource type="Texture2D" uid="uid://bxhc1g68lyix0" path="res://assets/Buttons/Button continue.png" id="8_xxcic"]
+[ext_resource type="Texture2D" uid="uid://fn6aocakgifu" path="res://assets/Buttons/Button refresh.png" id="9_opaos"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w6qqf"]
 font_size = 30
 
-[node name="PopupWin" type="Popup"]
-initial_position = 1
-size = Vector2i(430, 745)
-visible = true
+[node name="PopupWin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_jdntc")
 star_on = ExtResource("2_p0j6x")
 star_off = ExtResource("1_am3uw")
-home_icon = ExtResource("4_w6qqf")
-next_icon = ExtResource("4_w6qqf")
-replay_icon = ExtResource("4_w6qqf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.505882)
 
 [node name="Panel" type="Panel" parent="."]
-anchors_preset = 5
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -270.0
-offset_right = 270.0
-offset_bottom = 960.0
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -300.0
+offset_right = 250.0
+offset_bottom = 300.0
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="Skor" type="Label" parent="Panel"]
@@ -50,11 +66,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_top = 120.0
-offset_right = 20.0
-offset_bottom = 160.0
+offset_left = -176.0
+offset_top = 152.0
+offset_right = 176.0
+offset_bottom = 241.0
 grow_horizontal = 2
+alignment = 1
 
 [node name="Star1" type="TextureRect" parent="Panel/Stars"]
 layout_mode = 2
@@ -73,14 +90,17 @@ expand_mode = 3
 
 [node name="ScoreBar" type="TextureProgressBar" parent="Panel"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -135.0
-offset_top = 75.0
-offset_right = 135.0
-offset_bottom = 345.0
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -47.5
+offset_right = 213.0
+offset_bottom = 47.5
 grow_horizontal = 2
+grow_vertical = 2
 nine_patch_stretch = true
 texture_under = ExtResource("2_jdntc")
 texture_progress = ExtResource("3_p0j6x")
@@ -90,48 +110,46 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -137.0
-offset_top = 157.0
-offset_right = -73.0
-offset_bottom = 221.0
+offset_left = -213.0
+offset_top = 243.0
+offset_right = -100.0
+offset_bottom = 356.0
 grow_horizontal = 2
 texture = ExtResource("4_nuyn0")
-expand_mode = 3
+expand_mode = 1
 
 [node name="Buttons" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -116.5
-offset_top = 250.0
-offset_right = 116.5
-offset_bottom = 325.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_bottom = -75.0
 grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
 
-[node name="Home" type="Button" parent="Panel/Buttons"]
-custom_minimum_size = Vector2(75, 75)
+[node name="Home" type="TextureButton" parent="Panel/Buttons"]
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
-text = "HOME"
-icon = ExtResource("4_w6qqf")
-icon_alignment = 1
-expand_icon = true
+texture_normal = ExtResource("4_w6qqf")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Next" type="Button" parent="Panel/Buttons"]
-custom_minimum_size = Vector2(75, 75)
+[node name="Next" type="TextureButton" parent="Panel/Buttons"]
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
-text = "NEXT"
-icon = ExtResource("4_w6qqf")
-icon_alignment = 1
-expand_icon = true
+texture_normal = ExtResource("8_xxcic")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Replay" type="Button" parent="Panel/Buttons"]
-custom_minimum_size = Vector2(75, 75)
+[node name="Replay" type="TextureButton" parent="Panel/Buttons"]
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
-text = "REPLAY"
-icon = ExtResource("4_w6qqf")
-icon_alignment = 1
-expand_icon = true
+texture_normal = ExtResource("9_opaos")
+ignore_texture_size = true
+stretch_mode = 0
 
 [connection signal="pressed" from="Panel/Buttons/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="Panel/Buttons/Next" to="." method="_on_next_pressed"]

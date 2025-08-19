@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 @onready var pause_menu = get_tree().get_root().find_child("PauseMenu", true, false)
 

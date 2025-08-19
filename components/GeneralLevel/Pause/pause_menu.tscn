@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bk3n0pt5p4w8e"]
+[gd_scene load_steps=5 format=3 uid="uid://bk3n0pt5p4w8e"]
 
 [ext_resource type="Script" uid="uid://p2rx2hthxwkh" path="res://components/GeneralLevel/Pause/pause_menu.gd" id="1_2xvko"]
+[ext_resource type="Texture2D" uid="uid://bxhc1g68lyix0" path="res://assets/Buttons/Button continue.png" id="2_dltni"]
+[ext_resource type="Texture2D" uid="uid://c1fdyd5a1k6mf" path="res://assets/Buttons/Button home.png" id="2_jbcq0"]
+[ext_resource type="Texture2D" uid="uid://fn6aocakgifu" path="res://assets/Buttons/Button refresh.png" id="4_xqvr7"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -21,35 +24,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.678528, 0.258657, 0.402006, 0.133333)
+color = Color(0, 0, 0, 0.470588)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -203.5
-offset_top = -101.0
-offset_right = 203.5
-offset_bottom = 101.0
+offset_left = -250.0
+offset_top = -300.0
+offset_right = 250.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -191.5
+offset_top = 125.0
+offset_right = 191.5
+offset_bottom = 250.0
+grow_horizontal = 2
 alignment = 1
 
-[node name="Resume" type="Button" parent="VBoxContainer"]
+[node name="Home" type="TextureButton" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
-text = "RESUME"
+texture_normal = ExtResource("2_jbcq0")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Retry" type="Button" parent="VBoxContainer"]
+[node name="Resume" type="TextureButton" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
-text = "RETRY"
+texture_normal = ExtResource("2_dltni")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Retry" type="TextureButton" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
-text = "QUIT"
+texture_normal = ExtResource("4_xqvr7")
+ignore_texture_size = true
+stretch_mode = 0
 
-[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_ResumeButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/Retry" to="." method="_on_Retry_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_BackToMapButton_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Home" to="." method="_on_BackToMapButton_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Resume" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Retry" to="." method="_on_Retry_pressed"]

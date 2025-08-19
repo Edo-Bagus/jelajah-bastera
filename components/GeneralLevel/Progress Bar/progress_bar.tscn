@@ -2,12 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cxr7ruvego03w" path="res://assets/Progress Bar/Progress bar original.png" id="1_0j3lj"]
 [ext_resource type="Script" uid="uid://fxg0ads7w4uq" path="res://components/GeneralLevel/Progress Bar/progress_bar.gd" id="1_73d5o"]
-[ext_resource type="Texture2D" uid="uid://djertenq4maj2" path="res://assets/Progress Bar/Starbox main star.png" id="2_50psg"]
-[ext_resource type="Texture2D" uid="uid://dgksueboibmvx" path="res://assets/Progress Bar/Starbox main shadow.png" id="4_50psg"]
-[ext_resource type="Texture2D" uid="uid://755dm07jfvdo" path="res://assets/Progress Bar/Progress bar ika.png" id="4_ldx3k"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_73d5o"]
-load_path = "res://.godot/imported/Progress bar color changing.png-2f0fa527751d6ac975d25568edcdbb09.ctex"
+[ext_resource type="Texture2D" uid="uid://djertenq4maj2" path="res://assets/Star/Starbox main star.png" id="2_50psg"]
+[ext_resource type="Texture2D" uid="uid://dgksueboibmvx" path="res://assets/Star/Starbox main shadow.png" id="4_50psg"]
+[ext_resource type="Texture2D" uid="uid://755dm07jfvdo" path="res://assets/Ika Duba/Progress bar ika.png" id="4_ldx3k"]
+[ext_resource type="Texture2D" uid="uid://cqj15iu2i6mgm" path="res://assets/Progress Bar/Progress bar color changing.png" id="5_jj366"]
 
 [node name="ProgressBar" type="Control"]
 layout_mode = 3
@@ -23,11 +21,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 109.0
+offset_right = -6.0
+offset_bottom = -173.0
 grow_horizontal = 2
 grow_vertical = 2
+value = 38.0
 nine_patch_stretch = true
 texture_under = ExtResource("1_0j3lj")
-texture_progress = SubResource("CompressedTexture2D_73d5o")
+texture_progress = ExtResource("5_jj366")
 
 [node name="ElephantHead" type="Sprite2D" parent="."]
 position = Vector2(51, 158)

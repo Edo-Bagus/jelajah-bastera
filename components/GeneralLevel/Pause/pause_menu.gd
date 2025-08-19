@@ -5,9 +5,9 @@ signal back_pressed
 
 func _ready():
 	visible = false
-	$VBoxContainer/Resume.process_mode = Node.PROCESS_MODE_ALWAYS
-	$VBoxContainer/Quit.process_mode = Node.PROCESS_MODE_ALWAYS
-	$VBoxContainer/Retry.process_mode = Node.PROCESS_MODE_ALWAYS
+	$Panel/HBoxContainer/Resume.process_mode = Node.PROCESS_MODE_ALWAYS
+	$Panel/HBoxContainer/Home.process_mode = Node.PROCESS_MODE_ALWAYS
+	$Panel/HBoxContainer/Retry.process_mode = Node.PROCESS_MODE_ALWAYS
 
 
 func show_menu():

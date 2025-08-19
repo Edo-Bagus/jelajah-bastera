@@ -3,7 +3,7 @@ extends Node
 # =========================
 # Konfigurasi Game
 # =========================
-const PAIRS_PER_ROUND := 10
+const PAIRS_PER_ROUND := 1
 
 @export var MATCH_SCORE: float = 25
 @export var mode: String = "synonym" # "synonym" atau "antonym"
@@ -13,6 +13,7 @@ const PAIRS_PER_ROUND := 10
 # Referensi Node
 # =========================
 @onready var general_level := $General
+@onready var timer: Control = $General/Timer
 @onready var grid_container := $GridContainer
 
 # =========================
@@ -29,6 +30,8 @@ var antonym_pairs: Array = []
 # =========================
 func _ready():
 	general_level._show_loading("Loading")
+	timer.disconnect("timer_finished", Callable(general_level, "_game_won"))
+	timer.connect("timer_finished", Callable(self, "_change_round"))
 	_fetch_data(data_url)
 
 # =========================
@@ -76,6 +79,8 @@ func _init_round():
 	_populate_board(words)
 
 func _populate_board(words: Array) -> void:
+	
+	opened_cards.clear()
 	# Bersihkan board lama
 	for child in grid_container.get_children():
 		child.queue_free()
@@ -142,3 +147,11 @@ func _all_cards_matched() -> bool:
 func _next_round():
 	is_checking = false
 	_init_round()   # langsung lanjut generate ronde baru tanpa batas
+	
+func _change_round():
+	mode = "antonym"
+	_init_round()
+	general_level.reset_timer()
+	general_level.start_timer()
+	timer.disconnect("timer_finished", Callable(self, "_change_round"))
+	timer.connect("timer_finished", Callable(general_level, "_game_won"))
