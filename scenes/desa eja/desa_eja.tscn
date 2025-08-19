@@ -1,9 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://pedqvp1udqau"]
+[gd_scene load_steps=7 format=3 uid="uid://pedqvp1udqau"]
 
 [ext_resource type="Script" uid="uid://cwvjshkfme2o" path="res://scenes/desa eja/desa_eja.gd" id="1_yvpqi"]
+[ext_resource type="Texture2D" uid="uid://63464usfhw16" path="res://assets/Background/Desa Eja.png" id="2_8fsy5"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_tvqiy"]
+[ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="3_rp5fi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1svqc"]
+font_size = 38
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8fsy5"]
+font_size = 19
+font_color = Color(0, 0, 0, 1)
 
 [node name="Desa Eja" type="Control"]
 layout_mode = 3
@@ -14,47 +22,123 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yvpqi")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8fsy5")
+expand_mode = 1
+
 [node name="QuestionLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -417.0
-offset_top = 296.645
+offset_top = 459.0
 offset_right = 417.0
-offset_bottom = 429.645
+offset_bottom = 592.0
 grow_horizontal = 2
 label_settings = SubResource("LabelSettings_1svqc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -22.0
-offset_right = 4.0
-offset_bottom = 22.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = 281.0
+offset_top = 1100.0
+offset_right = 781.0
+offset_bottom = 1252.0
 scale = Vector2(0.982704, 3.37558)
 
-[node name="OptionA" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="OptionA" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 35)
 layout_mode = 2
+texture_normal = ExtResource("3_rp5fi")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="OptionB" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="VBoxContainer/OptionA"]
+custom_minimum_size = Vector2(500, 35)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.2992
+offset_right = 17.2992
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_8fsy5")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="OptionC" type="Button" parent="VBoxContainer"]
+[node name="OptionB" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 35)
 layout_mode = 2
+texture_normal = ExtResource("3_rp5fi")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="OptionD" type="Button" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/OptionB"]
+custom_minimum_size = Vector2(500, 35)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.264
+offset_right = 15.264
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_8fsy5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionC" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 35)
 layout_mode = 2
+texture_normal = ExtResource("3_rp5fi")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/OptionC"]
+custom_minimum_size = Vector2(500, 35)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.264
+offset_top = -0.383723
+offset_right = 15.264
+offset_bottom = -0.383724
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_8fsy5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionD" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 35)
+layout_mode = 2
+texture_normal = ExtResource("3_rp5fi")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/OptionD"]
+custom_minimum_size = Vector2(500, 35)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.264
+offset_right = 15.264
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_8fsy5")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="FeedbackLabel" type="Label" parent="."]
 layout_mode = 0

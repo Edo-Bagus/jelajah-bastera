@@ -1,106 +1,156 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3c3afw1p3n5l"]
+[gd_scene load_steps=8 format=3 uid="uid://b3c3afw1p3n5l"]
 
 [ext_resource type="Script" uid="uid://ka8cnxoslg5x" path="res://scenes/gunung ragabasa/gunung_ragabasa.gd" id="1_5w6af"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_fs8yy"]
+[ext_resource type="Texture2D" uid="uid://bm7wd2clm8l6q" path="res://assets/Background/Gunung Rajabasa.png" id="2_rluhl"]
 [ext_resource type="Script" uid="uid://b6osj3lj2f3m7" path="res://scenes/gunung ragabasa/imbuhan.gd" id="2_y04nr"]
 [ext_resource type="Script" uid="uid://vnc1ufno5732" path="res://scenes/gunung ragabasa/Option/option.gd" id="5_cvmsm"]
+[ext_resource type="LabelSettings" uid="uid://s3ahnn5atq0a" path="res://scenes/gunung ragabasa/LabelOptionRagabasa.tres" id="5_vtv1f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vtv1f"]
+font_size = 21
+font_color = Color(0.158472, 0.158472, 0.158472, 1)
 
 [node name="Gunung Rabasa" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5w6af")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rluhl")
+expand_mode = 1
+
 [node name="QuestionLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 539.0
-offset_top = 172.0
-offset_right = 579.0
-offset_bottom = 195.0
+offset_left = 363.0
+offset_top = 353.0
+offset_right = 755.0
+offset_bottom = 383.0
+text = "Geser imbuhan ini ke kata yang benar!"
+label_settings = SubResource("LabelSettings_vtv1f")
 
 [node name="Imbuhan" type="Panel" parent="."]
-show_behind_parent = true
-custom_minimum_size = Vector2(60, 40)
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
-offset_left = 525.0
-offset_top = 311.0
-offset_right = 585.0
-offset_bottom = 351.0
+offset_left = 390.0
+offset_top = 400.0
+offset_right = 690.0
+offset_bottom = 500.0
 script = ExtResource("2_y04nr")
 
 [node name="Label" type="Label" parent="Imbuhan"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="OptionsContainer" type="Control" parent="."]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 1
-anchors_preset = 0
-offset_left = 113.0
-offset_top = 561.0
-offset_right = 313.0
-offset_bottom = 561.0
-
-[node name="OptionA" type="Panel" parent="OptionsContainer"]
-layout_mode = 0
-offset_left = -26.0
-offset_top = -213.0
-offset_right = 14.0
-offset_bottom = -173.0
-script = ExtResource("5_cvmsm")
-
-[node name="Label" type="Label" parent="OptionsContainer/OptionA"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="OptionB" type="Panel" parent="OptionsContainer"]
-layout_mode = 0
-offset_left = 195.0
-offset_top = 63.0
-offset_right = 235.0
-offset_bottom = 103.0
-script = ExtResource("5_cvmsm")
-
-[node name="Label" type="Label" parent="OptionsContainer/OptionB"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="OptionC" type="Panel" parent="OptionsContainer"]
-layout_mode = 0
-offset_left = 500.0
-offset_top = 133.0
-offset_right = 540.0
-offset_bottom = 173.0
-script = ExtResource("5_cvmsm")
-
-[node name="Label" type="Label" parent="OptionsContainer/OptionC"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="OptionD" type="Panel" parent="OptionsContainer"]
-layout_mode = 0
-offset_left = 722.0
-offset_top = -69.0
-offset_right = 762.0
-offset_bottom = -29.0
-script = ExtResource("5_cvmsm")
-
-[node name="Label" type="Label" parent="OptionsContainer/OptionD"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -50.0
+offset_right = 150.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("5_vtv1f")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="FeedbackLabel" type="Label" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="OptionA" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 100)
+offset_left = 65.0
+offset_top = 760.0
+offset_right = 365.0
+offset_bottom = 860.0
+script = ExtResource("5_cvmsm")
+
+[node name="Label" type="Label" parent="OptionA"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 100.0
+label_settings = ExtResource("5_vtv1f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionB" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 100)
+offset_left = 164.0
+offset_top = 1156.0
+offset_right = 464.0
+offset_bottom = 1256.0
+script = ExtResource("5_cvmsm")
+
+[node name="Label" type="Label" parent="OptionB"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("5_vtv1f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionC" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 100)
+offset_left = 676.0
+offset_top = 918.0
+offset_right = 976.0
+offset_bottom = 1018.0
+script = ExtResource("5_cvmsm")
+
+[node name="Label" type="Label" parent="OptionC"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("5_vtv1f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionD" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 100)
+offset_left = 682.0
+offset_top = 1399.0
+offset_right = 982.0
+offset_bottom = 1499.0
+script = ExtResource("5_cvmsm")
+
+[node name="Label" type="Label" parent="OptionD"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("5_vtv1f")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="General" parent="." instance=ExtResource("2_fs8yy")]
 layout_mode = 1
