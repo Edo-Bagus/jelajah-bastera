@@ -1,9 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk3n0pt5p4w8e"]
+[gd_scene load_steps=14 format=3 uid="uid://bk3n0pt5p4w8e"]
 
 [ext_resource type="Script" uid="uid://p2rx2hthxwkh" path="res://components/GeneralLevel/Pause/pause_menu.gd" id="1_2xvko"]
 [ext_resource type="Texture2D" uid="uid://bxhc1g68lyix0" path="res://assets/Buttons/Button continue.png" id="2_dltni"]
 [ext_resource type="Texture2D" uid="uid://c1fdyd5a1k6mf" path="res://assets/Buttons/Button home.png" id="2_jbcq0"]
+[ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="2_xqvr7"]
 [ext_resource type="Texture2D" uid="uid://fn6aocakgifu" path="res://assets/Buttons/Button refresh.png" id="4_xqvr7"]
+[ext_resource type="Texture2D" uid="uid://eji5ekg1f6l8" path="res://assets/Buttons/Button music mute.png" id="6_l7jjs"]
+[ext_resource type="StyleBox" uid="uid://cj5x60ipver5t" path="res://components/GeneralLevel/Pause/slidevolume.tres" id="6_uuhll"]
+[ext_resource type="Texture2D" uid="uid://b5h1oepx5s2cg" path="res://assets/Buttons/Button mute.png" id="7_djdea"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l7jjs"]
+texture = ExtResource("2_xqvr7")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_djdea"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uuhll"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7jjs"]
+bg_color = Color(1, 0.802417, 0.421247, 1)
+border_width_left = 70
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.917647, 0.666667, 0.188235, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 70.0
+expand_margin_top = 16.0
+expand_margin_right = 6.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_uuhll"]
+font_size = 13
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -39,6 +69,7 @@ offset_right = 250.0
 offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_l7jjs")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -70,6 +101,52 @@ stretch_mode = 0
 custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
 texture_normal = ExtResource("4_xqvr7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="VolumeSlider" type="HSlider" parent="Panel"]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = 17.0
+offset_right = 185.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = SubResource("CanvasTexture_djdea")
+theme_override_icons/grabber_highlight = SubResource("CanvasTexture_uuhll")
+theme_override_styles/slider = SubResource("StyleBoxFlat_l7jjs")
+theme_override_styles/grabber_area = ExtResource("6_uuhll")
+theme_override_styles/grabber_area_highlight = ExtResource("6_uuhll")
+value = 50.0
+
+[node name="Label" type="Label" parent="Panel/VolumeSlider"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = 8.0
+offset_right = -3.0
+offset_bottom = 31.0
+text = "Volume"
+label_settings = SubResource("LabelSettings_uuhll")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MuteButton" type="TextureButton" parent="Panel"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 215.0
+offset_top = 400.0
+offset_right = 290.0
+offset_bottom = 475.0
+toggle_mode = true
+texture_normal = ExtResource("6_l7jjs")
+texture_pressed = ExtResource("7_djdea")
 ignore_texture_size = true
 stretch_mode = 0
 
