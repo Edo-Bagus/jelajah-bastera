@@ -6,6 +6,9 @@ extends Control
 @onready var q_label: Label = $QuestionPanel/Label
 @onready var general_level = $General
 
+@onready var click_sound: AudioStreamPlayer = $ClickSound
+@onready var wrong_sound: AudioStreamPlayer = $WrongSound
+
 @export var MATCH_SCORE = 34
 
 # URL JSON soal (nanti isi dengan link Supabase kamu)
@@ -17,6 +20,7 @@ var dragging := false
 var rope: Line2D = null
 var locked := false
 
+var color : Color
 var http_request: HTTPRequest
 
 func _ready() -> void:
@@ -92,9 +96,15 @@ func _input(event: InputEvent) -> void:
 					if options[i].get_global_rect().has_point(event.position):
 						connected = true
 						locked = true
-
+					
 						var is_correct: bool = options[i].get_meta("is_answer")
-						var color = Color.GREEN if is_correct else Color.RED
+						
+						if is_correct : 
+							color = Color.GREEN
+							click_sound.play()
+						else :
+							color = Color.RED
+							wrong_sound.play()
 
 						if is_correct:
 							general_level.add_score(MATCH_SCORE)

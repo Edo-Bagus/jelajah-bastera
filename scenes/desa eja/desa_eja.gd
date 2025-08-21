@@ -10,6 +10,8 @@ var answer_selected = false
 var selected_questions = [] 
 var current_options = []   # opsi untuk soal yang sedang tampil (sudah diacak)
 var questions = []   # Akan diisi dari JSON fetch
+@onready var click_sound: AudioStreamPlayer = $ClickSound
+@onready var wrong_sound: AudioStreamPlayer = $WrongSound
 
 # variabel option button
 var option_buttons
@@ -95,10 +97,12 @@ func _check_answer(index):
 		general_level.add_score(MATCH_SCORE)
 		btn.modulate = Color(0, 1, 0, 0.7)
 		lbl.modulate = Color(0, 1, 0, 1)
+		click_sound.play()
 	else:
 		$FeedbackLabel.text = "Salah!"
 		btn.modulate = Color(1, 0, 0, 0.7)
 		lbl.modulate = Color(1, 0, 0, 1)
+		wrong_sound.play()
 		# highlight jawaban benar
 		for i in range(current_options.size()):
 			if current_options[i]["is_answer"]:
@@ -142,12 +146,16 @@ func _on_NextButton_pressed():
 
 func _on_option_a_pressed() -> void:
 	_check_answer(0)
+	#click_sound.play()
 
 func _on_option_b_pressed() -> void:
 	_check_answer(1)
+	#click_sound.play()
 
 func _on_option_c_pressed() -> void:
 	_check_answer(2)
+	#click_sound.play()
 
 func _on_option_d_pressed() -> void:
 	_check_answer(3)
+	#click_sound.play()

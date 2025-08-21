@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://pedqvp1udqau"]
+[gd_scene load_steps=9 format=3 uid="uid://pedqvp1udqau"]
 
 [ext_resource type="Script" uid="uid://cwvjshkfme2o" path="res://scenes/desa eja/desa_eja.gd" id="1_yvpqi"]
 [ext_resource type="Texture2D" uid="uid://63464usfhw16" path="res://assets/Background/Desa Eja.png" id="2_8fsy5"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_tvqiy"]
 [ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="3_rp5fi"]
+[ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="5_xtc0i"]
+[ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="6_t5oda"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1svqc"]
 font_size = 38
@@ -147,6 +149,18 @@ offset_bottom = 23.0
 
 [node name="General" parent="." instance=ExtResource("2_tvqiy")]
 layout_mode = 1
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xtc0i")
+
+[node name="WrongSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_t5oda")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="WrongSound"]
+stream = ExtResource("5_xtc0i")
+
+[node name="WrongSound" type="AudioStreamPlayer" parent="WrongSound"]
+stream = ExtResource("6_t5oda")
 
 [connection signal="pressed" from="VBoxContainer/OptionA" to="." method="_on_option_a_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionB" to="." method="_on_option_b_pressed"]

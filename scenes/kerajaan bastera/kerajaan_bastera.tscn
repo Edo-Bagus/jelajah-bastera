@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0gcx6x26opme"]
+[gd_scene load_steps=7 format=3 uid="uid://d0gcx6x26opme"]
 
 [ext_resource type="Script" uid="uid://v3pomw2g8mbq" path="res://scenes/kerajaan bastera/kerajaan_bastera.gd" id="1_o6ebm"]
 [ext_resource type="Script" uid="uid://dge5aspikes2e" path="res://scenes/kerajaan bastera/line_drawer.gd" id="2_q2key"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_rb7am"]
+[ext_resource type="LabelSettings" uid="uid://db14j5ffmgc8l" path="res://scenes/kerajaan bastera/fontboxkerajaanbastera.tres" id="2_se3jg"]
+[ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="5_2g1uy"]
+[ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="6_1ital"]
 
 [node name="Kerajaan Bastera" type="Control"]
 layout_mode = 3
@@ -14,62 +17,117 @@ grow_vertical = 2
 script = ExtResource("1_o6ebm")
 
 [node name="QuestionPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
-offset_left = 258.0
-offset_top = 396.0
-offset_right = 298.0
-offset_bottom = 436.0
+offset_left = 78.0
+offset_top = 851.0
+offset_right = 378.0
+offset_bottom = 951.0
 
 [node name="Label" type="Label" parent="QuestionPanel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("2_se3jg")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="OptionsContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 756.0
-offset_top = 391.0
-offset_right = 796.0
-offset_bottom = 431.0
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 137.0
+offset_top = -152.0
+offset_right = 437.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Option1" type="Panel" parent="OptionsContainer"]
-custom_minimum_size = Vector2(100, 30)
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="OptionsContainer/Option1"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("2_se3jg")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Option2" type="Panel" parent="OptionsContainer"]
-custom_minimum_size = Vector2(100, 30)
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="OptionsContainer/Option2"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("2_se3jg")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Option3" type="Panel" parent="OptionsContainer"]
-custom_minimum_size = Vector2(100, 30)
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="OptionsContainer/Option3"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("2_se3jg")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Option4" type="Panel" parent="OptionsContainer"]
-custom_minimum_size = Vector2(100, 30)
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="OptionsContainer/Option4"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("2_se3jg")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="LineDrawer" type="Node2D" parent="."]
 script = ExtResource("2_q2key")
 
 [node name="General" parent="." instance=ExtResource("2_rb7am")]
 layout_mode = 1
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2g1uy")
+
+[node name="WrongSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_1ital")

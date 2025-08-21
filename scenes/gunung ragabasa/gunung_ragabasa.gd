@@ -11,6 +11,9 @@ extends Control
 @onready var question_label: Label = $QuestionLabel
 #@onready var options_parent: Control = $OptionsContainer
 @onready var general_level := $General
+@onready var click_sound: AudioStreamPlayer = $ClickSound
+@onready var wrong_sound: AudioStreamPlayer = $WrongSound
+
 
 @export var MATCH_SCORE = 34
 var current_question := 0
@@ -134,9 +137,12 @@ func _check_answer(index: int, dragged_imbuhan: String) -> void:
 		general_level.add_score(MATCH_SCORE)
 		feedback_label.text = "✅ Benar!"
 		panel.modulate = Color(0, 1, 0, 1) # hijau
+		click_sound.play()
 	else:
 		feedback_label.text = "❌ Salah!"
 		panel.modulate = Color(1, 0, 0, 1) # merah
+		wrong_sound.play()
+		
 
 	await get_tree().create_timer(1.0, false).timeout
 	current_question += 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3c3afw1p3n5l"]
+[gd_scene load_steps=10 format=3 uid="uid://b3c3afw1p3n5l"]
 
 [ext_resource type="Script" uid="uid://ka8cnxoslg5x" path="res://scenes/gunung ragabasa/gunung_ragabasa.gd" id="1_5w6af"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_fs8yy"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://b6osj3lj2f3m7" path="res://scenes/gunung ragabasa/imbuhan.gd" id="2_y04nr"]
 [ext_resource type="Script" uid="uid://vnc1ufno5732" path="res://scenes/gunung ragabasa/Option/option.gd" id="5_cvmsm"]
 [ext_resource type="LabelSettings" uid="uid://s3ahnn5atq0a" path="res://scenes/gunung ragabasa/LabelOptionRagabasa.tres" id="5_vtv1f"]
+[ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="7_cvmsm"]
+[ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="8_8lbc2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vtv1f"]
 font_size = 21
@@ -77,6 +79,7 @@ offset_bottom = 23.0
 
 [node name="OptionA" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
 offset_left = 65.0
 offset_top = 760.0
 offset_right = 365.0
@@ -94,6 +97,7 @@ vertical_alignment = 1
 
 [node name="OptionB" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
 offset_left = 164.0
 offset_top = 1156.0
 offset_right = 464.0
@@ -114,6 +118,7 @@ vertical_alignment = 1
 
 [node name="OptionC" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
 offset_left = 676.0
 offset_top = 918.0
 offset_right = 976.0
@@ -134,6 +139,7 @@ vertical_alignment = 1
 
 [node name="OptionD" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
 offset_left = 682.0
 offset_top = 1399.0
 offset_right = 982.0
@@ -154,3 +160,9 @@ vertical_alignment = 1
 
 [node name="General" parent="." instance=ExtResource("2_fs8yy")]
 layout_mode = 1
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_cvmsm")
+
+[node name="WrongSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_8lbc2")

@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb3u7s4crg2qp"]
+[gd_scene load_steps=5 format=3 uid="uid://bb3u7s4crg2qp"]
 
 [ext_resource type="Script" uid="uid://dqnauwbcrgpn7" path="res://scenes/main menu/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://bmldt4h5opqrw" path="res://assets/Background/Main Menu.png" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://dcg3jutpho3il" path="res://assets/Background/Main Page.png" id="2_vifqf"]
 [ext_resource type="AudioStream" uid="uid://b6xb0edcuxo7v" path="res://assets/Sound/Main Menu.mp3" id="3_bqqt6"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
-texture = ExtResource("1_l6cm7")
-modulate_color = Color(0.581033, 0.581033, 0.581033, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vue75"]
 font_size = 34
@@ -20,14 +16,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
+texture = ExtResource("2_vifqf")
+expand_mode = 1
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
