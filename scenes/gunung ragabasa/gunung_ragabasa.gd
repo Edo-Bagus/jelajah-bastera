@@ -27,6 +27,7 @@ const SOAL_URL = "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/pub
 
 
 func _ready() -> void:
+	general_level.level = 4
 	# tambahkan http_request ke scene
 	add_child(http_request)
 	http_request.request_completed.connect(_on_http_request_completed)

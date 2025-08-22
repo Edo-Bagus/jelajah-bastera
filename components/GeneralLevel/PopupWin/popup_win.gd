@@ -9,6 +9,8 @@ extends Control
 @onready var btn_next := $Panel/Buttons/Next
 @onready var btn_replay := $Panel/Buttons/Replay
 @onready var icon: TextureRect = $Panel/Icon
+@onready var high_score_label := $Panel/NilaiSkorTinggi
+@onready var score_label := $Panel/NilaiSkor
 
 signal home_pressed
 signal next_pressed
@@ -27,7 +29,7 @@ func _ready():
 	# awalnya disembunyikan
 	hide()
 
-func show_result(score: float, max_score: float):
+func show_result(score: float, max_score: float, high_score: int):
 	# hitung jumlah bintang (misal 1 bintang tiap 33%)
 	var percent = score / max_score
 	var star_count = int(round(percent * 3))
@@ -40,7 +42,9 @@ func show_result(score: float, max_score: float):
 	score_bar.value = score
 	
 	update_icon_position()
-
+	
+	score_label.text = str(int(score))
+	high_score_label.text = str(int(high_score))
 	# tampilkan dan center manual
 	show()
 	global_position = (get_viewport_rect().size - size) / 2

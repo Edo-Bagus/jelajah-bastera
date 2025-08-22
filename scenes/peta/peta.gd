@@ -1,9 +1,42 @@
 extends Control
 
+@onready var hutan_kata := $HBoxContainer/HutanKata
+@onready var desa_eja := $HBoxContainer/DesaEja
+@onready var sungai_baku := $HBoxContainer/SungaiBaku
+@onready var gunung_ragabasa := $HBoxContainer/GunungRagabasa
+@onready var kerajaan_bastera := $HBoxContainer/KerajaanBastera
+
+var scores = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	await load_scores()
+	print(scores)
+	check_unlocks()
+
+
+# Load semua skor dulu
+func load_scores() -> void:
+	for i in range(0, 5):
+		var score = await Global.get_highscore(i + 1)
+		print("test")
+		scores.append(score)
+
+
+# Baru cek kondisi setelah semua skor masuk
+func check_unlocks() -> void:
+	if scores[0] != -2:
+		sungai_baku.disabled = false
+	
+	if scores[1] != -2:
+		desa_eja.disabled = false
+		
+	if scores[2] != -2:
+		gunung_ragabasa.disabled = false
+		
+	if scores[3] != -2:
+		kerajaan_bastera.disabled = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
