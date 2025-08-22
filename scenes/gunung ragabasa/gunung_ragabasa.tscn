@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://b3c3afw1p3n5l"]
+[gd_scene load_steps=17 format=3 uid="uid://b3c3afw1p3n5l"]
 
 [ext_resource type="Script" uid="uid://ka8cnxoslg5x" path="res://scenes/gunung ragabasa/gunung_ragabasa.gd" id="1_5w6af"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_fs8yy"]
 [ext_resource type="Texture2D" uid="uid://bm7wd2clm8l6q" path="res://assets/Background/Gunung Rajabasa.png" id="2_rluhl"]
 [ext_resource type="Script" uid="uid://b6osj3lj2f3m7" path="res://scenes/gunung ragabasa/imbuhan.gd" id="2_y04nr"]
+[ext_resource type="StyleBox" uid="uid://xjb0ppwsf0qk" path="res://scenes/gunung ragabasa/panel.tres" id="3_h708p"]
 [ext_resource type="Texture2D" uid="uid://dk7mycu75u7tl" path="res://assets/Buttons/papan kayu.png" id="5_8lbc2"]
 [ext_resource type="Script" uid="uid://vnc1ufno5732" path="res://scenes/gunung ragabasa/Option/option.gd" id="5_cvmsm"]
 [ext_resource type="LabelSettings" uid="uid://s3ahnn5atq0a" path="res://scenes/gunung ragabasa/LabelOptionRagabasa.tres" id="5_vtv1f"]
@@ -13,6 +14,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_vtv1f"]
 font_size = 29
 font_color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_caquv"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h708p"]
 texture = ExtResource("5_8lbc2")
@@ -56,22 +61,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -269.0
-offset_top = -648.0
-offset_right = 269.0
-offset_bottom = -608.0
+offset_left = -278.0
+offset_top = -663.0
+offset_right = 327.0
+offset_bottom = -580.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Geser imbuhan ini ke kata yang benar!"
+text = "Tempel kertas imbuhan ini ke papan yang sesuai !"
 label_settings = SubResource("LabelSettings_vtv1f")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Imbuhan" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
 offset_left = 390.0
 offset_top = 400.0
-offset_right = 690.0
-offset_bottom = 500.0
+offset_right = 709.0
+offset_bottom = 578.0
+theme_override_styles/panel = ExtResource("3_h708p")
 script = ExtResource("2_y04nr")
 
 [node name="Label" type="Label" parent="Imbuhan"]
@@ -88,7 +97,7 @@ offset_right = 150.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-label_settings = ExtResource("5_vtv1f")
+label_settings = SubResource("LabelSettings_caquv")
 horizontal_alignment = 1
 vertical_alignment = 1
 

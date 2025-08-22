@@ -64,7 +64,7 @@ func _on_http_request_completed(result, response_code, headers, body):
 func show_question() -> void:
 	answer_selected = false
 	feedback_label.text = ""
-	question_label.text = "Geser imbuhan ini ke kata yang benar!"
+	question_label.text = "Tempel kertas imbuhan ini ke papan yang sesuai !"
 
 	# set imbuhan yang akan di-drag
 	if imbuhan_panel.has_method("set_text"):

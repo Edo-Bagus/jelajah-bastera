@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://xjb0ppwsf0qk"]
+
+[ext_resource type="Texture2D" uid="uid://d1qtgw1q82s0f" path="res://assets/Buttons/kertas tempel.png" id="1_rqrfh"]
+
+[resource]
+texture = ExtResource("1_rqrfh")
