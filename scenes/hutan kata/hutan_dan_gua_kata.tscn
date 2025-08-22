@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="6_chpqd"]
 [ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="7_jq43x"]
 
-[node name="Node2D" type="Control"]
+[node name="Node2D2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -14,6 +14,7 @@ func _ready():
 	
 	start_timer(timer_duration)
 
+
 func _game_won():
 	var high_score = await Global.get_highscore(level)
 	if progress_bar.value > high_score:

@@ -9,7 +9,7 @@ extends Control
 @onready var click_sound: AudioStreamPlayer = $ClickSound
 @onready var wrong_sound: AudioStreamPlayer = $WrongSound
 
-@export var MATCH_SCORE = 34
+@export var MATCH_SCORE = 5
 
 # URL JSON soal (nanti isi dengan link Supabase kamu)
 const SOAL_URL := "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/public/BankSoal/bank_soal_asli.json"

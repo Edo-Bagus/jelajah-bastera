@@ -14,13 +14,13 @@ func _ready() -> void:
 	await load_scores()
 	print(scores)
 	check_unlocks()
+	
 
 
 # Load semua skor dulu
 func load_scores() -> void:
 	for i in range(0, 5):
 		var score = await Global.get_highscore(i + 1)
-		print("test")
 		scores.append(score)
 
 
@@ -59,3 +59,7 @@ func _on_gunung_ragabasa_pressed() -> void:
 
 func _on_kerajaan_bastera_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/kerajaan bastera/kerajaan_bastera.tscn")
+
+
+func _on_skor_pressed() -> void:
+	$PopupFinalSkor.show()
