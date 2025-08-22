@@ -3,18 +3,24 @@ extends Node
 # =========================
 # Konfigurasi Game
 # =========================
-const PAIRS_PER_ROUND := 1
+const PAIRS_PER_ROUND := 4
 
 @export var MATCH_SCORE: float = 25
 @export var mode: String = "synonym" # "synonym" atau "antonym"
 @export var data_url: String = "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/public/BankSoal/sinonim_antonim.json"
-
+@export var background_gua: Texture
 # =========================
 # Referensi Node
 # =========================
 @onready var general_level := $General
 @onready var timer: Control = $General/Timer
 @onready var grid_container := $GridContainer
+@onready var background := $Background
+@onready var change_round := $ChangeRound
+@onready var click_sound: AudioStreamPlayer = $ClickSound
+@onready var wrong_sound: AudioStreamPlayer = $WrongSound
+
+@export var timer_duration: float
 
 # =========================
 # State Game
@@ -30,6 +36,7 @@ var antonym_pairs: Array = []
 # =========================
 func _ready():
 	general_level._show_loading("Loading")
+	general_level.level = 1
 	timer.disconnect("timer_finished", Callable(general_level, "_game_won"))
 	timer.connect("timer_finished", Callable(self, "_change_round"))
 	_fetch_data(data_url)
@@ -109,20 +116,24 @@ func _on_card_pressed(card):
 func _check_match():
 	var card1: TextureButton = opened_cards[0]
 	var card2: TextureButton = opened_cards[1]
+	
+	await get_tree().create_timer(1.0).timeout
+	if is_instance_valid(card1) and is_instance_valid(card2):
+		if _is_pair(card1.word, card2.word):
+			card1.mark_matched()
+			card2.mark_matched()
+			general_level.add_score(MATCH_SCORE)
+			click_sound.play()
 
-	if _is_pair(card1.word, card2.word):
-		await get_tree().create_timer(1.0).timeout
-		card1.mark_matched()
-		card2.mark_matched()
-		general_level.add_score(MATCH_SCORE)
+			if _all_cards_matched():
+				await get_tree().create_timer(1.0).timeout
+				_next_round()
+		else:
+			wrong_sound.play()
+			card1.flip()
+			card2.flip()
 
-		if _all_cards_matched():
-			await get_tree().create_timer(1.0).timeout
-			_next_round()
-	else:
-		await get_tree().create_timer(1.0).timeout
-		card1.flip()
-		card2.flip()
+
 
 	opened_cards.clear()
 	is_checking = false
@@ -149,9 +160,11 @@ func _next_round():
 	_init_round()   # langsung lanjut generate ronde baru tanpa batas
 	
 func _change_round():
+	change_round.show_result(general_level.progress_bar.value, 100)
 	mode = "antonym"
+	background.texture = background_gua
 	_init_round()
 	general_level.reset_timer()
-	general_level.start_timer()
+	general_level.start_timer(timer_duration)
 	timer.disconnect("timer_finished", Callable(self, "_change_round"))
 	timer.connect("timer_finished", Callable(general_level, "_game_won"))

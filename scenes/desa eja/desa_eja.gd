@@ -29,6 +29,7 @@ func _ready():
 	]
 	
 	general_level._show_loading("Loading")
+	general_level.level = 3
 	
 	# fetch data soal dari Supabase
 	http_request = HTTPRequest.new()

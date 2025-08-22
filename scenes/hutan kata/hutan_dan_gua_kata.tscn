@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://r68272fegvmi"]
+[gd_scene load_steps=8 format=3 uid="uid://r68272fegvmi"]
 
 [ext_resource type="Script" uid="uid://bvme6ycgf0tqt" path="res://scenes/hutan kata/sinonim_antonim.gd" id="1_chpqd"]
+[ext_resource type="Texture2D" uid="uid://bm7wd2clm8l6q" path="res://assets/Background/Gunung Rajabasa.png" id="2_5yhep"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_be7ci"]
+[ext_resource type="Texture2D" uid="uid://dtdakeuldhk1r" path="res://assets/Background/Hutan Sinonim Antonim.png" id="2_xkjc3"]
+[ext_resource type="PackedScene" uid="uid://cexhlinwbroje" path="res://scenes/hutan kata/Change Round/ChangeRound.tscn" id="5_gbnx8"]
+[ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="6_chpqd"]
+[ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="7_jq43x"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -12,6 +17,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_chpqd")
 MATCH_SCORE = 34.0
+background_gua = ExtResource("2_5yhep")
+timer_duration = 10.0
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xkjc3")
+expand_mode = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 1
@@ -30,3 +47,13 @@ columns = 4
 
 [node name="General" parent="." instance=ExtResource("2_be7ci")]
 layout_mode = 1
+timer_duration = 5.0
+
+[node name="ChangeRound" parent="." instance=ExtResource("5_gbnx8")]
+layout_mode = 1
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_chpqd")
+
+[node name="WrongSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jq43x")

@@ -26,6 +26,7 @@ var http_request: HTTPRequest
 func _ready() -> void:
 	# buat node HTTPRequest lewat kode
 	general_level._show_loading("Loading")
+	general_level.level = 5
 	
 	http_request = HTTPRequest.new()
 	add_child(http_request)

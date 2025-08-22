@@ -1,8 +1,7 @@
 extends Control
 
 @export_range(0, 100) var value: float = 100 : set = set_value
-@export var clock_texture: Texture2D   
-@export var duration: float = 10.0   # waktu total timer dalam detik
+@export var clock_texture: Texture2D
 
 @onready var bar: TextureProgressBar = $Bar
 @onready var clock: Sprite2D = $ClockIcon
@@ -20,10 +19,7 @@ func _ready():
 
 	_update_clock(bar.value)
 
-	# mulai timer otomatis saat start
-	start_timer()
-
-func start_timer():
+func start_timer(duration: float):
 	if tween != null:
 		tween.kill()
 	tween = create_tween()

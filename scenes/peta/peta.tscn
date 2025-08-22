@@ -31,32 +31,36 @@ layout_mode = 2
 text = "Hutan 
 Kata"
 
-[node name="DesaEja" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-text = "Desa
-Eja"
-
 [node name="SungaiBaku" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+disabled = true
 text = "Sungai
 Baku"
+
+[node name="DesaEja" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+disabled = true
+text = "Desa
+Eja"
 
 [node name="GunungRagabasa" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+disabled = true
 text = "Gunung
 Ragabasa"
 
 [node name="KerajaanBastera" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+disabled = true
 text = "Kerajaan
 Bastera"
 
 [connection signal="pressed" from="HBoxContainer/HutanKata" to="." method="_on_hutan_kata_pressed"]
-[connection signal="pressed" from="HBoxContainer/DesaEja" to="." method="_on_desa_eja_pressed"]
 [connection signal="pressed" from="HBoxContainer/SungaiBaku" to="." method="_on_sungai_baku_pressed"]
+[connection signal="pressed" from="HBoxContainer/DesaEja" to="." method="_on_desa_eja_pressed"]
 [connection signal="pressed" from="HBoxContainer/GunungRagabasa" to="." method="_on_gunung_ragabasa_pressed"]
 [connection signal="pressed" from="HBoxContainer/KerajaanBastera" to="." method="_on_kerajaan_bastera_pressed"]

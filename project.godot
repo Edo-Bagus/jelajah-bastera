@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Jelajah Bastera"
-run/main_scene="res://scenes/main menu/main_menu.tscn"
+run/main_scene="uid://cc8tjtvnjhklj"
 config/features=PackedStringArray("4.4", "Mobile")
+boot_splash/image="uid://diu6ajmci2jj6"
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Global.gd"
 
 [display]
 
@@ -21,8 +26,7 @@ window/size/viewport_width=1080
 window/size/viewport_height=1920
 window/size/window_width_override=540
 window/size/window_height_override=960
-window/stretch/mode="viewport"
-window/stretch/aspect="ignore"
+window/stretch/mode="canvas_items"
 window/handheld/orientation=1
 
 [rendering]
