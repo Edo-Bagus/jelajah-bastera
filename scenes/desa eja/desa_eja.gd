@@ -12,6 +12,7 @@ var current_options = []   # opsi untuk soal yang sedang tampil (sudah diacak)
 var questions = []   # Akan diisi dari JSON fetch
 @onready var click_sound: AudioStreamPlayer = $ClickSound
 @onready var wrong_sound: AudioStreamPlayer = $WrongSound
+@onready var question_label: Label = $Soal/QuestionLabel
 
 # variabel option button
 var option_buttons
@@ -40,21 +41,20 @@ func _ready():
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	if response_code != 200:
-		$QuestionLabel.text = "Gagal memuat soal!"
+		question_label.text = "Gagal memuat soal!"
 		return
 	
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	if typeof(json) == TYPE_ARRAY:
 		questions = json
 	else:
-		$QuestionLabel.text = "Format soal tidak valid!"
+		question_label.text = "Format soal tidak valid!"
 		return
 	
 	general_level._hide_loading()
 	# ambil 5 soal acak
 	selected_questions = questions.duplicate()
 	selected_questions.shuffle()
-	selected_questions = selected_questions.slice(0, 5)
 	
 	show_question()
 
@@ -65,7 +65,7 @@ func show_question():
 	$FeedbackLabel.text = ""
 
 	var q = selected_questions[current_question]
-	$QuestionLabel.text = q["question"]
+	question_label.text = q["question"]
 
 	# acak options, simpan ke current_options
 	current_options = q["options"].duplicate()
@@ -127,7 +127,7 @@ func _check_answer(index):
 	if current_question < selected_questions.size():
 		show_question()
 	else:
-		$QuestionLabel.text = "Permainan selesai!"
+		question_label.text = "Permainan selesai!"
 		$VBoxContainer.hide()
 		$FeedbackLabel.text = "Skor kamu: %d dari %d" % [score, selected_questions.size()]
 
@@ -138,7 +138,7 @@ func _on_NextButton_pressed():
 	if current_question < selected_questions.size():
 		show_question()
 	else:
-		$QuestionLabel.text = "Permainan selesai!"
+		question_label.text = "Permainan selesai!"
 		$VBoxContainer.hide()
 		$FeedbackLabel.text = "Skor kamu: %d dari %d" % [score, selected_questions.size()]
 		$NextButton.hide()

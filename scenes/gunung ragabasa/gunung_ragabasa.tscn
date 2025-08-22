@@ -1,17 +1,30 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3c3afw1p3n5l"]
+[gd_scene load_steps=15 format=3 uid="uid://b3c3afw1p3n5l"]
 
 [ext_resource type="Script" uid="uid://ka8cnxoslg5x" path="res://scenes/gunung ragabasa/gunung_ragabasa.gd" id="1_5w6af"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_fs8yy"]
 [ext_resource type="Texture2D" uid="uid://bm7wd2clm8l6q" path="res://assets/Background/Gunung Rajabasa.png" id="2_rluhl"]
 [ext_resource type="Script" uid="uid://b6osj3lj2f3m7" path="res://scenes/gunung ragabasa/imbuhan.gd" id="2_y04nr"]
+[ext_resource type="Texture2D" uid="uid://dk7mycu75u7tl" path="res://assets/Buttons/papan kayu.png" id="5_8lbc2"]
 [ext_resource type="Script" uid="uid://vnc1ufno5732" path="res://scenes/gunung ragabasa/Option/option.gd" id="5_cvmsm"]
 [ext_resource type="LabelSettings" uid="uid://s3ahnn5atq0a" path="res://scenes/gunung ragabasa/LabelOptionRagabasa.tres" id="5_vtv1f"]
 [ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="7_cvmsm"]
 [ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="8_8lbc2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vtv1f"]
-font_size = 21
+font_size = 29
 font_color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h708p"]
+texture = ExtResource("5_8lbc2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8lbc2"]
+texture = ExtResource("5_8lbc2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cxqdi"]
+texture = ExtResource("5_8lbc2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m1js7"]
+texture = ExtResource("5_8lbc2")
 
 [node name="Gunung Rabasa" type="Control"]
 layout_mode = 3
@@ -37,11 +50,18 @@ texture = ExtResource("2_rluhl")
 expand_mode = 1
 
 [node name="QuestionLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 363.0
-offset_top = 353.0
-offset_right = 755.0
-offset_bottom = 383.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.0
+offset_top = -648.0
+offset_right = 269.0
+offset_bottom = -608.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Geser imbuhan ini ke kata yang benar!"
 label_settings = SubResource("LabelSettings_vtv1f")
 
@@ -82,15 +102,18 @@ custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
 offset_left = 65.0
 offset_top = 760.0
-offset_right = 365.0
-offset_bottom = 860.0
+offset_right = 459.0
+offset_bottom = 1082.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_h708p")
 script = ExtResource("5_cvmsm")
 
 [node name="Label" type="Label" parent="OptionA"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
-offset_right = 300.0
-offset_bottom = 100.0
+offset_left = 39.0
+offset_top = 64.0
+offset_right = 339.0
+offset_bottom = 164.0
 label_settings = ExtResource("5_vtv1f")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -98,10 +121,11 @@ vertical_alignment = 1
 [node name="OptionB" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
-offset_left = 164.0
-offset_top = 1156.0
-offset_right = 464.0
-offset_bottom = 1256.0
+offset_left = 85.0
+offset_top = 1185.0
+offset_right = 501.0
+offset_bottom = 1557.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8lbc2")
 script = ExtResource("5_cvmsm")
 
 [node name="Label" type="Label" parent="OptionB"]
@@ -110,6 +134,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 87.0
+offset_right = -46.0
+offset_bottom = -185.0
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = ExtResource("5_vtv1f")
@@ -119,10 +147,11 @@ vertical_alignment = 1
 [node name="OptionC" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
-offset_left = 676.0
-offset_top = 918.0
-offset_right = 976.0
-offset_bottom = 1018.0
+offset_left = 683.0
+offset_top = 861.0
+offset_right = 1086.0
+offset_bottom = 1157.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_cxqdi")
 script = ExtResource("5_cvmsm")
 
 [node name="Label" type="Label" parent="OptionC"]
@@ -131,6 +160,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = 57.0
+offset_right = -60.0
+offset_bottom = -139.0
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = ExtResource("5_vtv1f")
@@ -140,10 +173,11 @@ vertical_alignment = 1
 [node name="OptionD" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
-offset_left = 682.0
-offset_top = 1399.0
-offset_right = 982.0
-offset_bottom = 1499.0
+offset_left = 625.0
+offset_top = 1207.0
+offset_right = 1052.0
+offset_bottom = 1585.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_m1js7")
 script = ExtResource("5_cvmsm")
 
 [node name="Label" type="Label" parent="OptionD"]
@@ -152,6 +186,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = 93.0
+offset_right = -53.0
+offset_bottom = -185.0
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = ExtResource("5_vtv1f")

@@ -1,11 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0gcx6x26opme"]
+[gd_scene load_steps=13 format=3 uid="uid://d0gcx6x26opme"]
 
 [ext_resource type="Script" uid="uid://v3pomw2g8mbq" path="res://scenes/kerajaan bastera/kerajaan_bastera.gd" id="1_o6ebm"]
+[ext_resource type="Texture2D" uid="uid://df0si3ubau7sh" path="res://assets/Background/kerajaan bastera.png" id="2_1ital"]
 [ext_resource type="Script" uid="uid://dge5aspikes2e" path="res://scenes/kerajaan bastera/line_drawer.gd" id="2_q2key"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_rb7am"]
 [ext_resource type="LabelSettings" uid="uid://db14j5ffmgc8l" path="res://scenes/kerajaan bastera/fontboxkerajaanbastera.tres" id="2_se3jg"]
+[ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="3_brq4j"]
+[ext_resource type="Texture2D" uid="uid://dksqtcbuhi5kb" path="res://assets/Buttons/kayu 1 (1).png" id="4_s13pb"]
 [ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="5_2g1uy"]
 [ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="6_1ital"]
+[ext_resource type="Texture2D" uid="uid://bt5pu1v67c6k4" path="res://assets/Buttons/rope.png" id="6_u6cla"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s13pb"]
+texture = ExtResource("4_s13pb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_38pc6"]
+texture = ExtResource("4_s13pb")
 
 [node name="Kerajaan Bastera" type="Control"]
 layout_mode = 3
@@ -16,13 +26,39 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o6ebm")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1ital")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -493.0
+offset_top = -77.0
+offset_right = 507.0
+offset_bottom = 593.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_brq4j")
+
 [node name="QuestionPanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
-offset_left = 78.0
-offset_top = 851.0
-offset_right = 378.0
-offset_bottom = 951.0
+offset_left = 83.0
+offset_top = 1159.0
+offset_right = 383.0
+offset_bottom = 1259.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_s13pb")
 
 [node name="Label" type="Label" parent="QuestionPanel"]
 custom_minimum_size = Vector2(300, 100)
@@ -45,16 +81,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 137.0
-offset_top = -152.0
-offset_right = 437.0
-offset_bottom = 60.0
+offset_left = 142.0
+offset_top = 56.0
+offset_right = 442.0
+offset_bottom = 468.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Option1" type="Panel" parent="OptionsContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_38pc6")
 
 [node name="Label" type="Label" parent="OptionsContainer/Option1"]
 custom_minimum_size = Vector2(300, 100)
@@ -72,6 +109,7 @@ autowrap_mode = 3
 [node name="Option2" type="Panel" parent="OptionsContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_38pc6")
 
 [node name="Label" type="Label" parent="OptionsContainer/Option2"]
 custom_minimum_size = Vector2(300, 100)
@@ -89,6 +127,7 @@ autowrap_mode = 3
 [node name="Option3" type="Panel" parent="OptionsContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_38pc6")
 
 [node name="Label" type="Label" parent="OptionsContainer/Option3"]
 custom_minimum_size = Vector2(300, 100)
@@ -106,6 +145,7 @@ autowrap_mode = 3
 [node name="Option4" type="Panel" parent="OptionsContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_38pc6")
 
 [node name="Label" type="Label" parent="OptionsContainer/Option4"]
 custom_minimum_size = Vector2(300, 100)
@@ -122,6 +162,11 @@ autowrap_mode = 3
 
 [node name="LineDrawer" type="Node2D" parent="."]
 script = ExtResource("2_q2key")
+
+[node name="Line2D" type="Line2D" parent="LineDrawer"]
+z_index = 19
+points = PackedVector2Array(0, 0)
+texture = ExtResource("6_u6cla")
 
 [node name="General" parent="." instance=ExtResource("2_rb7am")]
 layout_mode = 1

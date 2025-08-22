@@ -1,18 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://pedqvp1udqau"]
+[gd_scene load_steps=12 format=3 uid="uid://pedqvp1udqau"]
 
 [ext_resource type="Script" uid="uid://cwvjshkfme2o" path="res://scenes/desa eja/desa_eja.gd" id="1_yvpqi"]
 [ext_resource type="Texture2D" uid="uid://63464usfhw16" path="res://assets/Background/Desa Eja.png" id="2_8fsy5"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_tvqiy"]
+[ext_resource type="Texture2D" uid="uid://nurbkhsgvc4e" path="res://assets/Buttons/kayu 1.png" id="3_210y3"]
 [ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="3_rp5fi"]
 [ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="5_xtc0i"]
 [ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="6_t5oda"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_1svqc"]
-font_size = 38
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vk5d"]
+texture = ExtResource("3_210y3")
+
+[sub_resource type="LabelSettings" id="LabelSettings_210y3"]
+font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_8fsy5"]
 font_size = 19
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1svqc"]
+font_size = 38
 font_color = Color(0, 0, 0, 1)
 
 [node name="Desa Eja" type="Control"]
@@ -34,19 +41,33 @@ grow_vertical = 2
 texture = ExtResource("2_8fsy5")
 expand_mode = 1
 
-[node name="QuestionLabel" type="Label" parent="."]
+[node name="Soal" type="Panel" parent="."]
+custom_minimum_size = Vector2(830, 130)
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -417.0
-offset_top = 459.0
-offset_right = 417.0
-offset_bottom = 592.0
+anchor_bottom = 0.5
+offset_left = -415.0
+offset_top = -156.0
+offset_right = 415.0
+offset_bottom = -26.0
 grow_horizontal = 2
-label_settings = SubResource("LabelSettings_1svqc")
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4vk5d")
+
+[node name="QuestionLabel" type="Label" parent="Soal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_210y3")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -143,9 +164,26 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FeedbackLabel" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -404.0
+offset_top = 288.0
+offset_right = 430.0
+offset_bottom = 421.0
+grow_horizontal = 2
+text = "Benarkan penggunaan huruf kapital pada kalimat berikut sesuai dengan EYD !"
+label_settings = SubResource("LabelSettings_1svqc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="General" parent="." instance=ExtResource("2_tvqiy")]
 layout_mode = 1

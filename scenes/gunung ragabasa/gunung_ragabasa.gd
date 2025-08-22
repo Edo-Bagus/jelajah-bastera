@@ -13,83 +13,43 @@ extends Control
 @onready var general_level := $General
 @onready var click_sound: AudioStreamPlayer = $ClickSound
 @onready var wrong_sound: AudioStreamPlayer = $WrongSound
-
+@onready var http_request: HTTPRequest = HTTPRequest.new()
 
 @export var MATCH_SCORE = 34
 var current_question := 0
 var score := 0
 var answer_selected := false
 var selected_questions := []
+var questions := []   # akan diisi dari JSON
 
-# data soal baru: options pakai array of dict {text, is_answer}
-var questions := [
-	{"imbuhan":"me-","options":[
-		{"text":"menyontek","is_answer":true},
-		{"text":"mensontek","is_answer":false},
-		{"text":"mencontek","is_answer":false},
-		{"text":"mecontek","is_answer":false}
-	]},
-	{"imbuhan":"ber-","options":[
-		{"text":"bermain","is_answer":true},
-		{"text":"barmain","is_answer":false},
-		{"text":"beramin","is_answer":false},
-		{"text":"brmain","is_answer":false}
-	]},
-	{"imbuhan":"ter-","options":[
-		{"text":"tertidur","is_answer":true},
-		{"text":"tertidor","is_answer":false},
-		{"text":"tertdur","is_answer":false},
-		{"text":"tertidorr","is_answer":false}
-	]},
-	{"imbuhan":"di-","options":[
-		{"text":"dimasak","is_answer":true},
-		{"text":"dimmasak","is_answer":false},
-		{"text":"dimasaak","is_answer":false},
-		{"text":"dimassak","is_answer":false}
-	]},
-	{"imbuhan":"ke-","options":[
-		{"text":"keindahan","is_answer":true},
-		{"text":"keindhan","is_answer":false},
-		{"text":"keindahn","is_answer":false},
-		{"text":"kindahan","is_answer":false}
-	]},
-	{"imbuhan":"pe-","options":[
-		{"text":"petani","is_answer":true},
-		{"text":"petanni","is_answer":false},
-		{"text":"pettani","is_answer":false},
-		{"text":"petanii","is_answer":false}
-	]},
-	{"imbuhan":"se-","options":[
-		{"text":"setinggi","is_answer":true},
-		{"text":"setingi","is_answer":false},
-		{"text":"setinggii","is_answer":false},
-		{"text":"setngi","is_answer":false}
-	]},
-	{"imbuhan":"per-","options":[
-		{"text":"perlombaan","is_answer":true},
-		{"text":"perlombean","is_answer":false},
-		{"text":"perlomabaan","is_answer":false},
-		{"text":"perlommbaan","is_answer":false}
-	]},
-	{"imbuhan":"mem-","options":[
-		{"text":"memukul","is_answer":true},
-		{"text":"memukull","is_answer":false},
-		{"text":"memuukul","is_answer":false},
-		{"text":"mmemukul","is_answer":false}
-	]},
-	{"imbuhan":"men-","options":[
-		{"text":"menulis","is_answer":true},
-		{"text":"menullis","is_answer":false},
-		{"text":"mennulis","is_answer":false},
-		{"text":"mennnulis","is_answer":false}
-	]}
-]
+# URL soal dari Supabase Storage
+const SOAL_URL = "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/public/BankSoal/soal_imbuhan.json"
+
 
 func _ready() -> void:
+	# tambahkan http_request ke scene
+	add_child(http_request)
+	http_request.request_completed.connect(_on_http_request_completed)
+
+	# fetch soal dari Supabase
+	http_request.request(SOAL_URL)
+
+
+func _on_http_request_completed(result, response_code, headers, body):
+	if response_code != 200:
+		question_label.text = "Gagal memuat soal!"
+		return
+
+	var json = JSON.parse_string(body.get_string_from_utf8())
+	if typeof(json) == TYPE_ARRAY:
+		questions = json
+	else:
+		question_label.text = "Format soal tidak valid!"
+		return
+
 	# ambil 5 soal acak
-	var pool := questions.duplicate()
-	pool.shuffle()
-	selected_questions = pool.slice(0, 5)
+	selected_questions = questions.duplicate()
+	selected_questions.shuffle()
 
 	# hubungkan sinyal drop dari tiap panel (sekali saja)
 	for i in range(option_panels.size()):
@@ -99,6 +59,7 @@ func _ready() -> void:
 			option_panels[i].connect("dropped", Callable(self, "_on_option_dropped"))
 
 	show_question()
+
 
 func show_question() -> void:
 	answer_selected = false
@@ -120,8 +81,10 @@ func show_question() -> void:
 		panel.set_meta("is_answer", q["options"][i]["is_answer"])
 		panel.modulate = Color(1, 1, 1, 1)  # reset warna
 
+
 func _on_option_dropped(index: int, imbuhan: String) -> void:
 	_check_answer(index, imbuhan)
+
 
 func _check_answer(index: int, dragged_imbuhan: String) -> void:
 	if answer_selected:
@@ -142,7 +105,6 @@ func _check_answer(index: int, dragged_imbuhan: String) -> void:
 		feedback_label.text = "❌ Salah!"
 		panel.modulate = Color(1, 0, 0, 1) # merah
 		wrong_sound.play()
-		
 
 	await get_tree().create_timer(1.0, false).timeout
 	current_question += 1
@@ -151,6 +113,7 @@ func _check_answer(index: int, dragged_imbuhan: String) -> void:
 		show_question()
 	else:
 		game_over()
+
 
 func game_over() -> void:
 	question_label.text = "Permainan selesai!"
