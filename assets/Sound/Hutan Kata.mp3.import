@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxajykngmnct0"
+path="res://.godot/imported/Hutan Kata.mp3-6f111a2e5e6f15802d3d9bf8a0049f08.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound/Hutan Kata.mp3"
+dest_files=["res://.godot/imported/Hutan Kata.mp3-6f111a2e5e6f15802d3d9bf8a0049f08.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

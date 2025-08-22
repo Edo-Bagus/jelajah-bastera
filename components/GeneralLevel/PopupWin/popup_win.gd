@@ -69,10 +69,14 @@ func update_icon_position():
 
 func _on_home_pressed():
 	get_tree().paused = false
+	Global.play_music(preload("res://assets/Sound/Main Menu.mp3"))
+	Global.music_player.stream.loop = true
 	get_tree().change_scene_to_file("res://scenes/main menu/main_menu.tscn")
 
 func _on_next_pressed():
 	get_tree().paused = false
+	Global.play_music(preload("res://assets/Sound/Main Menu.mp3"))
+	Global.music_player.stream.loop = true
 	get_tree().change_scene_to_file("res://scenes/peta/peta.tscn")
 
 func _on_replay_pressed():

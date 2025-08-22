@@ -24,6 +24,8 @@ var color : Color
 var http_request: HTTPRequest
 
 func _ready() -> void:
+	Global.play_music(preload("res://assets/Sound/desa eja.mp3"))
+	Global.music_player.stream.loop = true
 	# buat node HTTPRequest lewat kode
 	general_level._show_loading("Loading")
 	general_level.level = 5

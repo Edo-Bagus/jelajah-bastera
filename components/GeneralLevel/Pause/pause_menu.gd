@@ -65,6 +65,8 @@ func _on_ResumeButton_pressed():
 
 func _on_BackToMapButton_pressed():
 	get_tree().paused = false
+	Global.play_music(preload("res://assets/Sound/Main Menu.mp3"))
+	Global.music_player.stream.loop = true
 	get_tree().change_scene_to_file("res://scenes/peta/peta.tscn")
 	emit_signal("back_pressed")
 	

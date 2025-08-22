@@ -25,7 +25,7 @@ func _get_drag_data(at_position):
 	preview.modulate = modulate                   # samakan modulate
 
 	# Coba ambil style override khusus panel ini dulu
-	var style_override := get("res://scenes/gunung ragabasa/panel.tres")
+	var style_override = get("res://scenes/gunung ragabasa/panel.tres")
 	if style_override:
 		preview.add_theme_stylebox_override("panel", style_override.duplicate(true))
 	else:

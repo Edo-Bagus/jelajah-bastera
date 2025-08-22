@@ -35,6 +35,8 @@ var antonym_pairs: Array = []
 # Lifecycle
 # =========================
 func _ready():
+	Global.play_music(preload("res://assets/Sound/Hutan Kata.mp3"))
+	Global.music_player.stream.loop = true
 	general_level._show_loading("Loading")
 	general_level.level = 1
 	timer.disconnect("timer_finished", Callable(general_level, "_game_won"))

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tucfjmx3q54y"
+path="res://.godot/imported/sungai baku.mp3-aa08036ac1d40d94c77cc61077ef69c7.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound/sungai baku.mp3"
+dest_files=["res://.godot/imported/sungai baku.mp3-aa08036ac1d40d94c77cc61077ef69c7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

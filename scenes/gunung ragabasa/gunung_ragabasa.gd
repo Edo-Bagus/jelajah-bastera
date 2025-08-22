@@ -27,6 +27,8 @@ const SOAL_URL = "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/pub
 
 
 func _ready() -> void:
+	Global.play_music(preload("res://assets/Sound/ragabasa.mp3"))
+	Global.music_player.stream.loop = true
 	general_level.level = 4
 	# tambahkan http_request ke scene
 	add_child(http_request)

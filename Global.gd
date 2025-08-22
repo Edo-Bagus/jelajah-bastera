@@ -2,6 +2,7 @@ extends Node
 
 var access_token: String = ""
 var user_id: String = ""
+var music_player: AudioStreamPlayer
 
 var supabase_url = "https://kcrglneppkjtdoatdvzr.supabase.co"
 var supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtjcmdsbmVwcGtqdGRvYXRkdnpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUwNTcxNTEsImV4cCI6MjA3MDYzMzE1MX0.gg9dMyUs-SSZJNRld6hqC_a1syZH_J4nPwc6JfFBXiI"
@@ -12,6 +13,12 @@ var supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
 func _ready():
 	add_child(http_save)
 	add_child(http_get)
+	music_player = AudioStreamPlayer.new()
+	add_child(music_player)
+	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	music_player.autoplay = false
+	music_player.stream_paused = false
+
 
 	http_save.request_completed.connect(_on_save_completed)
 	http_get.request_completed.connect(_on_get_completed)
@@ -61,3 +68,11 @@ func get_highscore(level: int) -> int:
 
 func _on_get_completed(result, response_code, headers, body):
 	print("GET Response:", response_code, body.get_string_from_utf8())
+	
+func play_music(stream: AudioStream):
+	if music_player.stream != stream:
+		music_player.stream = stream
+		music_player.play()
+
+func stop_music():
+	music_player.stop()

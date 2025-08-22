@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwb1x7las6ydm"
+path="res://.godot/imported/desa eja.mp3-d6ddca2d09c93726e3a901b023b6e526.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound/desa eja.mp3"
+dest_files=["res://.godot/imported/desa eja.mp3-d6ddca2d09c93726e3a901b023b6e526.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

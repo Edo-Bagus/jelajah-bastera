@@ -8,6 +8,9 @@ extends Control
 var supabase_url = "https://kcrglneppkjtdoatdvzr.supabase.co"
 var supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtjcmdsbmVwcGtqdGRvYXRkdnpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUwNTcxNTEsImV4cCI6MjA3MDYzMzE1MX0.gg9dMyUs-SSZJNRld6hqC_a1syZH_J4nPwc6JfFBXiI"
 
+func _ready() -> void:
+	Global.play_music(preload("res://assets/Sound/Main Menu.mp3"))
+	Global.music_player.stream.loop = true
 # --------------- SIGNUP ----------------
 func _on_SignupButton_pressed():
 	var email = email_line.text

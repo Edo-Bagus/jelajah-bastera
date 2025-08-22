@@ -21,6 +21,8 @@ var option_buttons
 const SOAL_URL = "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/public/BankSoal/soal_desaeja.json"
 
 func _ready():
+	Global.play_music(preload("res://assets/Sound/desa eja.mp3"))
+	Global.music_player.stream.loop = true
 	option_buttons = [
 		$VBoxContainer/OptionA,
 		$VBoxContainer/OptionB,

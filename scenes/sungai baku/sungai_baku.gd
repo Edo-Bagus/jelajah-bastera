@@ -21,6 +21,8 @@ var queue: Array = []           # isi antrian (3 pasangan aktif)
 # Ready
 # ======================
 func _ready() -> void:
+	Global.play_music(preload("res://assets/Sound/sungai baku.mp3"))
+	Global.music_player.stream.loop = true
 	general_level._show_loading("Loading")
 	general_level.level = 2
 	fetch_soal()
@@ -98,7 +100,7 @@ func enqueue_new_pair(start_pos: Vector2, target_pos: Vector2, use_animation: bo
 			batu.texture_hover = random_tex
 			
 		if j == 1:
-			start_pos.y += 100
+			start_pos.y += 175
 
 		batu.position = start_pos
 		batu_container.add_child(batu)
@@ -108,7 +110,7 @@ func enqueue_new_pair(start_pos: Vector2, target_pos: Vector2, use_animation: bo
 		group.append(batu)
 		
 		if j == 1:
-			target_pos.y += 100
+			target_pos.y += 175
 
 		# jika pakai animasi → tween, kalau tidak → langsung set posisi target
 		if use_animation:
@@ -158,9 +160,7 @@ func shift_queue() -> void:
 		for j in range(queue[i].size()):
 			var tween := create_tween()
 			if j == 1:
-				target_pos.y += 100
+				target_pos.y += 175
 			tween.tween_property(queue[i][j], "position", target_pos, move_duration)
 
-	# tambahkan pasangan baru di index 3 (spawn dari kanan → geser ke kanan layar)
-	await get_tree().create_timer(move_duration).timeout
 	enqueue_new_pair(spawn_out_position, posisi_queue[2])
