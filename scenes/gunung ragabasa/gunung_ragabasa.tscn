@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3c3afw1p3n5l"]
+[gd_scene load_steps=18 format=3 uid="uid://b3c3afw1p3n5l"]
 
 [ext_resource type="Script" uid="uid://ka8cnxoslg5x" path="res://scenes/gunung ragabasa/gunung_ragabasa.gd" id="1_5w6af"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_fs8yy"]
 [ext_resource type="Texture2D" uid="uid://bm7wd2clm8l6q" path="res://assets/Background/Gunung Rajabasa.png" id="2_rluhl"]
 [ext_resource type="Script" uid="uid://b6osj3lj2f3m7" path="res://scenes/gunung ragabasa/imbuhan.gd" id="2_y04nr"]
+[ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="3_cxqdi"]
 [ext_resource type="StyleBox" uid="uid://xjb0ppwsf0qk" path="res://scenes/gunung ragabasa/panel.tres" id="3_h708p"]
 [ext_resource type="Texture2D" uid="uid://dk7mycu75u7tl" path="res://assets/Buttons/papan kayu.png" id="5_8lbc2"]
 [ext_resource type="Script" uid="uid://vnc1ufno5732" path="res://scenes/gunung ragabasa/Option/option.gd" id="5_cvmsm"]
@@ -12,10 +13,12 @@
 [ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="8_8lbc2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vtv1f"]
+font = ExtResource("3_cxqdi")
 font_size = 29
 font_color = Color(0.158472, 0.158472, 0.158472, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_caquv"]
+font = ExtResource("3_cxqdi")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
@@ -102,6 +105,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FeedbackLabel" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0

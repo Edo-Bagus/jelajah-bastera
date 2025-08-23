@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3k4swrcxl7by"]
+[gd_scene load_steps=5 format=3 uid="uid://b3k4swrcxl7by"]
 
 [ext_resource type="Texture2D" uid="uid://d3nnb0chit23a" path="res://assets/Baku/Rock 2.png" id="1_14egb"]
 [ext_resource type="Script" uid="uid://cok7rqsxlkveh" path="res://scenes/sungai baku/Batu/batu.gd" id="1_ymaoa"]
+[ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="3_4m4vh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_68bk8"]
+font = ExtResource("3_4m4vh")
 
 [node name="Button" type="TextureButton"]
 custom_minimum_size = Vector2(200, 200)
@@ -25,5 +29,6 @@ offset_right = 55.0
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = SubResource("LabelSettings_68bk8")
 horizontal_alignment = 1
 vertical_alignment = 1

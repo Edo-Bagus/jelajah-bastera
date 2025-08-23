@@ -1,4 +1,7 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://s3ahnn5atq0a"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://s3ahnn5atq0a"]
+
+[ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="1_3jw3u"]
 
 [resource]
-font_size = 30
+font = ExtResource("1_3jw3u")
+font_size = 38

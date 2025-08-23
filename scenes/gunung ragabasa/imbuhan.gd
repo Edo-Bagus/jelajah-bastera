@@ -34,6 +34,9 @@ func _get_drag_data(at_position):
 		if base_style:
 			preview.add_theme_stylebox_override("panel", base_style.duplicate(true))
 
+	# Override warna font hanya untuk Label dalam preview
+	preview.add_theme_color_override("font_color", Color.WHITE)
+
 	preview.add_child(preview_label)
 
 	# Tampilkan preview saat drag
