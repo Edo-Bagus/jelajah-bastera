@@ -46,6 +46,7 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5w6af")
+MATCH_SCORE = 5
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -211,6 +212,7 @@ vertical_alignment = 1
 
 [node name="General" parent="." instance=ExtResource("2_fs8yy")]
 layout_mode = 1
+timer_duration = 60.0
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_cvmsm")

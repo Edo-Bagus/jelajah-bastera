@@ -1,27 +1,37 @@
 extends Control
 
-@onready var hutan_kata := $HBoxContainer/HutanKata
-@onready var desa_eja := $HBoxContainer/DesaEja
-@onready var sungai_baku := $HBoxContainer/SungaiBaku
-@onready var gunung_ragabasa := $HBoxContainer/GunungRagabasa
-@onready var kerajaan_bastera := $HBoxContainer/KerajaanBastera
+@onready var hutan_kata := $"Hutan Kata"
+@onready var desa_eja := $"Desa Eja"
+@onready var sungai_baku := $"Sungai Baku"
+@onready var gunung_ragabasa := $"Gunung Ragabasa"
+@onready var kerajaan_bastera := $"Kerajaan Bastera"
 
 var scores = []
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	hutan_kata.disabled = false
 	await load_scores()
 	print(scores)
+	update_stars()
 	check_unlocks()
 	
-
+func update_stars() -> void:
+	hutan_kata._update_stars(scores[0])
+	sungai_baku._update_stars(scores[1])
+	desa_eja._update_stars(scores[2])
+	gunung_ragabasa._update_stars(scores[3])
+	kerajaan_bastera._update_stars(scores[4])
 
 # Load semua skor dulu
 func load_scores() -> void:
 	for i in range(0, 5):
 		var score = await Global.get_highscore(i + 1)
+		print("Harusnya: ", score)
 		scores.append(score)
+	print(scores)
+	return
 
 
 # Baru cek kondisi setelah semua skor masuk

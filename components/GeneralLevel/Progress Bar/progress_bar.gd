@@ -41,8 +41,8 @@ func add_score(amount: float):
 
 func _update_elephant(val: float = bar.value):
 	var t = float(val) / float(bar.max_value)
-	var start_x = bar.global_position.x + 50
-	var end_x = bar.global_position.x + bar.size.x - 50
+	var start_x = bar.global_position.x + 25
+	var end_x = bar.global_position.x + bar.size.x - 25
 	elephant.global_position = Vector2(lerp(start_x, end_x, t), elephant.global_position.y)
 
 func _update_stars(val: float = bar.value):

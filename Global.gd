@@ -54,14 +54,13 @@ func get_highscore(level: int) -> int:
 	]
 
 	var err = http_get.request(url, headers, HTTPClient.METHOD_GET)
-	if err != OK:
-		return -1
 
 	var result = await http_get.request_completed
 	var response_body = result[3].get_string_from_utf8()
 	var response = JSON.parse_string(response_body)
 
 	if typeof(response) == TYPE_ARRAY and response.size() > 0:
+		print("ga muncul")
 		return int(response[0]["highscore"])
 
 	return -2

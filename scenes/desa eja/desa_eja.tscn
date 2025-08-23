@@ -19,7 +19,7 @@ font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_8fsy5"]
 font = ExtResource("4_xwrim")
-font_size = 19
+font_size = 35
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1svqc"]
@@ -35,6 +35,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yvpqi")
+MATCH_SCORE = 5
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -80,10 +81,9 @@ offset_left = 281.0
 offset_top = 1100.0
 offset_right = 781.0
 offset_bottom = 1252.0
-scale = Vector2(0.982704, 3.37558)
 
 [node name="OptionA" type="TextureButton" parent="VBoxContainer"]
-custom_minimum_size = Vector2(500, 35)
+custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 texture_normal = ExtResource("3_rp5fi")
 ignore_texture_size = true
@@ -104,7 +104,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OptionB" type="TextureButton" parent="VBoxContainer"]
-custom_minimum_size = Vector2(500, 35)
+custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 texture_normal = ExtResource("3_rp5fi")
 ignore_texture_size = true
@@ -125,7 +125,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OptionC" type="TextureButton" parent="VBoxContainer"]
-custom_minimum_size = Vector2(500, 35)
+custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 texture_normal = ExtResource("3_rp5fi")
 ignore_texture_size = true
@@ -148,7 +148,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OptionD" type="TextureButton" parent="VBoxContainer"]
-custom_minimum_size = Vector2(500, 35)
+custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 texture_normal = ExtResource("3_rp5fi")
 ignore_texture_size = true
@@ -191,8 +191,8 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="General" parent="." instance=ExtResource("2_tvqiy")]
-visible = false
 layout_mode = 1
+timer_duration = 60.0
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_xtc0i")

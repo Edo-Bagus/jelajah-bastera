@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpubgw6yhg4hl"]
+
+[ext_resource type="Script" uid="uid://cl6bt42y1gquy" path="res://scenes/peta/level/level.gd" id="1_ysgjc"]
+[ext_resource type="Texture2D" uid="uid://dgksueboibmvx" path="res://assets/Star/Starbox main shadow.png" id="2_17ykm"]
+[ext_resource type="Texture2D" uid="uid://djertenq4maj2" path="res://assets/Star/Starbox main star.png" id="2_nsaj8"]
+
+[node name="Level" type="TextureButton"]
+custom_minimum_size = Vector2(144, 150)
+offset_top = 32.785
+offset_right = 144.0
+offset_bottom = 182.785
+disabled = true
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("1_ysgjc")
+star_on = ExtResource("2_nsaj8")
+star_off = ExtResource("2_17ykm")
+
+[node name="Stars" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_top = -30.145
+offset_right = 149.0
+offset_bottom = 16.855
+alignment = 1
+
+[node name="Star1" type="TextureRect" parent="Stars"]
+layout_mode = 2
+texture = ExtResource("2_17ykm")
+expand_mode = 3
+
+[node name="Star2" type="TextureRect" parent="Stars"]
+layout_mode = 2
+texture = ExtResource("2_17ykm")
+expand_mode = 3
+
+[node name="Star3" type="TextureRect" parent="Stars"]
+layout_mode = 2
+texture = ExtResource("2_17ykm")
+expand_mode = 3

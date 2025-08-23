@@ -3,7 +3,7 @@ extends Node
 # =========================
 # Konfigurasi Game
 # =========================
-const PAIRS_PER_ROUND := 4
+const PAIRS_PER_ROUND := 10
 
 @export var MATCH_SCORE: float = 25
 @export var mode: String = "synonym" # "synonym" atau "antonym"
@@ -19,6 +19,7 @@ const PAIRS_PER_ROUND := 4
 @onready var change_round := $ChangeRound
 @onready var click_sound: AudioStreamPlayer = $ClickSound
 @onready var wrong_sound: AudioStreamPlayer = $WrongSound
+@onready var label := $Label
 
 @export var timer_duration: float
 
@@ -164,6 +165,7 @@ func _next_round():
 func _change_round():
 	change_round.show_result(general_level.progress_bar.value, 100)
 	mode = "antonym"
+	label.text = "Cari pasangan kata antonim dibalik setiap kartu!"
 	background.texture = background_gua
 	_init_round()
 	general_level.reset_timer()

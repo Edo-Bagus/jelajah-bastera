@@ -24,8 +24,14 @@ func _on_pressed():
 # Fungsi untuk set ukuran font dari parent button
 func _adjust_font_size():
 	if label_front:
-		var base_size = 40
+		var base_size = 50
 		var min_size = 8
-		var size = base_size - (word.length() * 1.25)
+		var size = base_size - (word.length() * 1.75)
 		size = clamp(size, min_size, base_size)
-		label_front.add_theme_font_size_override("font_size", size)
+
+		if label_front.label_settings:
+			# clone biar nggak shared ke semua
+			label_front.label_settings = label_front.label_settings.duplicate()
+			label_front.label_settings.font_size = size
+		else:
+			label_front.add_theme_font_size_override("font_size", size)

@@ -19,7 +19,23 @@ var tween: Tween
 func _ready() -> void:
 	reset_scale()
 	label_front.text = word
+	_adjust_font_size()
 	_update_display()
+
+func _adjust_font_size():
+	if label_front:
+		var base_size = 40
+		var min_size = 8
+		var size = base_size - (word.length() * 1.5)
+		size = clamp(size, min_size, base_size)
+
+		if label_front.label_settings:
+			# clone biar nggak shared ke semua
+			label_front.label_settings = label_front.label_settings.duplicate()
+			label_front.label_settings.font_size = size
+		else:
+			label_front.add_theme_font_size_override("font_size", size)
+
 
 ## --- Public Methods ---
 func flip() -> void:

@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://byh646u4pye57"]
+[gd_scene load_steps=14 format=3 uid="uid://byh646u4pye57"]
 
 [ext_resource type="Script" uid="uid://bkj4257m5wdai" path="res://scenes/peta/peta.gd" id="1_a0a8q"]
+[ext_resource type="Texture2D" uid="uid://cymavum3kw2ka" path="res://assets/Background/Background.png" id="2_7mnn8"]
 [ext_resource type="PackedScene" uid="uid://bnuhlvy0u13p7" path="res://scenes/final score/Final Score.tscn" id="2_ef76e"]
+[ext_resource type="PackedScene" uid="uid://cpubgw6yhg4hl" path="res://scenes/peta/level/level.tscn" id="3_wsvoo"]
+[ext_resource type="Texture2D" uid="uid://dk45hhgkvl7vj" path="res://assets/Peta/Hutan kata.png" id="4_xjy27"]
+[ext_resource type="Texture2D" uid="uid://cby1xgku5s8tv" path="res://assets/Peta/Hutan kata Disabled.png" id="5_wsvoo"]
+[ext_resource type="Texture2D" uid="uid://cki8a6h7qpp3f" path="res://assets/Peta/Gunung rajabasa.png" id="6_sqcpu"]
+[ext_resource type="Texture2D" uid="uid://dslr0bnwnw6vm" path="res://assets/Peta/Gunung rajabasa Copy.png" id="7_n4epm"]
+[ext_resource type="Texture2D" uid="uid://cijblk6vm85te" path="res://assets/Peta/Desa eja (1).png" id="8_u8h56"]
+[ext_resource type="Texture2D" uid="uid://dex3ftmhfjua3" path="res://assets/Peta/Desa eja disabled.png" id="9_yrv2j"]
+[ext_resource type="Texture2D" uid="uid://b3gqjrq0b2h7o" path="res://assets/Peta/Sungai baku.png" id="10_s1ofj"]
+[ext_resource type="Texture2D" uid="uid://kcf3a0r6sn2k" path="res://assets/Peta/Sungai baku Disabled.png" id="11_5wqae"]
+[ext_resource type="Texture2D" uid="uid://ippn1ppi05f0" path="res://assets/Buttons/Button menu.png" id="12_n4epm"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -12,56 +23,71 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a0a8q")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_7mnn8")
+expand_mode = 1
 
-[node name="HutanKata" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-text = "Hutan 
-Kata"
+[node name="Hutan Kata" parent="." instance=ExtResource("3_wsvoo")]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 104.0
+offset_right = 313.36
+offset_bottom = 104.28
+texture_on = ExtResource("4_xjy27")
+texture_off = ExtResource("5_wsvoo")
 
-[node name="SungaiBaku" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-disabled = true
-text = "Sungai
-Baku"
+[node name="Kerajaan Bastera" parent="." instance=ExtResource("3_wsvoo")]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 1526.0
+offset_right = 485.0
+offset_bottom = 1676.0
+texture_on = ExtResource("4_xjy27")
+texture_off = ExtResource("5_wsvoo")
 
-[node name="DesaEja" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-disabled = true
-text = "Desa
-Eja"
+[node name="Gunung Ragabasa" parent="." instance=ExtResource("3_wsvoo")]
+layout_mode = 0
+offset_left = 631.0
+offset_top = 1141.0
+offset_right = 775.0
+offset_bottom = 1291.0
+texture_on = ExtResource("6_sqcpu")
+texture_off = ExtResource("7_n4epm")
 
-[node name="GunungRagabasa" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-disabled = true
-text = "Gunung
-Ragabasa"
+[node name="Desa Eja" parent="." instance=ExtResource("3_wsvoo")]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 777.0
+offset_right = 472.0
+offset_bottom = 927.0
+texture_on = ExtResource("8_u8h56")
+texture_off = ExtResource("9_yrv2j")
 
-[node name="KerajaanBastera" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-disabled = true
-text = "Kerajaan
-Bastera"
+[node name="Sungai Baku" parent="." instance=ExtResource("3_wsvoo")]
+layout_mode = 0
+offset_left = 658.0
+offset_top = 426.0
+offset_right = 802.0
+offset_bottom = 576.0
+texture_on = ExtResource("10_s1ofj")
+texture_off = ExtResource("11_5wqae")
 
-[node name="Skor" type="Button" parent="HBoxContainer"]
+[node name="Skor" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+offset_left = 884.0
+offset_top = 47.0
+offset_right = 1034.0
+offset_bottom = 197.0
+texture_normal = ExtResource("12_n4epm")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="PopupFinalSkor" parent="." instance=ExtResource("2_ef76e")]
 visible = false
@@ -74,9 +100,9 @@ anchor_bottom = 0.5
 offset_top = -50.0
 offset_bottom = 50.0
 
-[connection signal="pressed" from="HBoxContainer/HutanKata" to="." method="_on_hutan_kata_pressed"]
-[connection signal="pressed" from="HBoxContainer/SungaiBaku" to="." method="_on_sungai_baku_pressed"]
-[connection signal="pressed" from="HBoxContainer/DesaEja" to="." method="_on_desa_eja_pressed"]
-[connection signal="pressed" from="HBoxContainer/GunungRagabasa" to="." method="_on_gunung_ragabasa_pressed"]
-[connection signal="pressed" from="HBoxContainer/KerajaanBastera" to="." method="_on_kerajaan_bastera_pressed"]
-[connection signal="pressed" from="HBoxContainer/Skor" to="." method="_on_skor_pressed"]
+[connection signal="pressed" from="Hutan Kata" to="." method="_on_hutan_kata_pressed"]
+[connection signal="pressed" from="Kerajaan Bastera" to="." method="_on_kerajaan_bastera_pressed"]
+[connection signal="pressed" from="Gunung Ragabasa" to="." method="_on_gunung_ragabasa_pressed"]
+[connection signal="pressed" from="Desa Eja" to="." method="_on_desa_eja_pressed"]
+[connection signal="pressed" from="Sungai Baku" to="." method="_on_sungai_baku_pressed"]
+[connection signal="pressed" from="Skor" to="." method="_on_skor_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgc2fqc3fovd5"]
+[gd_scene load_steps=14 format=3 uid="uid://dgc2fqc3fovd5"]
 
 [ext_resource type="PackedScene" uid="uid://b3k4swrcxl7by" path="res://scenes/sungai baku/Batu/Batu.tscn" id="1_eb8mh"]
 [ext_resource type="Script" uid="uid://1vnx6ltjq8w1" path="res://scenes/sungai baku/sungai_baku.gd" id="1_ns62s"]
@@ -9,8 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://b168nm30c68lb" path="res://assets/Baku/Rock 3.png" id="5_cis7l"]
 [ext_resource type="Texture2D" uid="uid://ddftnlxxgmcol" path="res://assets/Baku/Rock 4.png" id="6_rgcsu"]
 [ext_resource type="Texture2D" uid="uid://8q7tf768e1n8" path="res://assets/Baku/Rock 5.png" id="7_6qvca"]
+[ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="9_rgcsu"]
 [ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="10_cis7l"]
 [ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="11_rgcsu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6qvca"]
+font = ExtResource("9_rgcsu")
+font_size = 38
+font_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -24,6 +30,7 @@ batu_scene = ExtResource("1_eb8mh")
 posisi_queue = Array[Vector2]([Vector2(50, 1175), Vector2(465, 1175), Vector2(865, 1175)])
 spawn_out_position = Vector2(1235, 1175)
 soal_url = "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/public/BankSoal/baku.json"
+MATCH_SCORE = 100.0
 textures = Array[Texture2D]([ExtResource("3_g866f"), ExtResource("4_oc838"), ExtResource("5_cis7l"), ExtResource("6_rgcsu"), ExtResource("7_6qvca")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -36,10 +43,27 @@ grow_vertical = 2
 texture = ExtResource("3_ibsvs")
 expand_mode = 1
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -404.0
+offset_top = 288.0
+offset_right = 430.0
+offset_bottom = 421.0
+grow_horizontal = 2
+text = "Pilihlah kata baku sesuai dengan EYD"
+label_settings = SubResource("LabelSettings_6qvca")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="BatuContainer" type="Node2D" parent="."]
 
 [node name="General" parent="." instance=ExtResource("3_smd8r")]
 layout_mode = 1
+timer_duration = 60.0
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_cis7l")

@@ -7,6 +7,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_i0r0c"]
 font = ExtResource("4_5nowk")
+font_size = 25
 font_color = Color(0, 0, 0, 1)
 
 [node name="Card" type="TextureButton"]
@@ -28,6 +29,7 @@ texture_normal = ExtResource("1_nxbqn")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_5cxdy")
+word = "Aktualisasi Diri"
 card_closed = ExtResource("1_nxbqn")
 card_open = ExtResource("3_pay6o")
 metadata/_edit_use_anchors_ = true
