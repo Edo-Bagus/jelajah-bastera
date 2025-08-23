@@ -3,34 +3,32 @@ extends Node2D
 @onready var main = get_parent()
 @onready var rope_line: Line2D = $Line2D
 
-func _ready():
-	# Set width for visibility
-	rope_line.width = 16
-	
-	# Load texture and check if it's loaded successfully
-	var tex = preload("res://assets/Buttons/rope.png")
-	if tex:
-		rope_line.texture = tex
-		print("Texture loaded successfully!")
-	else:
-		print("Error: Texture not found at path 'res://assets/Buttons/rope.png'")
-		
-	# Ensure texture mode is set to "repeat"
-	rope_line.texture_mode = Line2D.LINE_TEXTURE_TILE
-	rope_line.z_index = 20
+@export var rope_texture: Texture2D
 
-	# Initially invisible
+func _ready():
+	# Atur modulate parent (LineDrawer) ke putih.
+	#self.modulate = Color.WHITE
+	
+	if rope_texture:
+		rope_line.texture = rope_texture
+		rope_line.texture_mode = Line2D.LINE_TEXTURE_TILE
+		rope_line.width = 16
+		rope_line.z_index = 20
+		# Atur modulate anak (Line2D) ke putih juga, untuk jaga-jaga.
+		#rope_line.modulate = Color.WHITE
+		print("Tekstur tali berhasil dimuat dan diatur!")
+	else:
+		print("Peringatan: Tekstur tali belum diatur di Editor!")
+	
 	rope_line.visible = false
 
 func _process(_delta):
-	if rope_line and is_instance_valid(rope_line):
+	if is_instance_valid(rope_line) and main:
 		if main.dragging:
-			# Check if points are valid and different
 			if main.drag_start != main.drag_end:
 				rope_line.points = [main.drag_start, main.drag_end]
 				rope_line.visible = true
 			else:
-				# If points are the same, hide the line
 				rope_line.visible = false
 		else:
 			rope_line.visible = false

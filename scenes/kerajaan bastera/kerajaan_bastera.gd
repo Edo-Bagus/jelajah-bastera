@@ -11,7 +11,6 @@ extends Control
 
 @export var MATCH_SCORE = 5
 
-# URL JSON soal (nanti isi dengan link Supabase kamu)
 const SOAL_URL := "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/public/BankSoal/bank_soal_asli.json"
 
 var selected_questions := []
@@ -20,13 +19,16 @@ var dragging := false
 var rope: Line2D = null
 var locked := false
 
+# Tambahkan variabel ini
+var drag_start: Vector2
+var drag_end: Vector2
+
 var color : Color
 var http_request: HTTPRequest
 
 func _ready() -> void:
 	Global.play_music(preload("res://assets/Sound/desa eja.mp3"))
 	Global.music_player.stream.loop = true
-	# buat node HTTPRequest lewat kode
 	general_level._show_loading("Loading")
 	general_level.level = 5
 	
@@ -34,7 +36,6 @@ func _ready() -> void:
 	add_child(http_request)
 	http_request.request_completed.connect(_on_HTTPRequest_request_completed)
 
-	# fetch soal dari URL
 	if SOAL_URL != "":
 		http_request.request(SOAL_URL)
 	else:
@@ -58,7 +59,6 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	_load_question()
 
 func _load_question() -> void:
-	# hapus tali lama
 	for c in line_layer.get_children():
 		c.queue_free()
 
@@ -68,7 +68,6 @@ func _load_question() -> void:
 	var q = selected_questions[current_question]
 	q_label.text = q["q"]
 
-	# acak opsi
 	q["opts"].shuffle()
 	selected_questions[current_question] = q
 
@@ -86,15 +85,19 @@ func _input(event: InputEvent) -> void:
 		if event.pressed:
 			if question_panel.get_global_rect().has_point(event.position):
 				dragging = true
+				drag_start = question_panel.get_global_rect().get_center()
+				drag_end = event.position
+				
 				rope = Line2D.new()
 				rope.width = 6
 				rope.default_color = Color(1,1,1,1)
-				rope.add_point(question_panel.get_global_rect().get_center())
-				rope.add_point(event.position)
+				rope.add_point(drag_start)
+				rope.add_point(drag_end)
 				line_layer.add_child(rope)
 		else:
 			if dragging:
 				var connected := false
+				drag_end = event.position
 				for i in range(options.size()):
 					if options[i].get_global_rect().has_point(event.position):
 						connected = true
@@ -102,7 +105,7 @@ func _input(event: InputEvent) -> void:
 					
 						var is_correct: bool = options[i].get_meta("is_answer")
 						
-						if is_correct : 
+						if is_correct :
 							color = Color.GREEN
 							click_sound.play()
 						else :
@@ -126,7 +129,8 @@ func _input(event: InputEvent) -> void:
 				dragging = false
 
 	elif event is InputEventMouseMotion and dragging and rope:
-		rope.set_point_position(1, event.position)
+		drag_end = event.position
+		rope.set_point_position(1, drag_end)
 
 func _next_question() -> void:
 	current_question += 1
