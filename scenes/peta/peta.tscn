@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://byh646u4pye57"]
+[gd_scene load_steps=16 format=3 uid="uid://byh646u4pye57"]
 
 [ext_resource type="Script" uid="uid://bkj4257m5wdai" path="res://scenes/peta/peta.gd" id="1_a0a8q"]
 [ext_resource type="Texture2D" uid="uid://cymavum3kw2ka" path="res://assets/Background/Background.png" id="2_7mnn8"]
@@ -13,6 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://b3gqjrq0b2h7o" path="res://assets/Peta/Sungai baku.png" id="10_s1ofj"]
 [ext_resource type="Texture2D" uid="uid://kcf3a0r6sn2k" path="res://assets/Peta/Sungai baku Disabled.png" id="11_5wqae"]
 [ext_resource type="Texture2D" uid="uid://ippn1ppi05f0" path="res://assets/Buttons/Button menu.png" id="12_n4epm"]
+[ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="14_u8h56"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yrv2j"]
+font = ExtResource("14_u8h56")
+font_size = 33
+outline_size = 12
+outline_color = Color(0.45098, 0.294118, 0.184314, 1)
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -88,6 +95,55 @@ offset_bottom = 197.0
 texture_normal = ExtResource("12_n4epm")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Label Hutan Kata" type="Label" parent="."]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 261.0
+offset_right = 624.0
+offset_bottom = 297.0
+text = "Hutan dan Gua Kata"
+label_settings = SubResource("LabelSettings_yrv2j")
+
+[node name="Label Sungai Baku" type="Label" parent="."]
+offset_left = 619.0
+offset_top = 611.0
+offset_right = 833.0
+offset_bottom = 638.0
+text = "Sungai Baku"
+label_settings = SubResource("LabelSettings_yrv2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label Desa Eja" type="Label" parent="."]
+offset_left = 284.0
+offset_top = 945.0
+offset_right = 498.0
+offset_bottom = 972.0
+text = "Desa Eja"
+label_settings = SubResource("LabelSettings_yrv2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label Gunung Ragabasa" type="Label" parent="."]
+offset_left = 658.0
+offset_top = 1314.0
+offset_right = 872.0
+offset_bottom = 1341.0
+text = "Gunung Ragabasa"
+label_settings = SubResource("LabelSettings_yrv2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label Kerajaan Bastera" type="Label" parent="."]
+offset_left = 249.0
+offset_top = 1722.0
+offset_right = 507.0
+offset_bottom = 1758.0
+text = "Kerajaan Bastera"
+label_settings = SubResource("LabelSettings_yrv2j")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PopupFinalSkor" parent="." instance=ExtResource("2_ef76e")]
 visible = false

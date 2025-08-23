@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb3u7s4crg2qp"]
+[gd_scene load_steps=5 format=3 uid="uid://bb3u7s4crg2qp"]
 
 [ext_resource type="Script" uid="uid://dqnauwbcrgpn7" path="res://scenes/main menu/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://dcg3jutpho3il" path="res://assets/Background/Main Page.png" id="2_vifqf"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_vue75"]
-font_size = 34
+[ext_resource type="Texture2D" uid="uid://ca3y6s5aenajx" path="res://assets/Background/main page 2.png" id="2_okfgx"]
+[ext_resource type="Texture2D" uid="uid://cr6s6m8h35nj3" path="res://assets/Buttons/buttonstart.png" id="3_okfgx"]
+[ext_resource type="Texture2D" uid="uid://ci4cfhgodc73k" path="res://assets/Buttons/button options.png" id="4_pri0a"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -22,22 +21,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_vifqf")
+texture = ExtResource("2_okfgx")
 expand_mode = 1
-
-[node name="Title" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -156.0
-offset_right = 156.0
-offset_bottom = 131.0
-grow_horizontal = 2
-text = "JELAJAH BASTERA"
-label_settings = SubResource("LabelSettings_vue75")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -47,21 +32,25 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -187.0
-offset_top = -113.0
+offset_top = 244.0
 offset_right = 187.0
-offset_bottom = 49.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "START"
+texture_normal = ExtResource("3_okfgx")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Option" type="Button" parent="VBoxContainer"]
+[node name="Option" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "OPTION"
+texture_normal = ExtResource("4_pri0a")
+ignore_texture_size = true
+stretch_mode = 0
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Option" to="." method="_on_option_pressed"]

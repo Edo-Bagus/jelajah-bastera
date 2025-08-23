@@ -6,10 +6,9 @@ extends Control
 	$OptionC,
 	$OptionD
 ]
-@onready var imbuhan_panel: Panel = $Imbuhan
+@onready var imbuhan_panel: Panel = $Imbuhan # Kembali menggunakan @onready
 @onready var feedback_label: Label = $FeedbackLabel
 @onready var question_label: Label = $QuestionLabel
-#@onready var options_parent: Control = $OptionsContainer
 @onready var general_level := $General
 @onready var click_sound: AudioStreamPlayer = $ClickSound
 @onready var wrong_sound: AudioStreamPlayer = $WrongSound
@@ -20,23 +19,17 @@ var current_question := 0
 var score := 0
 var answer_selected := false
 var selected_questions := []
-var questions := []   # akan diisi dari JSON
+var questions := []
 
-# URL soal dari Supabase Storage
 const SOAL_URL = "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/public/BankSoal/soal_imbuhan.json"
-
 
 func _ready() -> void:
 	Global.play_music(preload("res://assets/Sound/ragabasa.mp3"))
 	Global.music_player.stream.loop = true
 	general_level.level = 4
-	# tambahkan http_request ke scene
 	add_child(http_request)
 	http_request.request_completed.connect(_on_http_request_completed)
-
-	# fetch soal dari Supabase
 	http_request.request(SOAL_URL)
-
 
 func _on_http_request_completed(result, response_code, headers, body):
 	if response_code != 200:
@@ -50,11 +43,9 @@ func _on_http_request_completed(result, response_code, headers, body):
 		question_label.text = "Format soal tidak valid!"
 		return
 
-	# ambil 5 soal acak
 	selected_questions = questions.duplicate()
 	selected_questions.shuffle()
 
-	# hubungkan sinyal drop dari tiap panel (sekali saja)
 	for i in range(option_panels.size()):
 		if option_panels[i].has_method("set_index"):
 			option_panels[i].call("set_index", i)
@@ -63,17 +54,20 @@ func _on_http_request_completed(result, response_code, headers, body):
 
 	show_question()
 
-
 func show_question() -> void:
 	answer_selected = false
 	feedback_label.text = ""
 	question_label.text = "Tempel kertas imbuhan ini ke papan yang sesuai !"
 
-	# set imbuhan yang akan di-drag
+	# Tampilkan kembali panel imbuhan
+	imbuhan_panel.show()
+	
+	# Reset posisi ke tempat semula
+	imbuhan_panel.position = Vector2(390, 400) # sesuaikan dengan posisi awal panel Anda
+
 	if imbuhan_panel.has_method("set_text"):
 		imbuhan_panel.call("set_text", selected_questions[current_question]["imbuhan"])
 
-	# tampilkan pilihan untuk soal saat ini (acak urutannya)
 	var q = selected_questions[current_question]
 	q["options"].shuffle()
 
@@ -82,12 +76,10 @@ func show_question() -> void:
 		var lbl: Label = panel.get_node("Label")
 		lbl.text = q["options"][i]["text"]
 		panel.set_meta("is_answer", q["options"][i]["is_answer"])
-		panel.modulate = Color(1, 1, 1, 1)  # reset warna
-
+		panel.modulate = Color(1, 1, 1, 1)
 
 func _on_option_dropped(index: int, imbuhan: String) -> void:
 	_check_answer(index, imbuhan)
-
 
 func _check_answer(index: int, dragged_imbuhan: String) -> void:
 	if answer_selected:
@@ -102,11 +94,11 @@ func _check_answer(index: int, dragged_imbuhan: String) -> void:
 		score += 1
 		general_level.add_score(MATCH_SCORE)
 		feedback_label.text = "✅ Benar!"
-		panel.modulate = Color(0, 1, 0, 1) # hijau
+		panel.modulate = Color(0, 1, 0, 1)
 		click_sound.play()
 	else:
 		feedback_label.text = "❌ Salah!"
-		panel.modulate = Color(1, 0, 0, 1) # merah
+		panel.modulate = Color(1, 0, 0, 1)
 		wrong_sound.play()
 
 	await get_tree().create_timer(1.0, false).timeout
@@ -117,9 +109,7 @@ func _check_answer(index: int, dragged_imbuhan: String) -> void:
 	else:
 		game_over()
 
-
 func game_over() -> void:
 	question_label.text = "Permainan selesai!"
 	imbuhan_panel.hide()
-	#options_parent.hide()
 	feedback_label.text = "Skor kamu: %d dari %d" % [score, selected_questions.size()]
