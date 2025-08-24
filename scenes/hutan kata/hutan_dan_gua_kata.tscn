@@ -25,7 +25,7 @@ grow_vertical = 2
 script = ExtResource("1_chpqd")
 MATCH_SCORE = 5.0
 background_gua = ExtResource("2_5yhep")
-timer_duration = 2.0
+timer_duration = 75.0
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1

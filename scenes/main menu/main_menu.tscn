@@ -76,6 +76,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Option" type="TextureButton" parent="VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 texture_normal = ExtResource("3_okfgx")
@@ -101,6 +102,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 241.0
 offset_top = 736.0
 offset_right = 481.0
@@ -109,6 +111,7 @@ texture = ExtResource("5_ajd3f")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 567.0
 offset_top = 736.0
 offset_right = 807.0

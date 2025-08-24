@@ -12,11 +12,15 @@ func _ready() -> void:
 		texture_normal = texture_on
 		texture_disabled = texture_off
 
-func _update_stars(val: float):
-	print("test")
-	var thresholds = [33, 66, 100]
+func _get_star_count(val: float, max_score: float) -> int:
+	var percent = val / max_score
+	return int(clamp(round(percent * 3), 0, 3))
+
+
+func _update_stars(val: float = 100):
+	var star_count = _get_star_count(val, 100)
 	for i in range(3):
-		if val >= thresholds[i]:
+		if i < star_count:
 			if stars[i].texture != star_on:
 				stars[i].texture = star_on
 		else:

@@ -12,7 +12,6 @@ var scores = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await load_scores()
-	print(scores)
 	update_stars()
 	#check_unlocks()
 	
@@ -70,3 +69,8 @@ func _on_kerajaan_bastera_pressed() -> void:
 
 func _on_skor_pressed() -> void:
 	$PopupFinalSkor.show()
+
+
+func _on_refresh_pressed() -> void:
+	await load_scores()
+	update_stars()

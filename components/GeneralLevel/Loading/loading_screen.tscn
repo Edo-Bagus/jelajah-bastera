@@ -36,5 +36,5 @@ offset_right = 36.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "LOADING"
+text = "MEMUAT"
 label_settings = SubResource("LabelSettings_6uyli")
