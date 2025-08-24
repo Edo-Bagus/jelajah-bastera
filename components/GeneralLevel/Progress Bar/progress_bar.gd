@@ -45,10 +45,16 @@ func _update_elephant(val: float = bar.value):
 	var end_x = bar.global_position.x + bar.size.x - 25
 	elephant.global_position = Vector2(lerp(start_x, end_x, t), elephant.global_position.y)
 
+# Hitung jumlah bintang berdasarkan skor
+func _get_star_count(val: float, max_score: float) -> int:
+	var percent = val / max_score
+	return int(clamp(round(percent * 3), 0, 3))
+
+
 func _update_stars(val: float = bar.value):
-	var thresholds = [33, 66, 100]
+	var star_count = _get_star_count(val, bar.max_value)
 	for i in range(3):
-		if val >= thresholds[i]:
+		if i < star_count:
 			if stars[i].texture != star_on:
 				stars[i].texture = star_on
 				_play_star_animation(stars[i])

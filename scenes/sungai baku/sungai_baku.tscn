@@ -30,7 +30,7 @@ batu_scene = ExtResource("1_eb8mh")
 posisi_queue = Array[Vector2]([Vector2(50, 1175), Vector2(465, 1175), Vector2(865, 1175)])
 spawn_out_position = Vector2(1235, 1175)
 soal_url = "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/public/BankSoal/baku.json"
-MATCH_SCORE = 100.0
+MATCH_SCORE = 5.0
 textures = Array[Texture2D]([ExtResource("3_g866f"), ExtResource("4_oc838"), ExtResource("5_cis7l"), ExtResource("6_rgcsu"), ExtResource("7_6qvca")])
 
 [node name="TextureRect" type="TextureRect" parent="."]

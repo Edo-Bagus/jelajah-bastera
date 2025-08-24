@@ -34,8 +34,6 @@ func show_result(score: float, max_score: float, high_score: int):
 	var percent = score / max_score
 	var star_count = int(round(percent * 3))
 
-	for i in range(3):
-		stars[i].texture = star_on if i < star_count else star_off
 
 	score_bar.min_value = 0
 	score_bar.max_value = max_score
@@ -45,6 +43,8 @@ func show_result(score: float, max_score: float, high_score: int):
 	
 	score_label.text = str(int(score))
 	high_score_label.text = str(int(high_score))
+	for i in range(3):
+		stars[i].texture = star_on if i < star_count else star_off
 	# tampilkan dan center manual
 	show()
 	global_position = (get_viewport_rect().size - size) / 2

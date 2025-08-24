@@ -17,9 +17,13 @@ func _ready():
 
 func _game_won():
 	var high_score = await Global.get_highscore(level)
-	if progress_bar.value > high_score:
-		Global.save_highscore(level, progress_bar.value)
-	popup.show_result(progress_bar.value, 100, high_score)
+	var current_score = progress_bar.value
+
+	if current_score > high_score:
+		high_score = current_score
+		Global.save_highscore(level, current_score)
+
+	popup.show_result(current_score, 100, high_score)
 	
 
 func add_score(score: float):

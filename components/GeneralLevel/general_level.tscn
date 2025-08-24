@@ -18,10 +18,7 @@ grow_vertical = 2
 script = ExtResource("1_isp5c")
 
 [node name="PopupWin" parent="." instance=ExtResource("2_bepd7")]
-visible = false
 layout_mode = 1
-star_on = null
-star_off = null
 
 [node name="Timer" parent="." instance=ExtResource("3_f4djg")]
 layout_mode = 1

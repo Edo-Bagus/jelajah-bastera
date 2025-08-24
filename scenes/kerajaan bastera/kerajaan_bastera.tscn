@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://df0si3ubau7sh" path="res://assets/Background/kerajaan bastera.png" id="2_1ital"]
 [ext_resource type="Script" uid="uid://dge5aspikes2e" path="res://scenes/kerajaan bastera/line_drawer.gd" id="2_q2key"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_rb7am"]
-[ext_resource type="LabelSettings" uid="uid://db14j5ffmgc8l" path="res://scenes/kerajaan bastera/fontboxkerajaanbastera.tres" id="2_se3jg"]
+[ext_resource type="LabelSettings" uid="uid://dynesf80u5ryh" path="res://scenes/kerajaan bastera/fontboxkerajaanbastera.tres" id="2_se3jg"]
 [ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="3_brq4j"]
 [ext_resource type="Texture2D" uid="uid://dksqtcbuhi5kb" path="res://assets/Buttons/kayu 1 (1).png" id="4_s13pb"]
 [ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="5_2g1uy"]

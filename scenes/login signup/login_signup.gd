@@ -61,4 +61,14 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		else:
 			status_label.text = "Format response tidak dikenali."
 	else:
-		status_label.text = "Error: %s" % text
+		# coba parse JSON error
+		var err_data = JSON.parse_string(text)
+		if typeof(err_data) == TYPE_DICTIONARY:
+			if err_data.has("msg"):
+				status_label.text = err_data["msg"]
+			elif err_data.has("message"):
+				status_label.text = err_data["message"]
+			else:
+				status_label.text = str(err_data)
+		else:
+			status_label.text = text   # fallback kalau bukan JSON

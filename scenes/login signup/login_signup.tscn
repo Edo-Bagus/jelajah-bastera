@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cc8tjtvnjhklj"]
+[gd_scene load_steps=13 format=3 uid="uid://cc8tjtvnjhklj"]
 
 [ext_resource type="Script" uid="uid://dfupnbhtfcmnr" path="res://scenes/login signup/login_signup.gd" id="1_m1axk"]
 [ext_resource type="Texture2D" uid="uid://dcg3jutpho3il" path="res://assets/Background/Main Page.png" id="2_0ewxu"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="4_vyguc"]
 [ext_resource type="Texture2D" uid="uid://c2pemssgto05r" path="res://assets/Buttons/button login.png" id="5_k44pf"]
 [ext_resource type="Texture2D" uid="uid://tdb4njxkydn8" path="res://assets/Buttons/button register.png" id="6_k7ows"]
+[ext_resource type="LabelSettings" uid="uid://dynesf80u5ryh" path="res://scenes/kerajaan bastera/fontboxkerajaanbastera.tres" id="8_k44pf"]
 [ext_resource type="Texture2D" uid="uid://fp2hb627b6fa" path="res://assets/Ika Duba/Duba original.png" id="8_vgytq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vyguc"]
@@ -123,9 +124,22 @@ theme_override_font_sizes/font_size = 20
 secret = true
 
 [node name="StatusLabel" type="Label" parent="Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_top = -94.0
+offset_right = 201.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("8_k44pf")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="Panel"]
 layout_mode = 0
