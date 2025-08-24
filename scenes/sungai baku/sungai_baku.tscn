@@ -15,8 +15,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_6qvca"]
 font = ExtResource("9_rgcsu")
-font_size = 38
+font_size = 58
 font_color = Color(0, 0, 0, 1)
+outline_size = 25
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -49,11 +50,11 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -404.0
-offset_top = 288.0
+offset_top = 327.365
 offset_right = 430.0
-offset_bottom = 421.0
+offset_bottom = 460.365
 grow_horizontal = 2
-text = "Pilihlah kata baku sesuai dengan EYD"
+text = "Pilihlah kata baku sesuai dengan KBBI"
 label_settings = SubResource("LabelSettings_6qvca")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -63,7 +64,7 @@ autowrap_mode = 3
 
 [node name="General" parent="." instance=ExtResource("3_smd8r")]
 layout_mode = 1
-timer_duration = 60.0
+timer_duration = 75.0
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_cis7l")

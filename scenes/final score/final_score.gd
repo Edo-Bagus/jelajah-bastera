@@ -44,11 +44,11 @@ func _ready():
 	$Panel/ScorebarAsing.value = scores[4]
 	$Panel/ScorebarImbuhan.value = scores[3]
 	
-	$Panel/SkorSinonim.text = str(int(scores[0]))
-	$Panel/SkorImbuhan.text = str(int(scores[3]))
-	$Panel/SkorKapital.text = str(int(scores[2]))
-	$Panel/SkorBaku.text = str(int(scores[1]))
-	$Panel/SkorIstilah.text = str(int(scores[4]))
+	$Panel/SkorSinonim.text = str(max(int(scores[0]), 0))
+	$Panel/SkorImbuhan.text = str(max(int(scores[3]), 0))
+	$Panel/SkorKapital.text = str(max(int(scores[2]), 0))
+	$Panel/SkorBaku.text = str(max(int(scores[1]), 0))
+	$Panel/SkorIstilah.text = str(max(int(scores[4]), 0))
 	
 func load_scores() -> void:
 	for i in range(0, 5):

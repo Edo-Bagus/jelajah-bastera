@@ -21,6 +21,7 @@ func _game_won():
 
 	if current_score > high_score:
 		high_score = current_score
+		print(level, current_score)
 		Global.save_highscore(level, current_score)
 
 	popup.show_result(current_score, 100, high_score)

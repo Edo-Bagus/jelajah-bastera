@@ -11,11 +11,10 @@ var scores = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	hutan_kata.disabled = false
 	await load_scores()
 	print(scores)
 	update_stars()
-	check_unlocks()
+	#check_unlocks()
 	
 func update_stars() -> void:
 	hutan_kata._update_stars(scores[0])
@@ -28,9 +27,7 @@ func update_stars() -> void:
 func load_scores() -> void:
 	for i in range(0, 5):
 		var score = await Global.get_highscore(i + 1)
-		print("Harusnya: ", score)
 		scores.append(score)
-	print(scores)
 	return
 
 

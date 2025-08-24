@@ -212,7 +212,7 @@ vertical_alignment = 1
 
 [node name="General" parent="." instance=ExtResource("2_fs8yy")]
 layout_mode = 1
-timer_duration = 60.0
+timer_duration = 75.0
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_cvmsm")

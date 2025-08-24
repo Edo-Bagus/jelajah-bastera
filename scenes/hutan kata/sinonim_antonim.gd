@@ -3,7 +3,7 @@ extends Node
 # =========================
 # Konfigurasi Game
 # =========================
-const PAIRS_PER_ROUND := 10
+const PAIRS_PER_ROUND := 4
 
 @export var MATCH_SCORE: float = 25
 @export var mode: String = "synonym" # "synonym" atau "antonym"
@@ -73,7 +73,6 @@ func _on_request_completed(_result, response_code, _headers, body):
 # Game Setup
 # =========================
 func _init_round():
-
 	var pairs := (synonym_pairs if mode == "synonym" else antonym_pairs).duplicate()
 	pairs.shuffle()
 
@@ -87,6 +86,16 @@ func _init_round():
 
 	words.shuffle()
 	_populate_board(words)
+
+	# 🔹 Buka semua kartu dulu
+	for card in grid_container.get_children():
+		card.flip(true)
+
+	# 🔹 Tunggu 5 detik, lalu tutup semua
+	await get_tree().create_timer(5.0).timeout
+	for card in grid_container.get_children():
+		if not card.is_matched:
+			card.flip(false)
 
 func _populate_board(words: Array) -> void:
 	
@@ -165,7 +174,7 @@ func _next_round():
 func _change_round():
 	change_round.show_result(general_level.progress_bar.value, 100)
 	mode = "antonym"
-	label.text = "Cari pasangan kata antonim dibalik setiap kartu!"
+	label.text = "Cari pasangan kata antonim di balik setiap kartu!"
 	background.texture = background_gua
 	_init_round()
 	general_level.reset_timer()

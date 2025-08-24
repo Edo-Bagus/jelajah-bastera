@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://djertenq4maj2" path="res://assets/Star/Starbox main star.png" id="2_nsaj8"]
 
 [node name="Level" type="TextureButton"]
-custom_minimum_size = Vector2(144, 150)
+custom_minimum_size = Vector2(300, 300)
 offset_top = 32.785
 offset_right = 144.0
 offset_bottom = 182.785
@@ -18,9 +18,9 @@ star_off = ExtResource("2_17ykm")
 
 [node name="Stars" type="HBoxContainer" parent="."]
 layout_mode = 1
-offset_top = -30.145
-offset_right = 149.0
-offset_bottom = 16.855
+offset_top = -30.0
+offset_right = 290.0
+offset_bottom = 39.0
 alignment = 1
 
 [node name="Star1" type="TextureRect" parent="Stars"]

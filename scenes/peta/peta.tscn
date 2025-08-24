@@ -46,42 +46,47 @@ offset_left = 313.0
 offset_top = 104.0
 offset_right = 313.36
 offset_bottom = 104.28
+disabled = false
 texture_on = ExtResource("4_xjy27")
 texture_off = ExtResource("5_wsvoo")
 
 [node name="Kerajaan Bastera" parent="." instance=ExtResource("3_wsvoo")]
 layout_mode = 0
-offset_left = 341.0
-offset_top = 1526.0
-offset_right = 485.0
-offset_bottom = 1676.0
+offset_left = 270.0
+offset_top = 1520.0
+offset_right = 570.0
+offset_bottom = 1820.0
+disabled = false
 texture_on = ExtResource("4_xjy27")
 texture_off = ExtResource("5_wsvoo")
 
 [node name="Gunung Ragabasa" parent="." instance=ExtResource("3_wsvoo")]
 layout_mode = 0
-offset_left = 631.0
-offset_top = 1141.0
-offset_right = 775.0
-offset_bottom = 1291.0
+offset_left = 600.0
+offset_top = 1112.0
+offset_right = 900.0
+offset_bottom = 1412.0
+disabled = false
 texture_on = ExtResource("6_sqcpu")
 texture_off = ExtResource("7_n4epm")
 
 [node name="Desa Eja" parent="." instance=ExtResource("3_wsvoo")]
 layout_mode = 0
-offset_left = 328.0
-offset_top = 777.0
-offset_right = 472.0
-offset_bottom = 927.0
+offset_left = 261.0
+offset_top = 772.0
+offset_right = 561.0
+offset_bottom = 1072.0
+disabled = false
 texture_on = ExtResource("8_u8h56")
 texture_off = ExtResource("9_yrv2j")
 
 [node name="Sungai Baku" parent="." instance=ExtResource("3_wsvoo")]
 layout_mode = 0
-offset_left = 658.0
-offset_top = 426.0
-offset_right = 802.0
-offset_bottom = 576.0
+offset_left = 604.0
+offset_top = 460.0
+offset_right = 904.0
+offset_bottom = 760.0
+disabled = false
 texture_on = ExtResource("10_s1ofj")
 texture_off = ExtResource("11_5wqae")
 
@@ -98,19 +103,19 @@ stretch_mode = 0
 
 [node name="Label Hutan Kata" type="Label" parent="."]
 layout_mode = 0
-offset_left = 341.0
-offset_top = 261.0
-offset_right = 624.0
-offset_bottom = 297.0
+offset_left = 328.0
+offset_top = 340.0
+offset_right = 611.0
+offset_bottom = 376.0
 text = "Hutan dan Gua Kata"
 label_settings = SubResource("LabelSettings_yrv2j")
 
 [node name="Label Sungai Baku" type="Label" parent="."]
 layout_mode = 0
-offset_left = 619.0
-offset_top = 611.0
-offset_right = 833.0
-offset_bottom = 638.0
+offset_left = 649.0
+offset_top = 697.0
+offset_right = 863.0
+offset_bottom = 733.0
 text = "Sungai Baku"
 label_settings = SubResource("LabelSettings_yrv2j")
 horizontal_alignment = 1
@@ -118,10 +123,10 @@ vertical_alignment = 1
 
 [node name="Label Desa Eja" type="Label" parent="."]
 layout_mode = 0
-offset_left = 284.0
-offset_top = 945.0
-offset_right = 498.0
-offset_bottom = 972.0
+offset_left = 298.0
+offset_top = 1011.0
+offset_right = 512.0
+offset_bottom = 1047.0
 text = "Desa Eja"
 label_settings = SubResource("LabelSettings_yrv2j")
 horizontal_alignment = 1
@@ -129,10 +134,10 @@ vertical_alignment = 1
 
 [node name="Label Gunung Ragabasa" type="Label" parent="."]
 layout_mode = 0
-offset_left = 658.0
-offset_top = 1314.0
-offset_right = 872.0
-offset_bottom = 1341.0
+offset_left = 624.0
+offset_top = 1336.0
+offset_right = 864.0
+offset_bottom = 1372.0
 text = "Gunung Ragabasa"
 label_settings = SubResource("LabelSettings_yrv2j")
 horizontal_alignment = 1
@@ -140,10 +145,10 @@ vertical_alignment = 1
 
 [node name="Label Kerajaan Bastera" type="Label" parent="."]
 layout_mode = 0
-offset_left = 249.0
-offset_top = 1722.0
-offset_right = 507.0
-offset_bottom = 1758.0
+offset_left = 283.0
+offset_top = 1756.0
+offset_right = 541.0
+offset_bottom = 1792.0
 text = "Kerajaan Bastera"
 label_settings = SubResource("LabelSettings_yrv2j")
 horizontal_alignment = 1

@@ -43,6 +43,7 @@ grow_vertical = 2
 texture = ExtResource("2_1ital")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -195,9 +196,8 @@ points = PackedVector2Array(0, 0)
 texture = ExtResource("6_u6cla")
 
 [node name="General" parent="." instance=ExtResource("2_rb7am")]
-visible = false
 layout_mode = 1
-timer_duration = 60.0
+timer_duration = 75.0
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_2g1uy")

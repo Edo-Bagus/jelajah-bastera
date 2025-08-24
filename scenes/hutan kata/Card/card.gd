@@ -38,11 +38,20 @@ func _adjust_font_size():
 
 
 ## --- Public Methods ---
-func flip() -> void:
+## --- Public Methods ---
+func flip(show_front: Variant = null) -> void:
 	if is_matched:
 		return
-	is_flipped = not is_flipped
+
+	# kalau dipanggil dengan parameter (true/false) → langsung set sesuai
+	if show_front != null:
+		is_flipped = show_front
+	else:
+		# toggle seperti biasa
+		is_flipped = not is_flipped
+
 	_animate_flip()
+
 
 func mark_matched() -> void:
 	is_matched = true

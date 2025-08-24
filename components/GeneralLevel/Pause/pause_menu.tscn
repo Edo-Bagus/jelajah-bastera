@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bk3n0pt5p4w8e"]
+[gd_scene load_steps=15 format=3 uid="uid://bk3n0pt5p4w8e"]
 
 [ext_resource type="Script" uid="uid://p2rx2hthxwkh" path="res://components/GeneralLevel/Pause/pause_menu.gd" id="1_2xvko"]
 [ext_resource type="Texture2D" uid="uid://bxhc1g68lyix0" path="res://assets/Buttons/Button continue.png" id="2_dltni"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://eji5ekg1f6l8" path="res://assets/Buttons/Button music mute.png" id="6_l7jjs"]
 [ext_resource type="StyleBox" uid="uid://cj5x60ipver5t" path="res://components/GeneralLevel/Pause/slidevolume.tres" id="6_uuhll"]
 [ext_resource type="Texture2D" uid="uid://b5h1oepx5s2cg" path="res://assets/Buttons/Button mute.png" id="7_djdea"]
+[ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="7_dvugw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l7jjs"]
 texture = ExtResource("2_xqvr7")
@@ -32,8 +33,9 @@ expand_margin_top = 16.0
 expand_margin_right = 6.0
 expand_margin_bottom = 16.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_uuhll"]
-font_size = 13
+[sub_resource type="LabelSettings" id="LabelSettings_om3fl"]
+font = ExtResource("7_dvugw")
+font_size = 18
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -84,21 +86,21 @@ grow_horizontal = 2
 alignment = 1
 
 [node name="Home" type="TextureButton" parent="Panel/HBoxContainer"]
-custom_minimum_size = Vector2(125, 125)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture_normal = ExtResource("2_jbcq0")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Resume" type="TextureButton" parent="Panel/HBoxContainer"]
-custom_minimum_size = Vector2(125, 125)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture_normal = ExtResource("2_dltni")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Retry" type="TextureButton" parent="Panel/HBoxContainer"]
-custom_minimum_size = Vector2(125, 125)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture_normal = ExtResource("4_xqvr7")
 ignore_texture_size = true
@@ -112,9 +114,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -115.0
+offset_left = -140.0
 offset_top = 17.0
-offset_right = 185.0
+offset_right = 210.0
 offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -132,18 +134,25 @@ offset_left = -62.0
 offset_top = 8.0
 offset_right = -3.0
 offset_bottom = 31.0
-text = "Volume"
-label_settings = SubResource("LabelSettings_uuhll")
+text = "Musik"
+label_settings = SubResource("LabelSettings_om3fl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MuteButton" type="TextureButton" parent="Panel"]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 0
-offset_left = 215.0
-offset_top = 400.0
-offset_right = 290.0
-offset_bottom = 475.0
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -202.0
+offset_right = 75.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
 toggle_mode = true
 texture_normal = ExtResource("6_l7jjs")
 texture_pressed = ExtResource("7_djdea")
