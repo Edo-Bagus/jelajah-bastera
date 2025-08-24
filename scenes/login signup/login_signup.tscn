@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cc8tjtvnjhklj"]
 
 [ext_resource type="Script" uid="uid://dfupnbhtfcmnr" path="res://scenes/login signup/login_signup.gd" id="1_m1axk"]
-[ext_resource type="Texture2D" uid="uid://dcg3jutpho3il" path="res://assets/Background/Main Page.png" id="2_0ewxu"]
+[ext_resource type="Texture2D" uid="uid://ca3y6s5aenajx" path="res://assets/Background/main page 2.png" id="2_k44pf"]
 [ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="3_0ewxu"]
 [ext_resource type="FontFile" uid="uid://cmg6kxyr5xfq7" path="res://assets/Fonts/Mochibop-Demo.ttf" id="4_6qjmi"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="4_vyguc"]
@@ -39,7 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_0ewxu")
+texture = ExtResource("2_k44pf")
 expand_mode = 1
 
 [node name="Panel" type="Panel" parent="."]
@@ -63,7 +63,7 @@ offset_left = 84.0
 offset_top = 78.0
 offset_right = 432.0
 offset_bottom = 145.0
-text = "LOGIN / REGISTER"
+text = "MASUK / DAFTAR"
 label_settings = SubResource("LabelSettings_ig160")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
@@ -104,7 +104,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Email"
+text = "pos-el"
 label_settings = SubResource("LabelSettings_dfo07")
 
 [node name="EmailLine" type="LineEdit" parent="Panel/VBoxContainer"]
@@ -114,7 +114,7 @@ theme_override_font_sizes/font_size = 20
 
 [node name="Label2" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Password"
+text = "kata sandi"
 label_settings = SubResource("LabelSettings_dfo07")
 
 [node name="PasswordLine" type="LineEdit" parent="Panel/VBoxContainer"]

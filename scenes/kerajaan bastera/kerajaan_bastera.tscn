@@ -195,6 +195,7 @@ points = PackedVector2Array(0, 0)
 texture = ExtResource("6_u6cla")
 
 [node name="General" parent="." instance=ExtResource("2_rb7am")]
+visible = false
 layout_mode = 1
 timer_duration = 60.0
 

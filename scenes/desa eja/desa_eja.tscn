@@ -190,13 +190,14 @@ offset_top = 288.0
 offset_right = 430.0
 offset_bottom = 421.0
 grow_horizontal = 2
-text = "Benarkan penggunaan huruf kapital pada kalimat berikut sesuai dengan EYD !"
+text = "Benarkan penggunaan huruf kapital pada kalimat berikut sesuai dengan EYD V !"
 label_settings = SubResource("LabelSettings_1svqc")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="General" parent="." instance=ExtResource("2_tvqiy")]
+visible = false
 layout_mode = 1
 timer_duration = 60.0
 

@@ -106,6 +106,7 @@ text = "Hutan dan Gua Kata"
 label_settings = SubResource("LabelSettings_yrv2j")
 
 [node name="Label Sungai Baku" type="Label" parent="."]
+layout_mode = 0
 offset_left = 619.0
 offset_top = 611.0
 offset_right = 833.0
@@ -116,6 +117,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label Desa Eja" type="Label" parent="."]
+layout_mode = 0
 offset_left = 284.0
 offset_top = 945.0
 offset_right = 498.0
@@ -126,6 +128,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label Gunung Ragabasa" type="Label" parent="."]
+layout_mode = 0
 offset_left = 658.0
 offset_top = 1314.0
 offset_right = 872.0
@@ -136,6 +139,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label Kerajaan Bastera" type="Label" parent="."]
+layout_mode = 0
 offset_left = 249.0
 offset_top = 1722.0
 offset_right = 507.0
