@@ -182,6 +182,7 @@ points = PackedVector2Array(0, 0)
 texture = SubResource("CompressedTexture2D_38pc6")
 
 [node name="General" parent="." instance=ExtResource("2_rb7am")]
+visible = false
 layout_mode = 1
 timer_duration = 75.0
 

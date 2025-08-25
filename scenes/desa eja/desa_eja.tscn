@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dr7t38sqco3f6" path="res://assets/Buttons/kayu 1.webp" id="2_4vk5d"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_tvqiy"]
 [ext_resource type="Texture2D" uid="uid://o416a1gv4f13" path="res://assets/Background/Desa Eja.webp" id="2_xwrim"]
-[ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="3_rp5fi"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="4_4vk5d"]
 [ext_resource type="FontFile" uid="uid://cmg6kxyr5xfq7" path="res://assets/Fonts/Mochibop-Demo.ttf" id="4_xwrim"]
 [ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="5_xtc0i"]
+[ext_resource type="Texture2D" uid="uid://08r5oghljqva" path="res://assets/Star/Starbox box 1.webp" id="5_xwrim"]
 [ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="6_t5oda"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vk5d"]
@@ -85,7 +85,7 @@ offset_bottom = 1252.0
 [node name="OptionA" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-texture_normal = ExtResource("3_rp5fi")
+texture_normal = ExtResource("5_xwrim")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -109,7 +109,7 @@ autowrap_mode = 3
 [node name="OptionB" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-texture_normal = ExtResource("3_rp5fi")
+texture_normal = ExtResource("5_xwrim")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -131,7 +131,7 @@ autowrap_mode = 3
 [node name="OptionC" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-texture_normal = ExtResource("3_rp5fi")
+texture_normal = ExtResource("5_xwrim")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -155,7 +155,7 @@ autowrap_mode = 3
 [node name="OptionD" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-texture_normal = ExtResource("3_rp5fi")
+texture_normal = ExtResource("5_xwrim")
 ignore_texture_size = true
 stretch_mode = 0
 

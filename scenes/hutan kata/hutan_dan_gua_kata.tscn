@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://r68272fegvmi"]
+[gd_scene load_steps=12 format=3 uid="uid://r68272fegvmi"]
 
 [ext_resource type="Script" uid="uid://bvme6ycgf0tqt" path="res://scenes/hutan kata/sinonim_antonim.gd" id="1_chpqd"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_be7ci"]
@@ -14,6 +14,12 @@ font = ExtResource("4_jq43x")
 font_size = 38
 font_color = Color(0, 0, 0, 1)
 outline_size = 8
+
+[sub_resource type="Resource" id="Resource_jq43x"]
+metadata/__load_path__ = "res://assets/Star/Starbox main star.png"
+
+[sub_resource type="Resource" id="Resource_mjcd1"]
+metadata/__load_path__ = "res://assets/Star/Starbox main shadow.png"
 
 [node name="Node2D2" type="Control"]
 layout_mode = 3
@@ -74,6 +80,8 @@ timer_duration = 75.0
 
 [node name="ChangeRound" parent="." instance=ExtResource("5_gbnx8")]
 layout_mode = 1
+star_on = SubResource("Resource_jq43x")
+star_off = SubResource("Resource_mjcd1")
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_chpqd")

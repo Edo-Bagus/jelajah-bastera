@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dfupnbhtfcmnr" path="res://scenes/login signup/login_signup.gd" id="1_m1axk"]
 [ext_resource type="Texture2D" uid="uid://dn5e8mqxacm21" path="res://assets/Background/main page 2.webp" id="2_k44pf"]
-[ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="3_0ewxu"]
+[ext_resource type="Texture2D" uid="uid://08r5oghljqva" path="res://assets/Star/Starbox box 1.webp" id="3_0ewxu"]
 [ext_resource type="FontFile" uid="uid://cmg6kxyr5xfq7" path="res://assets/Fonts/Mochibop-Demo.ttf" id="4_6qjmi"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="4_vyguc"]
 [ext_resource type="Texture2D" uid="uid://dw0pj5m2y7kv8" path="res://assets/Buttons/Gemini_Generated_Image_j7inz5j7inz5j7in.webp" id="5_k44pf"]
 [ext_resource type="LabelSettings" uid="uid://s3ahnn5atq0a" path="res://scenes/gunung ragabasa/LabelOptionRagabasa.tres" id="6_k7ows"]
-[ext_resource type="Texture2D" uid="uid://cwbq05nstm6vh" path="res://assets/Ika Duba/Ika original.png" id="8_k44pf"]
-[ext_resource type="Texture2D" uid="uid://fp2hb627b6fa" path="res://assets/Ika Duba/Duba original.png" id="8_vgytq"]
+[ext_resource type="Texture2D" uid="uid://crfnhs06prdxy" path="res://assets/Ika Duba/Ika original.webp" id="8_k44pf"]
+[ext_resource type="Texture2D" uid="uid://mf6ccuo1gj4i" path="res://assets/Ika Duba/Duba original.webp" id="8_vgytq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vyguc"]
 texture = ExtResource("3_0ewxu")

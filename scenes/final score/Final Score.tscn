@@ -1,15 +1,15 @@
 [gd_scene load_steps=12 format=3 uid="uid://bnuhlvy0u13p7"]
 
 [ext_resource type="Script" uid="uid://c8ujux6lj7jo1" path="res://scenes/final score/final_score.gd" id="1_qmwvb"]
-[ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="4_l0wok"]
-[ext_resource type="Texture2D" uid="uid://cxr7ruvego03w" path="res://assets/Progress Bar/Progress bar original.png" id="5_cvksg"]
-[ext_resource type="Texture2D" uid="uid://cqj15iu2i6mgm" path="res://assets/Progress Bar/Progress bar color changing.png" id="6_23h4t"]
+[ext_resource type="Texture2D" uid="uid://mf6ccuo1gj4i" path="res://assets/Ika Duba/Duba original.webp" id="2_mtb8y"]
+[ext_resource type="Texture2D" uid="uid://08r5oghljqva" path="res://assets/Star/Starbox box 1.webp" id="2_nh5ww"]
+[ext_resource type="Texture2D" uid="uid://duj18ouiqfpt4" path="res://assets/Progress Bar/Progress bar original.webp" id="3_qmwvb"]
+[ext_resource type="Texture2D" uid="uid://u7awfk3ua066" path="res://assets/Progress Bar/Progress bar color changing.webp" id="4_rqm6x"]
 [ext_resource type="Texture2D" uid="uid://dw0pj5m2y7kv8" path="res://assets/Buttons/Gemini_Generated_Image_j7inz5j7inz5j7in.webp" id="6_qmwvb"]
-[ext_resource type="Texture2D" uid="uid://fp2hb627b6fa" path="res://assets/Ika Duba/Duba original.png" id="7_g42f7"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="9_usv74"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p8bvy"]
-texture = ExtResource("4_l0wok")
+texture = ExtResource("2_nh5ww")
 modulate_color = Color(0.654232, 0.654232, 0.654232, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rqm6x"]
@@ -73,8 +73,8 @@ offset_bottom = -286.0
 grow_horizontal = 2
 grow_vertical = 2
 nine_patch_stretch = true
-texture_under = ExtResource("5_cvksg")
-texture_progress = ExtResource("6_23h4t")
+texture_under = ExtResource("3_qmwvb")
+texture_progress = ExtResource("4_rqm6x")
 
 [node name="IconAntonim" type="TextureRect" parent="Panel"]
 layout_mode = 1
@@ -86,7 +86,7 @@ offset_top = 512.0
 offset_right = -215.5
 offset_bottom = 625.0
 grow_horizontal = 2
-texture = ExtResource("7_g42f7")
+texture = ExtResource("2_mtb8y")
 expand_mode = 1
 
 [node name="ScorebarBaku" type="TextureProgressBar" parent="Panel"]
@@ -103,8 +103,8 @@ offset_bottom = -93.0
 grow_horizontal = 2
 grow_vertical = 2
 nine_patch_stretch = true
-texture_under = ExtResource("5_cvksg")
-texture_progress = ExtResource("6_23h4t")
+texture_under = ExtResource("3_qmwvb")
+texture_progress = ExtResource("4_rqm6x")
 
 [node name="IconBaku" type="TextureRect" parent="Panel"]
 layout_mode = 1
@@ -116,7 +116,7 @@ offset_top = 705.0
 offset_right = -215.5
 offset_bottom = 818.0
 grow_horizontal = 2
-texture = ExtResource("7_g42f7")
+texture = ExtResource("2_mtb8y")
 expand_mode = 1
 
 [node name="ScorebarKapital" type="TextureProgressBar" parent="Panel"]
@@ -133,8 +133,8 @@ offset_bottom = 85.0
 grow_horizontal = 2
 grow_vertical = 2
 nine_patch_stretch = true
-texture_under = ExtResource("5_cvksg")
-texture_progress = ExtResource("6_23h4t")
+texture_under = ExtResource("3_qmwvb")
+texture_progress = ExtResource("4_rqm6x")
 
 [node name="IconKapital" type="TextureRect" parent="Panel"]
 layout_mode = 1
@@ -146,7 +146,7 @@ offset_top = 883.0
 offset_right = -213.5
 offset_bottom = 996.0
 grow_horizontal = 2
-texture = ExtResource("7_g42f7")
+texture = ExtResource("2_mtb8y")
 expand_mode = 1
 
 [node name="ScorebarImbuhan" type="TextureProgressBar" parent="Panel"]
@@ -163,8 +163,8 @@ offset_bottom = 292.0
 grow_horizontal = 2
 grow_vertical = 2
 nine_patch_stretch = true
-texture_under = ExtResource("5_cvksg")
-texture_progress = ExtResource("6_23h4t")
+texture_under = ExtResource("3_qmwvb")
+texture_progress = ExtResource("4_rqm6x")
 
 [node name="IconImbuhan" type="TextureRect" parent="Panel"]
 layout_mode = 1
@@ -176,7 +176,7 @@ offset_top = 1090.0
 offset_right = -215.5
 offset_bottom = 1203.0
 grow_horizontal = 2
-texture = ExtResource("7_g42f7")
+texture = ExtResource("2_mtb8y")
 expand_mode = 1
 
 [node name="ScorebarAsing" type="TextureProgressBar" parent="Panel"]
@@ -193,8 +193,8 @@ offset_bottom = 491.0
 grow_horizontal = 2
 grow_vertical = 2
 nine_patch_stretch = true
-texture_under = ExtResource("5_cvksg")
-texture_progress = ExtResource("6_23h4t")
+texture_under = ExtResource("3_qmwvb")
+texture_progress = ExtResource("4_rqm6x")
 
 [node name="IconAsing" type="TextureRect" parent="Panel"]
 layout_mode = 1
@@ -206,7 +206,7 @@ offset_top = 1289.0
 offset_right = -215.5
 offset_bottom = 1402.0
 grow_horizontal = 2
-texture = ExtResource("7_g42f7")
+texture = ExtResource("2_mtb8y")
 expand_mode = 1
 
 [node name="TextureButton" type="TextureButton" parent="Panel"]

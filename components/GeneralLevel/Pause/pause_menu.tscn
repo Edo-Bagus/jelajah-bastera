@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bk3n0pt5p4w8e"]
 
 [ext_resource type="Script" uid="uid://p2rx2hthxwkh" path="res://components/GeneralLevel/Pause/pause_menu.gd" id="1_2xvko"]
-[ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="2_xqvr7"]
+[ext_resource type="Texture2D" uid="uid://08r5oghljqva" path="res://assets/Star/Starbox box 1.webp" id="2_xqvr7"]
 [ext_resource type="Texture2D" uid="uid://igtl0766a4ti" path="res://assets/Buttons/Button home.webp" id="3_dvugw"]
 [ext_resource type="Texture2D" uid="uid://bkqeiii7cqrik" path="res://assets/Buttons/Button continue.webp" id="4_om3fl"]
 [ext_resource type="Texture2D" uid="uid://d2euwyav3w2oc" path="res://assets/Buttons/Button refresh.webp" id="5_ngdk8"]

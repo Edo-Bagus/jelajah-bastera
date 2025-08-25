@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cpubgw6yhg4hl"]
 
 [ext_resource type="Script" uid="uid://cl6bt42y1gquy" path="res://scenes/peta/level/level.gd" id="1_ysgjc"]
-[ext_resource type="Texture2D" uid="uid://dgksueboibmvx" path="res://assets/Star/Starbox main shadow.png" id="2_17ykm"]
-[ext_resource type="Texture2D" uid="uid://djertenq4maj2" path="res://assets/Star/Starbox main star.png" id="2_nsaj8"]
+[ext_resource type="Texture2D" uid="uid://cgyn8o58nd3l5" path="res://assets/Star/Starbox main shadow.webp" id="2_17ykm"]
+[ext_resource type="Texture2D" uid="uid://u4y234q5vce0" path="res://assets/Star/Starbox main star.webp" id="2_nsaj8"]
 
 [node name="Level" type="TextureButton"]
 custom_minimum_size = Vector2(300, 300)

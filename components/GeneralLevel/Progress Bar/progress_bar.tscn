@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://du2jt10s0nji5"]
 
-[ext_resource type="Texture2D" uid="uid://cxr7ruvego03w" path="res://assets/Progress Bar/Progress bar original.png" id="1_0j3lj"]
+[ext_resource type="Texture2D" uid="uid://duj18ouiqfpt4" path="res://assets/Progress Bar/Progress bar original.webp" id="1_0j3lj"]
 [ext_resource type="Script" uid="uid://fxg0ads7w4uq" path="res://components/GeneralLevel/Progress Bar/progress_bar.gd" id="1_73d5o"]
-[ext_resource type="Texture2D" uid="uid://djertenq4maj2" path="res://assets/Star/Starbox main star.png" id="2_50psg"]
-[ext_resource type="Texture2D" uid="uid://dgksueboibmvx" path="res://assets/Star/Starbox main shadow.png" id="4_50psg"]
-[ext_resource type="Texture2D" uid="uid://755dm07jfvdo" path="res://assets/Ika Duba/Progress bar ika.png" id="4_ldx3k"]
-[ext_resource type="Texture2D" uid="uid://cqj15iu2i6mgm" path="res://assets/Progress Bar/Progress bar color changing.png" id="5_jj366"]
+[ext_resource type="Texture2D" uid="uid://u4y234q5vce0" path="res://assets/Star/Starbox main star.webp" id="2_50psg"]
+[ext_resource type="Texture2D" uid="uid://cgyn8o58nd3l5" path="res://assets/Star/Starbox main shadow.webp" id="4_50psg"]
+[ext_resource type="Texture2D" uid="uid://h5o0e8fdgpy7" path="res://assets/Ika Duba/Progress bar ika.webp" id="4_ldx3k"]
+[ext_resource type="Texture2D" uid="uid://u7awfk3ua066" path="res://assets/Progress Bar/Progress bar color changing.webp" id="5_jj366"]
 
 [node name="ProgressBar" type="Control"]
 layout_mode = 3
