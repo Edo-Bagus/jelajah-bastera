@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://pedqvp1udqau"]
 
 [ext_resource type="Script" uid="uid://cwvjshkfme2o" path="res://scenes/desa eja/desa_eja.gd" id="1_yvpqi"]
-[ext_resource type="Texture2D" uid="uid://63464usfhw16" path="res://assets/Background/Desa Eja.png" id="2_8fsy5"]
+[ext_resource type="Texture2D" uid="uid://dr7t38sqco3f6" path="res://assets/Buttons/kayu 1.webp" id="2_4vk5d"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_tvqiy"]
-[ext_resource type="Texture2D" uid="uid://nurbkhsgvc4e" path="res://assets/Buttons/kayu 1.png" id="3_210y3"]
+[ext_resource type="Texture2D" uid="uid://o416a1gv4f13" path="res://assets/Background/Desa Eja.webp" id="2_xwrim"]
 [ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="3_rp5fi"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="4_4vk5d"]
 [ext_resource type="FontFile" uid="uid://cmg6kxyr5xfq7" path="res://assets/Fonts/Mochibop-Demo.ttf" id="4_xwrim"]
@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="6_t5oda"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vk5d"]
-texture = ExtResource("3_210y3")
+texture = ExtResource("2_4vk5d")
 
 [sub_resource type="LabelSettings" id="LabelSettings_210y3"]
 font = ExtResource("4_xwrim")
@@ -44,7 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_8fsy5")
+texture = ExtResource("2_xwrim")
 expand_mode = 1
 
 [node name="Soal" type="Panel" parent="."]

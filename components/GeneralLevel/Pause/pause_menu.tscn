@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://bk3n0pt5p4w8e"]
 
 [ext_resource type="Script" uid="uid://p2rx2hthxwkh" path="res://components/GeneralLevel/Pause/pause_menu.gd" id="1_2xvko"]
-[ext_resource type="Texture2D" uid="uid://bxhc1g68lyix0" path="res://assets/Buttons/Button continue.png" id="2_dltni"]
-[ext_resource type="Texture2D" uid="uid://c1fdyd5a1k6mf" path="res://assets/Buttons/Button home.png" id="2_jbcq0"]
 [ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="2_xqvr7"]
-[ext_resource type="Texture2D" uid="uid://fn6aocakgifu" path="res://assets/Buttons/Button refresh.png" id="4_xqvr7"]
-[ext_resource type="Texture2D" uid="uid://eji5ekg1f6l8" path="res://assets/Buttons/Button music mute.png" id="6_l7jjs"]
+[ext_resource type="Texture2D" uid="uid://igtl0766a4ti" path="res://assets/Buttons/Button home.webp" id="3_dvugw"]
+[ext_resource type="Texture2D" uid="uid://bkqeiii7cqrik" path="res://assets/Buttons/Button continue.webp" id="4_om3fl"]
+[ext_resource type="Texture2D" uid="uid://d2euwyav3w2oc" path="res://assets/Buttons/Button refresh.webp" id="5_ngdk8"]
 [ext_resource type="StyleBox" uid="uid://cj5x60ipver5t" path="res://components/GeneralLevel/Pause/slidevolume.tres" id="6_uuhll"]
-[ext_resource type="Texture2D" uid="uid://b5h1oepx5s2cg" path="res://assets/Buttons/Button mute.png" id="7_djdea"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="7_dvugw"]
+[ext_resource type="Texture2D" uid="uid://l041a3lem02" path="res://assets/Buttons/Button music mute.webp" id="8_l1gk0"]
+[ext_resource type="Texture2D" uid="uid://vpgn0ahx5scm" path="res://assets/Buttons/Button mute.webp" id="9_21rhq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l7jjs"]
 texture = ExtResource("2_xqvr7")
@@ -88,21 +88,21 @@ alignment = 1
 [node name="Home" type="TextureButton" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-texture_normal = ExtResource("2_jbcq0")
+texture_normal = ExtResource("3_dvugw")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Resume" type="TextureButton" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-texture_normal = ExtResource("2_dltni")
+texture_normal = ExtResource("4_om3fl")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Retry" type="TextureButton" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-texture_normal = ExtResource("4_xqvr7")
+texture_normal = ExtResource("5_ngdk8")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -154,8 +154,8 @@ offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 0
 toggle_mode = true
-texture_normal = ExtResource("6_l7jjs")
-texture_pressed = ExtResource("7_djdea")
+texture_normal = ExtResource("8_l1gk0")
+texture_pressed = ExtResource("9_21rhq")
 ignore_texture_size = true
 stretch_mode = 0
 

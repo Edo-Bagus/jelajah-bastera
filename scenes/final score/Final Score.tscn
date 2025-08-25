@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="4_l0wok"]
 [ext_resource type="Texture2D" uid="uid://cxr7ruvego03w" path="res://assets/Progress Bar/Progress bar original.png" id="5_cvksg"]
 [ext_resource type="Texture2D" uid="uid://cqj15iu2i6mgm" path="res://assets/Progress Bar/Progress bar color changing.png" id="6_23h4t"]
-[ext_resource type="Texture2D" uid="uid://c4qdyqdkbthx" path="res://assets/Buttons/Gemini_Generated_Image_j7inz5j7inz5j7in.png" id="6_qmwvb"]
+[ext_resource type="Texture2D" uid="uid://dw0pj5m2y7kv8" path="res://assets/Buttons/Gemini_Generated_Image_j7inz5j7inz5j7in.webp" id="6_qmwvb"]
 [ext_resource type="Texture2D" uid="uid://fp2hb627b6fa" path="res://assets/Ika Duba/Duba original.png" id="7_g42f7"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="9_usv74"]
 

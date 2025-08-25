@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://r68272fegvmi"]
 
 [ext_resource type="Script" uid="uid://bvme6ycgf0tqt" path="res://scenes/hutan kata/sinonim_antonim.gd" id="1_chpqd"]
-[ext_resource type="Texture2D" uid="uid://bm7wd2clm8l6q" path="res://assets/Background/Gunung Rajabasa.png" id="2_5yhep"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_be7ci"]
-[ext_resource type="Texture2D" uid="uid://dtdakeuldhk1r" path="res://assets/Background/Hutan Sinonim Antonim.png" id="2_xkjc3"]
+[ext_resource type="Texture2D" uid="uid://iof7r8s0u6gl" path="res://assets/Background/bg sungai baku.webp" id="2_jq43x"]
+[ext_resource type="Texture2D" uid="uid://cwytyyhif0usd" path="res://assets/Background/Hutan Sinonim Antonim.webp" id="3_mjcd1"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="4_jq43x"]
 [ext_resource type="PackedScene" uid="uid://cexhlinwbroje" path="res://scenes/hutan kata/Change Round/ChangeRound.tscn" id="5_gbnx8"]
 [ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="6_chpqd"]
@@ -24,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_chpqd")
 MATCH_SCORE = 5.0
-background_gua = ExtResource("2_5yhep")
+background_gua = ExtResource("2_jq43x")
 timer_duration = 75.0
 
 [node name="Background" type="TextureRect" parent="."]
@@ -34,7 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_xkjc3")
+texture = ExtResource("3_mjcd1")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="."]

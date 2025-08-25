@@ -1,14 +1,14 @@
 [gd_scene load_steps=18 format=3 uid="uid://b3c3afw1p3n5l"]
 
 [ext_resource type="Script" uid="uid://ka8cnxoslg5x" path="res://scenes/gunung ragabasa/gunung_ragabasa.gd" id="1_5w6af"]
+[ext_resource type="Texture2D" uid="uid://bjsggy6qxy1qn" path="res://assets/Background/Gunung Rajabasa.webp" id="2_cxqdi"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_fs8yy"]
-[ext_resource type="Texture2D" uid="uid://bm7wd2clm8l6q" path="res://assets/Background/Gunung Rajabasa.png" id="2_rluhl"]
 [ext_resource type="Script" uid="uid://b6osj3lj2f3m7" path="res://scenes/gunung ragabasa/imbuhan.gd" id="2_y04nr"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="3_cxqdi"]
 [ext_resource type="StyleBox" uid="uid://xjb0ppwsf0qk" path="res://scenes/gunung ragabasa/panel.tres" id="3_h708p"]
-[ext_resource type="Texture2D" uid="uid://dk7mycu75u7tl" path="res://assets/Buttons/papan kayu.png" id="5_8lbc2"]
 [ext_resource type="Script" uid="uid://vnc1ufno5732" path="res://scenes/gunung ragabasa/Option/option.gd" id="5_cvmsm"]
 [ext_resource type="LabelSettings" uid="uid://s3ahnn5atq0a" path="res://scenes/gunung ragabasa/LabelOptionRagabasa.tres" id="5_vtv1f"]
+[ext_resource type="Texture2D" uid="uid://0ieaqw3skoro" path="res://assets/Buttons/papan kayu.webp" id="6_cxqdi"]
 [ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="7_cvmsm"]
 [ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="8_8lbc2"]
 
@@ -23,16 +23,16 @@ font_size = 30
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h708p"]
-texture = ExtResource("5_8lbc2")
+texture = ExtResource("6_cxqdi")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8lbc2"]
-texture = ExtResource("5_8lbc2")
+texture = ExtResource("6_cxqdi")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cxqdi"]
-texture = ExtResource("5_8lbc2")
+texture = ExtResource("6_cxqdi")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m1js7"]
-texture = ExtResource("5_8lbc2")
+texture = ExtResource("6_cxqdi")
 
 [node name="Gunung Rabasa" type="Control"]
 layout_mode = 3
@@ -55,7 +55,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_rluhl")
+texture = ExtResource("2_cxqdi")
 expand_mode = 1
 
 [node name="QuestionLabel" type="Label" parent="."]

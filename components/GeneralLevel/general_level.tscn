@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwftsk166b60f"]
+[gd_scene load_steps=9 format=3 uid="uid://bwftsk166b60f"]
 
 [ext_resource type="Script" uid="uid://c15i5xh06xumj" path="res://components/GeneralLevel/general_level.gd" id="1_isp5c"]
 [ext_resource type="PackedScene" uid="uid://bd1wkqf8m3k1r" path="res://components/GeneralLevel/PopupWin/PopupWin.tscn" id="2_bepd7"]
 [ext_resource type="PackedScene" uid="uid://bmwf5f13srrn5" path="res://components/GeneralLevel/Timer/Timer.tscn" id="3_f4djg"]
 [ext_resource type="PackedScene" uid="uid://d4gdhiwg5bgod" path="res://components/GeneralLevel/Loading/loading_screen.tscn" id="4_2w8cr"]
 [ext_resource type="PackedScene" uid="uid://bk3n0pt5p4w8e" path="res://components/GeneralLevel/Pause/pause_menu.tscn" id="5_b8jba"]
+[ext_resource type="Texture2D" uid="uid://bh3vpfq0ml1ud" path="res://assets/Buttons/Button pause.webp" id="7_3bhvw"]
 [ext_resource type="PackedScene" uid="uid://du2jt10s0nji5" path="res://components/GeneralLevel/Progress Bar/progress_bar.tscn" id="7_hqt81"]
 [ext_resource type="PackedScene" uid="uid://cvpynni1oq8hp" path="res://components/GeneralLevel/Pause/pause_btn.tscn" id="9_g4gwl"]
 
@@ -45,6 +46,7 @@ alignment = 1
 [node name="PauseBtn" parent="HBoxContainer" instance=ExtResource("9_g4gwl")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+texture_normal = ExtResource("7_3bhvw")
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_b8jba")]
 layout_mode = 1

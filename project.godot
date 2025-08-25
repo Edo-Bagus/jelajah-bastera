@@ -13,7 +13,6 @@ config_version=5
 config/name="Jelajah Bastera"
 run/main_scene="uid://cc8tjtvnjhklj"
 config/features=PackedStringArray("4.4", "Mobile")
-boot_splash/image="uid://diu6ajmci2jj6"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -32,3 +31,6 @@ window/handheld/orientation=1
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
+textures/webp_compression/compression_method=4

@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cqj15iu2i6mgm" path="res://assets/Progress Bar/Progress bar color changing.png" id="3_p0j6x"]
 [ext_resource type="Texture2D" uid="uid://fp2hb627b6fa" path="res://assets/Ika Duba/Duba original.png" id="4_nuyn0"]
 [ext_resource type="Texture2D" uid="uid://sc6ddxcjdr3" path="res://assets/Star/Starbox box 1.png" id="4_opaos"]
-[ext_resource type="Texture2D" uid="uid://c1fdyd5a1k6mf" path="res://assets/Buttons/Button home.png" id="4_w6qqf"]
-[ext_resource type="Texture2D" uid="uid://bxhc1g68lyix0" path="res://assets/Buttons/Button continue.png" id="8_xxcic"]
-[ext_resource type="Texture2D" uid="uid://fn6aocakgifu" path="res://assets/Buttons/Button refresh.png" id="9_opaos"]
+[ext_resource type="Texture2D" uid="uid://igtl0766a4ti" path="res://assets/Buttons/Button home.webp" id="8_opaos"]
+[ext_resource type="Texture2D" uid="uid://bkqeiii7cqrik" path="res://assets/Buttons/Button continue.webp" id="9_p8bvy"]
+[ext_resource type="Texture2D" uid="uid://d2euwyav3w2oc" path="res://assets/Buttons/Button refresh.webp" id="10_g7xg5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p8bvy"]
 texture = ExtResource("4_opaos")
@@ -179,21 +179,21 @@ alignment = 1
 [node name="Home" type="TextureButton" parent="Panel/Buttons"]
 custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
-texture_normal = ExtResource("4_w6qqf")
+texture_normal = ExtResource("8_opaos")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Next" type="TextureButton" parent="Panel/Buttons"]
 custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
-texture_normal = ExtResource("8_xxcic")
+texture_normal = ExtResource("9_p8bvy")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Replay" type="TextureButton" parent="Panel/Buttons"]
 custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
-texture_normal = ExtResource("9_opaos")
+texture_normal = ExtResource("10_g7xg5")
 ignore_texture_size = true
 stretch_mode = 0
 

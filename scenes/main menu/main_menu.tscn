@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bb3u7s4crg2qp"]
+[gd_scene load_steps=8 format=3 uid="uid://bb3u7s4crg2qp"]
 
 [ext_resource type="Script" uid="uid://dqnauwbcrgpn7" path="res://scenes/main menu/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://ca3y6s5aenajx" path="res://assets/Background/main page 2.png" id="2_okfgx"]
-[ext_resource type="Texture2D" uid="uid://c4qdyqdkbthx" path="res://assets/Buttons/Gemini_Generated_Image_j7inz5j7inz5j7in.png" id="3_okfgx"]
+[ext_resource type="Texture2D" uid="uid://dn5e8mqxacm21" path="res://assets/Background/main page 2.webp" id="2_ajd3f"]
+[ext_resource type="Texture2D" uid="uid://dw0pj5m2y7kv8" path="res://assets/Buttons/Gemini_Generated_Image_j7inz5j7inz5j7in.webp" id="3_ajd3f"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="4_pri0a"]
 [ext_resource type="Texture2D" uid="uid://cwbq05nstm6vh" path="res://assets/Ika Duba/Ika original.png" id="5_ajd3f"]
 [ext_resource type="Texture2D" uid="uid://fp2hb627b6fa" path="res://assets/Ika Duba/Duba original.png" id="6_t60cf"]
@@ -10,11 +10,6 @@
 [sub_resource type="LabelSettings" id="LabelSettings_ajd3f"]
 font = ExtResource("4_pri0a")
 font_size = 77
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_t60cf"]
-font = ExtResource("4_pri0a")
-font_size = 52
 font_color = Color(0, 0, 0, 1)
 
 [node name="Main Menu" type="Control"]
@@ -33,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_okfgx")
+texture = ExtResource("2_ajd3f")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -53,7 +48,7 @@ grow_vertical = 2
 [node name="Start" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-texture_normal = ExtResource("3_okfgx")
+texture_normal = ExtResource("3_ajd3f")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -72,32 +67,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "MULAI"
 label_settings = SubResource("LabelSettings_ajd3f")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Option" type="TextureButton" parent="VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-texture_normal = ExtResource("3_okfgx")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="VBoxContainer/Option"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -99.5
-offset_top = -44.0
-offset_right = 99.5
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "pengaturan"
-label_settings = SubResource("LabelSettings_t60cf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -120,4 +89,3 @@ texture = ExtResource("6_t60cf")
 expand_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Option" to="." method="_on_option_pressed"]

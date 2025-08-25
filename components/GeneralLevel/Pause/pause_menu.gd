@@ -11,8 +11,8 @@ var last_volume: float = 0.5  # default jika belum ada config
 
 const CONFIG_PATH := "user://settings.cfg"
 # pastikan file ini ada dan benar; nama konstan jelas:
-const TEX_MUTED := preload("res://assets/Buttons/Button mute.png")    # ikon ketika *muted*
-const TEX_UNMUTED := preload("res://assets/Buttons/Button music mute.png")# ikon ketika *unmuted*
+const TEX_MUTED := preload("res://assets/Buttons/Button mute.webp")    # ikon ketika *muted*
+const TEX_UNMUTED := preload("res://assets/Buttons/Button music mute.webp")# ikon ketika *unmuted*
 
 func _ready():
 	visible = false
