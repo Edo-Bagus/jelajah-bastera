@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwftsk166b60f"]
+[gd_scene load_steps=13 format=3 uid="uid://bwftsk166b60f"]
 
 [ext_resource type="Script" uid="uid://c15i5xh06xumj" path="res://components/GeneralLevel/general_level.gd" id="1_isp5c"]
 [ext_resource type="PackedScene" uid="uid://bd1wkqf8m3k1r" path="res://components/GeneralLevel/PopupWin/PopupWin.tscn" id="2_bepd7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d4gdhiwg5bgod" path="res://components/GeneralLevel/Loading/loading_screen.tscn" id="4_2w8cr"]
 [ext_resource type="PackedScene" uid="uid://bk3n0pt5p4w8e" path="res://components/GeneralLevel/Pause/pause_menu.tscn" id="5_b8jba"]
 [ext_resource type="PackedScene" uid="uid://du2jt10s0nji5" path="res://components/GeneralLevel/Progress Bar/progress_bar.tscn" id="7_hqt81"]
+[ext_resource type="PackedScene" uid="uid://ruhna6ekh20f" path="res://components/GeneralLevel/StartLoading/StartLoading.tscn" id="8_3bhvw"]
 [ext_resource type="PackedScene" uid="uid://cvpynni1oq8hp" path="res://components/GeneralLevel/Pause/pause_btn.tscn" id="9_g4gwl"]
 
 [sub_resource type="Resource" id="Resource_ddoi3"]
@@ -63,6 +64,9 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_b8jba")]
+layout_mode = 1
+
+[node name="StartLoading" parent="." instance=ExtResource("8_3bhvw")]
 layout_mode = 1
 
 [connection signal="timer_finished" from="Timer" to="." method="_game_won"]

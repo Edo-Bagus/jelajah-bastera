@@ -4,6 +4,7 @@ extends Control
 @onready var progress_bar := $ProgressBar
 @onready var popup := $PopupWin
 @onready var timer_bar := $Timer
+@onready var start_loading = $StartLoading
 
 @export var timer_duration: float = 10
 
@@ -12,8 +13,24 @@ var level: int
 func _ready():
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
-	start_timer(timer_duration)
+	# Muat dan tampilkan scene loading
+		# Sembunyikan semua UI permainan dan tampilkan loading screen
+	progress_bar.hide()
+	popup.hide()
+	timer_bar.hide()
+	
+	start_loading.show()
+	
+	# Tunggu hitungan mundur selesai
+	await start_loading.start_countdown()
 
+	# Mulai permainan
+	start_loading.hide()
+	
+	progress_bar.show()
+	timer_bar.show()
+	
+	start_timer(timer_duration)
 
 func _game_won():
 	var high_score = await Global.get_highscore(level)

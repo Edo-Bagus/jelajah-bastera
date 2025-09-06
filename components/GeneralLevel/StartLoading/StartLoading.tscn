@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://ruhna6ekh20f"]
+
+[ext_resource type="Script" uid="uid://chmit6o5d2f5f" path="res://components/GeneralLevel/StartLoading/start_loading.gd" id="1_22uhj"]
+[ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="2_4qr25"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jjppt"]
+font = ExtResource("2_4qr25")
+font_size = 559
+outline_size = 120
+outline_color = Color(0.636539, 0.425598, 0.213949, 1)
+
+[node name="StartLoading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_22uhj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.670588)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_jjppt")
+horizontal_alignment = 1
+vertical_alignment = 1

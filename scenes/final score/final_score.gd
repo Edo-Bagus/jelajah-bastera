@@ -75,3 +75,13 @@ func _on_scorebar_changed(value: float, key: String):
 
 func _on_texture_button_pressed() -> void:
 	hide()
+
+
+func _on_kbbi_button_pressed() -> void:
+	var url = "https://kbbi.kemdikbud.go.id/"  # Ganti dengan link yang Anda inginkan
+	OS.shell_open(url)
+
+
+func _on_eydv_button_pressed() -> void:
+	var url = "https://ejaan.kemendikdasmen.go.id/eyd/"  # Ganti dengan link yang Anda inginkan
+	OS.shell_open(url)

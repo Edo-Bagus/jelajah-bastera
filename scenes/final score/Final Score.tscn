@@ -211,10 +211,10 @@ expand_mode = 1
 
 [node name="TextureButton" type="TextureButton" parent="Panel"]
 layout_mode = 0
-offset_left = 264.0
-offset_top = 1496.0
-offset_right = 689.0
-offset_bottom = 1654.0
+offset_left = 252.0
+offset_top = 1590.0
+offset_right = 677.0
+offset_bottom = 1748.0
 texture_normal = ExtResource("6_qmwvb")
 ignore_texture_size = true
 stretch_mode = 0
@@ -233,6 +233,60 @@ offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "KEMBALI"
+label_settings = SubResource("LabelSettings_rqm6x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KBBIButton" type="TextureButton" parent="Panel"]
+offset_left = 107.0
+offset_top = 1444.0
+offset_right = 456.0
+offset_bottom = 1595.0
+texture_normal = ExtResource("6_qmwvb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/KBBIButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -12.0
+offset_right = 36.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "KBBI"
+label_settings = SubResource("LabelSettings_rqm6x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EYDVButton" type="TextureButton" parent="Panel"]
+offset_left = 479.0
+offset_top = 1443.0
+offset_right = 828.0
+offset_bottom = 1594.0
+texture_normal = ExtResource("6_qmwvb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/EYDVButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -12.0
+offset_right = 36.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EYD V"
 label_settings = SubResource("LabelSettings_rqm6x")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -354,3 +408,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="Panel/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Panel/KBBIButton" to="." method="_on_kbbi_button_pressed"]
+[connection signal="pressed" from="Panel/EYDVButton" to="." method="_on_eydv_button_pressed"]
