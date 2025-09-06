@@ -217,7 +217,6 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="General" parent="." instance=ExtResource("2_tvqiy")]
-visible = false
 layout_mode = 1
 timer_duration = 75.0
 

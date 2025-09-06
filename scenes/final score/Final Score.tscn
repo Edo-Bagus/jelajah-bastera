@@ -238,6 +238,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="KBBIButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
 offset_left = 107.0
 offset_top = 1444.0
 offset_right = 456.0
@@ -265,6 +266,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="EYDVButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
 offset_left = 479.0
 offset_top = 1443.0
 offset_right = 828.0
