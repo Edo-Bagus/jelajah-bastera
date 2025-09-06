@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://pedqvp1udqau"]
+[gd_scene load_steps=16 format=3 uid="uid://pedqvp1udqau"]
 
 [ext_resource type="Script" uid="uid://cwvjshkfme2o" path="res://scenes/desa eja/desa_eja.gd" id="1_yvpqi"]
 [ext_resource type="Texture2D" uid="uid://dr7t38sqco3f6" path="res://assets/Buttons/kayu 1.webp" id="2_4vk5d"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_tvqiy"]
 [ext_resource type="Texture2D" uid="uid://o416a1gv4f13" path="res://assets/Background/Desa Eja.webp" id="2_xwrim"]
+[ext_resource type="Texture2D" uid="uid://cjqcwpr4i4q0b" path="res://assets/Ika Duba/DUBA DESA EJA.webp" id="3_exqjp"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="4_4vk5d"]
+[ext_resource type="Texture2D" uid="uid://b8emcert2ew1x" path="res://assets/Ika Duba/IKA DESA EJA.webp" id="4_sbtip"]
 [ext_resource type="FontFile" uid="uid://cmg6kxyr5xfq7" path="res://assets/Fonts/Mochibop-Demo.ttf" id="4_xwrim"]
 [ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="5_xtc0i"]
 [ext_resource type="Texture2D" uid="uid://08r5oghljqva" path="res://assets/Star/Starbox box 1.webp" id="5_xwrim"]
@@ -45,6 +47,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_xwrim")
+expand_mode = 1
+
+[node name="DubaDesaEja" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 1376.0
+offset_right = 1160.0
+offset_bottom = 1892.0
+texture = ExtResource("3_exqjp")
+expand_mode = 1
+
+[node name="DubaDesaEja2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -74.0
+offset_top = 1376.0
+offset_right = 442.0
+offset_bottom = 1892.0
+texture = ExtResource("4_sbtip")
 expand_mode = 1
 
 [node name="Soal" type="Panel" parent="."]
@@ -197,6 +217,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="General" parent="." instance=ExtResource("2_tvqiy")]
+visible = false
 layout_mode = 1
 timer_duration = 75.0
 

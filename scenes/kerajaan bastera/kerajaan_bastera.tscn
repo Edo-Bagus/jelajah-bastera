@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0gcx6x26opme"]
+[gd_scene load_steps=17 format=3 uid="uid://d0gcx6x26opme"]
 
 [ext_resource type="Script" uid="uid://v3pomw2g8mbq" path="res://scenes/kerajaan bastera/kerajaan_bastera.gd" id="1_o6ebm"]
 [ext_resource type="Script" uid="uid://dge5aspikes2e" path="res://scenes/kerajaan bastera/line_drawer.gd" id="2_q2key"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_rb7am"]
 [ext_resource type="Texture2D" uid="uid://bbkpxk8kqs34y" path="res://assets/Background/kerajaan bastera.webp" id="2_s13pb"]
 [ext_resource type="LabelSettings" uid="uid://dynesf80u5ryh" path="res://scenes/kerajaan bastera/fontboxkerajaanbastera.tres" id="2_se3jg"]
+[ext_resource type="Texture2D" uid="uid://d2du5x1dyg1ir" path="res://assets/Ika Duba/DUBA FULL BODY.webp" id="3_38pc6"]
 [ext_resource type="Texture2D" uid="uid://cls4wf6xvra50" path="res://assets/Buttons/kayu 1 (1).webp" id="3_k18ut"]
+[ext_resource type="Texture2D" uid="uid://bktu6xvyfjyln" path="res://assets/Ika Duba/IKA FULL BODY.webp" id="4_wjrxf"]
 [ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="5_2g1uy"]
 [ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="6_1ital"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="6_s13pb"]
@@ -42,6 +44,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_s13pb")
+
+[node name="DubaFullBody" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 1310.0
+offset_right = 917.0
+offset_bottom = 1720.0
+texture = ExtResource("3_38pc6")
+expand_mode = 1
+
+[node name="DubaFullBody2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 1485.0
+offset_right = 672.0
+offset_bottom = 1895.0
+texture = ExtResource("4_wjrxf")
+expand_mode = 1
 
 [node name="QuestionPanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 100)
@@ -181,6 +201,7 @@ points = PackedVector2Array(0, 0)
 texture = SubResource("CompressedTexture2D_38pc6")
 
 [node name="General" parent="." instance=ExtResource("2_rb7am")]
+visible = false
 layout_mode = 1
 timer_duration = 75.0
 

@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://r68272fegvmi"]
+[gd_scene load_steps=14 format=3 uid="uid://r68272fegvmi"]
 
 [ext_resource type="Script" uid="uid://bvme6ycgf0tqt" path="res://scenes/hutan kata/sinonim_antonim.gd" id="1_chpqd"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_be7ci"]
 [ext_resource type="Texture2D" uid="uid://iof7r8s0u6gl" path="res://assets/Background/bg sungai baku.webp" id="2_jq43x"]
 [ext_resource type="Texture2D" uid="uid://cwytyyhif0usd" path="res://assets/Background/Hutan Sinonim Antonim.webp" id="3_mjcd1"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="4_jq43x"]
+[ext_resource type="Texture2D" uid="uid://cxvdej148ukap" path="res://assets/Ika Duba/DUBA CARD FULL BODY.webp" id="4_kohg2"]
+[ext_resource type="Texture2D" uid="uid://dguqwqhdu7fn5" path="res://assets/Ika Duba/IKA CARD FULL BODY.webp" id="5_0cjpn"]
 [ext_resource type="PackedScene" uid="uid://cexhlinwbroje" path="res://scenes/hutan kata/Change Round/ChangeRound.tscn" id="5_gbnx8"]
 [ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="6_chpqd"]
 [ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="7_jq43x"]
@@ -41,6 +43,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_mjcd1")
+expand_mode = 1
+
+[node name="DubaCardFullBody" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 1233.0
+offset_right = 1101.0
+offset_bottom = 1747.0
+texture = ExtResource("4_kohg2")
+expand_mode = 1
+
+[node name="DubaCardFullBody2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 1267.0
+offset_right = 463.0
+offset_bottom = 1701.0
+texture = ExtResource("5_0cjpn")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="."]

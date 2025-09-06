@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dgc2fqc3fovd5"]
+[gd_scene load_steps=16 format=3 uid="uid://dgc2fqc3fovd5"]
 
 [ext_resource type="PackedScene" uid="uid://b3k4swrcxl7by" path="res://scenes/sungai baku/Batu/Batu.tscn" id="1_eb8mh"]
 [ext_resource type="Script" uid="uid://1vnx6ltjq8w1" path="res://scenes/sungai baku/sungai_baku.gd" id="1_ns62s"]
@@ -9,9 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://bimbqfertucx" path="res://assets/Baku/Rock 4.webp" id="6_o3j2f"]
 [ext_resource type="Texture2D" uid="uid://djlgrdje826n7" path="res://assets/Baku/Rock 5.webp" id="7_ssme7"]
 [ext_resource type="Texture2D" uid="uid://iof7r8s0u6gl" path="res://assets/Background/bg sungai baku.webp" id="8_rgcsu"]
+[ext_resource type="Texture2D" uid="uid://bktu6xvyfjyln" path="res://assets/Ika Duba/IKA FULL BODY.webp" id="9_5vg1g"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="9_rgcsu"]
 [ext_resource type="AudioStream" uid="uid://dshpqqt3m1q6c" path="res://assets/Sound/button-click-289742.mp3" id="10_cis7l"]
 [ext_resource type="AudioStream" uid="uid://dr1kn3kkfhjb7" path="res://assets/Sound/wrong-47985.mp3" id="11_rgcsu"]
+[ext_resource type="Texture2D" uid="uid://d2du5x1dyg1ir" path="res://assets/Ika Duba/DUBA FULL BODY.webp" id="13_6qvca"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6qvca"]
 font = ExtResource("9_rgcsu")
@@ -33,6 +35,8 @@ spawn_out_position = Vector2(1235, 1175)
 soal_url = "https://kcrglneppkjtdoatdvzr.supabase.co/storage/v1/object/public/BankSoal/baku.json"
 MATCH_SCORE = 5.0
 textures = Array[Texture2D]([ExtResource("3_rgcsu"), ExtResource("4_6qvca"), ExtResource("5_5vg1g"), ExtResource("6_o3j2f"), ExtResource("7_ssme7")])
+ika_texture_1 = ExtResource("13_6qvca")
+ika_texture_2 = ExtResource("9_5vg1g")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -61,6 +65,12 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="BatuContainer" type="Node2D" parent="."]
+
+[node name="DubaFullBody" type="Sprite2D" parent="."]
+position = Vector2(150, 1175)
+scale = Vector2(0.351563, 0.351563)
+texture = ExtResource("13_6qvca")
+flip_h = true
 
 [node name="General" parent="." instance=ExtResource("3_smd8r")]
 layout_mode = 1

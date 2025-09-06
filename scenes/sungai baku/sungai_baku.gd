@@ -8,13 +8,21 @@ extends Control
 @export var MATCH_SCORE: float = 25
 @export var textures: Array[Texture2D] = []
 
+# --- Tambahan export untuk ika_duba ---
+@export var ika_texture_1: Texture2D
+@export var ika_texture_2: Texture2D
+
 @onready var batu_container := $BatuContainer
 @onready var general_level := $General
 @onready var click_sound: AudioStreamPlayer = $ClickSound
 @onready var wrong_sound: AudioStreamPlayer = $WrongSound
+@onready var ika_duba:Sprite2D =  $DubaFullBody
 
 var pasangan_data: Array = []   # daftar pasangan kata baku–tidak baku
 var queue: Array = []           # isi antrian (3 pasangan aktif)
+# --- tambahkan di atas (bersama var lain) ---
+var is_animating: bool = false
+
 
 
 # ======================
@@ -23,9 +31,26 @@ var queue: Array = []           # isi antrian (3 pasangan aktif)
 func _ready() -> void:
 	Global.play_music(preload("res://assets/Sound/sungai baku.mp3"))
 	Global.music_player.stream.loop = true
+	_randomize_ika_texture()
 	general_level._show_loading("Loading")
 	general_level.level = 2
 	fetch_soal()
+	
+# ======================
+# Pilih texture random untuk ika_duba
+# ======================
+func _randomize_ika_texture() -> void:
+	if ika_texture_1 and ika_texture_2:
+		var pilihan = [ika_texture_1, ika_texture_2]
+		var tex = pilihan[randi() % pilihan.size()]
+		ika_duba.texture = tex
+		
+		# atur flip_h kalau yang terpilih texture 1
+		if tex == ika_texture_1:
+			ika_duba.flip_h = true
+		else:
+			ika_duba.flip_h = false
+
 
 
 # ======================
@@ -104,6 +129,9 @@ func enqueue_new_pair(start_pos: Vector2, target_pos: Vector2, use_animation: bo
 
 		batu.position = start_pos
 		batu_container.add_child(batu)
+		
+		if is_animating and batu is BaseButton:
+			(batu as BaseButton).disabled = true
 
 		# hanya index 2 (tengah) yang bisa diklik
 		batu.connect("pressed", Callable(self, "_batu_dipilih").bind(batu, group))
@@ -121,15 +149,28 @@ func enqueue_new_pair(start_pos: Vector2, target_pos: Vector2, use_animation: bo
 
 	queue.append(group)
 
+# --- helper: enable/disable semua batu di queue ---
+func _set_batu_interactable(enabled: bool) -> void:
+	for g in queue:
+		for b in g:
+			if b is BaseButton:
+				(b as BaseButton).disabled = not enabled
 
 
 # ======================
 # Saat batu diklik
 # ======================
 func _batu_dipilih(batu, group: Array) -> void:
+	# blokir klik kalau animasi sedang berjalan
+	if is_animating:
+		return
+
 	# hanya boleh klik group[1] (index 2 di queue)
 	if queue.size() < 2 or group != queue[1]:
 		return
+
+	# tentukan target_y berdasarkan batu yang dipilih
+	var target_y := 1175 if batu.position.y < group[1].position.y else 1350
 
 	if batu.is_baku:
 		general_level.add_score(MATCH_SCORE)
@@ -137,24 +178,35 @@ func _batu_dipilih(batu, group: Array) -> void:
 	else:
 		wrong_sound.play()
 
-	shift_queue()
+	shift_queue(target_y)  # lempar target_y ke shift_queue
 
 
-# ======================
-# Geser queue
-# ======================
-func shift_queue() -> void:
-	if queue.is_empty():
+# --- ganti shift_queue menjadi versi terkunci + await durasi animasi ---
+func shift_queue(target_y: float) -> void:
+	if queue.is_empty() or is_animating:
 		return
 
-	# hapus pasangan pertama (kiri)
+	is_animating = true
+	_set_batu_interactable(false)  # matikan klik semua batu
+
+	# ============= Animasi lompat ika_duba ============
+	var start_y := ika_duba.position.y
+	var tween_jump := create_tween()
+	tween_jump.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	# lompat setengah durasi
+	tween_jump.tween_property(ika_duba, "position:y", start_y - 200, move_duration / 2)
+	# mendarat di target_y di sisa durasi
+	tween_jump.tween_property(ika_duba, "position:y", target_y, move_duration / 2)
+
+	# ============= Hapus pasangan pertama (kiri) ============
 	var first_group: Array = queue.pop_front()
 	for b in first_group:
 		var tween := create_tween()
 		tween.tween_property(b, "position:x", b.position.x - 500, move_duration)
 		tween.tween_callback(Callable(b, "queue_free"))
 
-	# geser pasangan 2 → posisi 1, pasangan 3 → posisi 2
+	# ============= Geser sisanya ============
 	for i in range(queue.size()):
 		var target_pos := posisi_queue[i]
 		for j in range(queue[i].size()):
@@ -163,4 +215,11 @@ func shift_queue() -> void:
 				target_pos.y += 175
 			tween.tween_property(queue[i][j], "position", target_pos, move_duration)
 
+	# pasangan baru masuk dari kanan
 	enqueue_new_pair(spawn_out_position, posisi_queue[2])
+
+	# tunggu semua animasi selesai
+	await get_tree().create_timer(move_duration).timeout
+
+	is_animating = false
+	_set_batu_interactable(true)

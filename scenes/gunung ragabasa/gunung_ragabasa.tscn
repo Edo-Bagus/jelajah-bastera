@@ -1,11 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3c3afw1p3n5l"]
+[gd_scene load_steps=20 format=3 uid="uid://b3c3afw1p3n5l"]
 
 [ext_resource type="Script" uid="uid://ka8cnxoslg5x" path="res://scenes/gunung ragabasa/gunung_ragabasa.gd" id="1_5w6af"]
 [ext_resource type="Texture2D" uid="uid://bjsggy6qxy1qn" path="res://assets/Background/Gunung Rajabasa.webp" id="2_cxqdi"]
 [ext_resource type="PackedScene" uid="uid://bwftsk166b60f" path="res://components/GeneralLevel/general_level.tscn" id="2_fs8yy"]
 [ext_resource type="Script" uid="uid://b6osj3lj2f3m7" path="res://scenes/gunung ragabasa/imbuhan.gd" id="2_y04nr"]
+[ext_resource type="Texture2D" uid="uid://pvwbotf276g2" path="res://assets/Ika Duba/DUBA GUNUNG RAGABASA.webp" id="3_8hf5o"]
 [ext_resource type="FontFile" uid="uid://c37vo61y0brq1" path="res://assets/Fonts/your-doodle-font/Your Doodle Font.ttf" id="3_cxqdi"]
 [ext_resource type="StyleBox" uid="uid://xjb0ppwsf0qk" path="res://scenes/gunung ragabasa/panel.tres" id="3_h708p"]
+[ext_resource type="Texture2D" uid="uid://dlws2y0x8mys2" path="res://assets/Ika Duba/IKA GUNUNG RAGABASA.webp" id="4_caquv"]
 [ext_resource type="Script" uid="uid://vnc1ufno5732" path="res://scenes/gunung ragabasa/Option/option.gd" id="5_cvmsm"]
 [ext_resource type="LabelSettings" uid="uid://s3ahnn5atq0a" path="res://scenes/gunung ragabasa/LabelOptionRagabasa.tres" id="5_vtv1f"]
 [ext_resource type="Texture2D" uid="uid://0ieaqw3skoro" path="res://assets/Buttons/papan kayu.webp" id="6_cxqdi"]
@@ -56,6 +58,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_cxqdi")
+expand_mode = 1
+
+[node name="DubaGunungRagabasa" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 585.0
+offset_top = 1363.0
+offset_right = 1052.0
+offset_bottom = 1830.0
+texture = ExtResource("3_8hf5o")
+expand_mode = 1
+
+[node name="IkaGunungRagabasa" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -20.0
+offset_top = 1403.0
+offset_right = 573.0
+offset_bottom = 1798.0
+texture = ExtResource("4_caquv")
 expand_mode = 1
 
 [node name="QuestionLabel" type="Label" parent="."]
@@ -136,9 +156,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
 offset_left = 85.0
-offset_top = 1185.0
+offset_top = 1116.0
 offset_right = 501.0
-offset_bottom = 1557.0
+offset_bottom = 1488.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_8lbc2")
 script = ExtResource("5_cvmsm")
 
@@ -161,10 +181,10 @@ vertical_alignment = 1
 [node name="OptionC" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
-offset_left = 683.0
-offset_top = 861.0
-offset_right = 1086.0
-offset_bottom = 1157.0
+offset_left = 642.0
+offset_top = 820.0
+offset_right = 1045.0
+offset_bottom = 1116.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_cxqdi")
 script = ExtResource("5_cvmsm")
 
@@ -188,9 +208,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
 offset_left = 625.0
-offset_top = 1207.0
+offset_top = 1138.0
 offset_right = 1052.0
-offset_bottom = 1585.0
+offset_bottom = 1516.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_m1js7")
 script = ExtResource("5_cvmsm")
 
