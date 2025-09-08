@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cc8tjtvnjhklj"]
+[gd_scene load_steps=15 format=3 uid="uid://cc8tjtvnjhklj"]
 
 [ext_resource type="Script" uid="uid://dfupnbhtfcmnr" path="res://scenes/login signup/login_signup.gd" id="1_m1axk"]
 [ext_resource type="Texture2D" uid="uid://dn5e8mqxacm21" path="res://assets/Background/main page 2.webp" id="2_k44pf"]
@@ -15,13 +15,16 @@ texture = ExtResource("3_0ewxu")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ig160"]
 font = ExtResource("4_6qjmi")
-font_size = 55
+font_size = 75
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dfo07"]
 font = ExtResource("4_vyguc")
-font_size = 22
+font_size = 45
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k44pf"]
+font_size = 41
 
 [sub_resource type="LabelSettings" id="LabelSettings_6qjmi"]
 font = ExtResource("4_vyguc")
@@ -54,39 +57,39 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -60.0
-offset_right = 250.0
-offset_bottom = 540.0
+offset_left = -324.0
+offset_top = -86.0
+offset_right = 324.0
+offset_bottom = 692.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vyguc")
 
 [node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 84.0
-offset_top = 78.0
-offset_right = 432.0
-offset_bottom = 145.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -221.0
+offset_top = 90.0
+offset_right = 231.0
+offset_bottom = 181.0
+grow_horizontal = 2
 text = "MASUK / DAFTAR"
 label_settings = SubResource("LabelSettings_ig160")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
-layout_mode = 2
-offset_left = 84.0
-offset_top = 375.0
-offset_right = 408.0
-offset_bottom = 494.0
-alignment = 1
-
-[node name="Login" type="TextureButton" parent="Panel/HBoxContainer"]
+[node name="Login" type="TextureButton" parent="Panel"]
 custom_minimum_size = Vector2(150, 75)
 layout_mode = 2
+offset_left = 84.0
+offset_top = 576.0
+offset_right = 318.0
+offset_bottom = 695.0
 texture_normal = ExtResource("5_k44pf")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/Login"]
+[node name="Label" type="Label" parent="Panel/Login"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -104,14 +107,18 @@ label_settings = ExtResource("6_k7ows")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Register" type="TextureButton" parent="Panel/HBoxContainer"]
+[node name="Register" type="TextureButton" parent="Panel"]
 custom_minimum_size = Vector2(150, 75)
 layout_mode = 2
+offset_left = 319.0
+offset_top = 577.0
+offset_right = 547.0
+offset_bottom = 696.0
 texture_normal = ExtResource("5_k44pf")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/Register"]
+[node name="Label" type="Label" parent="Panel/Register"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -136,10 +143,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -143.0
-offset_top = -123.5
-offset_right = 143.0
-offset_bottom = 123.5
+offset_left = -205.0
+offset_top = -150.0
+offset_right = 210.0
+offset_bottom = 147.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -151,7 +158,11 @@ label_settings = SubResource("LabelSettings_dfo07")
 [node name="EmailLine" type="LineEdit" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 35
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_k44pf")
 
 [node name="Label2" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -161,7 +172,7 @@ label_settings = SubResource("LabelSettings_dfo07")
 [node name="PasswordLine" type="LineEdit" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 35
 secret = true
 
 [node name="StatusLabel" type="Label" parent="Panel"]
@@ -184,24 +195,24 @@ autowrap_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="Panel"]
 layout_mode = 0
-offset_left = -22.0
-offset_top = -132.0
-offset_right = 218.0
-offset_bottom = 108.0
+offset_left = 85.0
+offset_top = -123.0
+offset_right = 325.0
+offset_bottom = 117.0
 texture = ExtResource("8_k44pf")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Panel"]
 layout_mode = 0
-offset_left = 304.0
-offset_top = -132.0
-offset_right = 544.0
-offset_bottom = 108.0
+offset_left = 321.0
+offset_top = -122.0
+offset_right = 561.0
+offset_bottom = 118.0
 texture = ExtResource("8_vgytq")
 expand_mode = 1
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
-[connection signal="pressed" from="Panel/HBoxContainer/Login" to="." method="_on_LoginButton_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/Register" to="." method="_on_SignupButton_pressed"]
+[connection signal="pressed" from="Panel/Login" to="." method="_on_LoginButton_pressed"]
+[connection signal="pressed" from="Panel/Register" to="." method="_on_SignupButton_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

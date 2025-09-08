@@ -16,8 +16,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_vtv1f"]
 font = ExtResource("3_cxqdi")
-font_size = 29
+font_size = 69
 font_color = Color(0.158472, 0.158472, 0.158472, 1)
+outline_size = 15
 
 [sub_resource type="LabelSettings" id="LabelSettings_caquv"]
 font = ExtResource("3_cxqdi")
@@ -85,10 +86,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -278.0
-offset_top = -663.0
-offset_right = 327.0
-offset_bottom = -580.0
+offset_left = -513.0
+offset_top = -585.0
+offset_right = 516.0
+offset_bottom = -436.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Tempel kertas imbuhan ini ke papan yang sesuai !"
@@ -101,9 +102,9 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
 offset_left = 390.0
-offset_top = 400.0
+offset_top = 557.0
 offset_right = 709.0
-offset_bottom = 578.0
+offset_bottom = 735.0
 theme_override_styles/panel = ExtResource("3_h708p")
 script = ExtResource("2_y04nr")
 
@@ -231,6 +232,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="General" parent="." instance=ExtResource("2_fs8yy")]
+visible = false
 layout_mode = 1
 timer_duration = 75.0
 

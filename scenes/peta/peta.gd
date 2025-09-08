@@ -13,6 +13,7 @@ var scores = []
 func _ready() -> void:
 	await load_scores()
 	update_stars()
+	
 	#check_unlocks()
 	
 func update_stars() -> void:

@@ -18,7 +18,7 @@ func _ready():
 	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	music_player.autoplay = false
 	music_player.stream_paused = false
-	music_player.playback_type = AudioServer.PLAYBACK_TYPE_STREAM
+	music_player.playback_type = AudioServer.PLAYBACK_TYPE_STREAM	
 
 
 	http_save.request_completed.connect(_on_save_completed)

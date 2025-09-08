@@ -63,7 +63,7 @@ func show_question() -> void:
 	imbuhan_panel.show()
 	
 	# Reset posisi ke tempat semula
-	imbuhan_panel.position = Vector2(390, 400) # sesuaikan dengan posisi awal panel Anda
+	imbuhan_panel.position = Vector2(390, 557) # sesuaikan dengan posisi awal panel Anda
 
 	if imbuhan_panel.has_method("set_text"):
 		imbuhan_panel.call("set_text", selected_questions[current_question]["imbuhan"])
